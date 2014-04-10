@@ -14,13 +14,14 @@
 		0671D08918F7474A00D18071 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D08818F7474A00D18071 /* main.m */; };
 		0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D08C18F7474A00D18071 /* WLAppDelegate.m */; };
 		0671D09018F7474A00D18071 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0671D08E18F7474A00D18071 /* Main.storyboard */; };
-		0671D09318F7474A00D18071 /* WLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D09218F7474A00D18071 /* WLViewController.m */; };
+		0671D09318F7474A00D18071 /* WLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D09218F7474A00D18071 /* WLLoginViewController.m */; };
 		0671D09518F7474A00D18071 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0671D09418F7474A00D18071 /* Images.xcassets */; };
 		0671D09C18F7474A00D18071 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D09B18F7474A00D18071 /* XCTest.framework */; };
 		0671D09D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D09E18F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
 		0671D0A618F7474A00D18071 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0671D0A418F7474A00D18071 /* InfoPlist.strings */; };
 		0671D0A818F7474A00D18071 /* ConferenceWLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0A718F7474A00D18071 /* ConferenceWLTests.m */; };
+		0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0B218F74B1300D18071 /* WLSignupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +46,16 @@
 		0671D08B18F7474A00D18071 /* WLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLAppDelegate.h; sourceTree = "<group>"; };
 		0671D08C18F7474A00D18071 /* WLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLAppDelegate.m; sourceTree = "<group>"; };
 		0671D08F18F7474A00D18071 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0671D09118F7474A00D18071 /* WLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLViewController.h; sourceTree = "<group>"; };
-		0671D09218F7474A00D18071 /* WLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLViewController.m; sourceTree = "<group>"; };
+		0671D09118F7474A00D18071 /* WLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLLoginViewController.h; sourceTree = "<group>"; };
+		0671D09218F7474A00D18071 /* WLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLLoginViewController.m; sourceTree = "<group>"; };
 		0671D09418F7474A00D18071 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0671D09A18F7474A00D18071 /* ConferenceWLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConferenceWLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D09B18F7474A00D18071 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0671D0A318F7474A00D18071 /* ConferenceWLTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConferenceWLTests-Info.plist"; sourceTree = "<group>"; };
 		0671D0A518F7474A00D18071 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0671D0A718F7474A00D18071 /* ConferenceWLTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConferenceWLTests.m; sourceTree = "<group>"; };
+		0671D0B118F74B1300D18071 /* WLSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupViewController.h; sourceTree = "<group>"; };
+		0671D0B218F74B1300D18071 /* WLSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +118,10 @@
 				0671D08B18F7474A00D18071 /* WLAppDelegate.h */,
 				0671D08C18F7474A00D18071 /* WLAppDelegate.m */,
 				0671D08E18F7474A00D18071 /* Main.storyboard */,
-				0671D09118F7474A00D18071 /* WLViewController.h */,
-				0671D09218F7474A00D18071 /* WLViewController.m */,
+				0671D0B118F74B1300D18071 /* WLSignupViewController.h */,
+				0671D0B218F74B1300D18071 /* WLSignupViewController.m */,
+				0671D09118F7474A00D18071 /* WLLoginViewController.h */,
+				0671D09218F7474A00D18071 /* WLLoginViewController.m */,
 				0671D09418F7474A00D18071 /* Images.xcassets */,
 				0671D08318F7474A00D18071 /* Supporting Files */,
 			);
@@ -249,9 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0671D09318F7474A00D18071 /* WLViewController.m in Sources */,
+				0671D09318F7474A00D18071 /* WLLoginViewController.m in Sources */,
 				0671D08918F7474A00D18071 /* main.m in Sources */,
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
+				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
