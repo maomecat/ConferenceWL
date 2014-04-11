@@ -36,4 +36,15 @@
     self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    return cell;
+}
+
 @end

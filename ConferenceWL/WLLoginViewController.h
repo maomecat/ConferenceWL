@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLLoginViewController : UIViewController
+@interface WLLoginViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 -(IBAction)LoginPressed:(id)sender;
 

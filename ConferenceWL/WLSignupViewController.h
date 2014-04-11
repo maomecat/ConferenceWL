@@ -10,4 +10,6 @@
 
 @interface WLSignupViewController : UIViewController
 
+-(IBAction)cancelPressed:(id)sender;
+
 @end

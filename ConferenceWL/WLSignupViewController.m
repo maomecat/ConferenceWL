@@ -14,15 +14,6 @@
 
 @implementation WLSignupViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,6 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)cancelPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 
