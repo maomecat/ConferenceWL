@@ -14,6 +14,7 @@
 		0601155618F847C00017D61D /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155118F847C00017D61D /* REMenuItemView.m */; };
 		0601155B18F847E60017D61D /* WLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155818F847E60017D61D /* WLNavigationController.m */; };
 		0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155E18F857070017D61D /* WLFloorPlanViewController.m */; };
+		0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601156118F85CDC0017D61D /* WLCalendarViewController.m */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		0601155818F847E60017D61D /* WLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLNavigationController.m; sourceTree = "<group>"; };
 		0601155D18F857070017D61D /* WLFloorPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFloorPlanViewController.h; sourceTree = "<group>"; };
 		0601155E18F857070017D61D /* WLFloorPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFloorPlanViewController.m; sourceTree = "<group>"; };
+		0601156018F85CDC0017D61D /* WLCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCalendarViewController.h; sourceTree = "<group>"; };
+		0601156118F85CDC0017D61D /* WLCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCalendarViewController.m; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,8 @@
 				0671D08B18F7474A00D18071 /* WLAppDelegate.h */,
 				0671D08C18F7474A00D18071 /* WLAppDelegate.m */,
 				0671D08E18F7474A00D18071 /* Main.storyboard */,
+				0601156018F85CDC0017D61D /* WLCalendarViewController.h */,
+				0601156118F85CDC0017D61D /* WLCalendarViewController.m */,
 				0601155D18F857070017D61D /* WLFloorPlanViewController.h */,
 				0601155E18F857070017D61D /* WLFloorPlanViewController.m */,
 				0601155718F847E60017D61D /* WLNavigationController.h */,
@@ -318,6 +323,7 @@
 				0601155418F847C00017D61D /* REMenuContainerView.m in Sources */,
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
 				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
+				0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */,
 				0601155218F847C00017D61D /* RECommonFunctions.m in Sources */,
 				0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */,
 			);

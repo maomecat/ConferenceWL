@@ -10,13 +10,16 @@
 #import "WLProgrammeViewController.h"
 #import "WLAttendeesViewController.h"
 #import "WLFloorPlanViewController.h"
+#import "WLCalendarViewController.h"
 
 @interface WLNavigationController ()
 
-@property (strong, readwrite, nonatomic) REMenu *menu;
+@property (strong, readwrite) REMenu *menu;
 
-@property (nonatomic, strong) WLProgrammeViewController* programmeVC;
-@property (nonatomic, strong) WLAttendeesViewController* attendeesVC;
+@property (strong) WLProgrammeViewController* programmeVC;
+@property (strong) WLAttendeesViewController* attendeesVC;
+@property (strong) WLFloorPlanViewController* floorVC;
+@property (strong) WLCalendarViewController* calendarVC;
 
 @end
 
@@ -34,48 +37,39 @@
     }
     
     __typeof (self) __weak weakSelf = self;
-    REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Programme"
-                                                    subtitle:@"View programmes of conference"
-                                                       image:[UIImage imageNamed:@"Icon_Home"]
-                                            highlightedImage:nil
-                                                      action:^(REMenuItem *item) {
-                                                          NSLog(@"Item: %@", item);
-                                                          if (!_programmeVC) {
-                                                              
-                                                              UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                                              _programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
-                                                          }
-                                                          [weakSelf setViewControllers:@[_programmeVC] animated:NO];
-                                                      }];
+    REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Programme" subtitle:@"View programmes of conference" image:[UIImage imageNamed:@"Icon_Home"] highlightedImage:nil action:^(REMenuItem *item) {
+        if (!_programmeVC) {
+            UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            _programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+        }
+        [weakSelf setViewControllers:@[_programmeVC] animated:NO];
+    }];
     
-    REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"Attendees"
-                                                       subtitle:@"View all attendess"
-                                                          image:[UIImage imageNamed:@"Icon_Explore"]
-                                               highlightedImage:nil
-                                                         action:^(REMenuItem *item) {
-                                                             NSLog(@"Item: %@", item);
-                                                             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                                             WLAttendeesViewController *controller = [sb instantiateViewControllerWithIdentifier:@"WLAttendeesViewController"];
-                                                             [weakSelf setViewControllers:@[controller] animated:NO];
-                                                         }];
+    REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"Attendees" subtitle:@"View all attendess" image:[UIImage imageNamed:@"Icon_Explore"] highlightedImage:nil action:^(REMenuItem *item) {
+        if (!_attendeesVC) {
+            UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            _attendeesVC = [sb instantiateViewControllerWithIdentifier:@"WLAttendeesViewController"];
+        }
+        [weakSelf setViewControllers:@[_attendeesVC] animated:NO];
+    }];
     
     REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"Floor Plan" subtitle:@"View the floor plan" image:[UIImage imageNamed:@"Icon_Activity"] highlightedImage:nil action:^(REMenuItem *item) {
-        NSLog(@"Item: %@", item);
-        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        WLFloorPlanViewController* floorVC = [sb instantiateViewControllerWithIdentifier:@"WLFloorPlanViewController"];
-        [weakSelf setViewControllers:@[floorVC] animated:NO];
+        if (!_floorVC) {
+            UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            _floorVC = [sb instantiateViewControllerWithIdentifier:@"WLFloorPlanViewController"];
+        }
+        [weakSelf setViewControllers:@[_floorVC] animated:NO];
     }];
     //
     //    activityItem.badge = @"12";
     //
-    //    REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"Profile"
-    //                                                          image:[UIImage imageNamed:@"Icon_Profile"]
-    //                                               highlightedImage:nil
-    //                                                         action:^(REMenuItem *item) {
-    //                                                             NSLog(@"Item: %@", item);
-    //                                                             ProfileViewController *controller = [[ProfileViewController alloc] init];
-    //                                                             [weakSelf setViewControllers:@[controller] animated:NO];
-    //                                                         }];
+    REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"Icon_Profile"] highlightedImage:nil action:^(REMenuItem *item) {
+        if (!_calendarVC) {
+            UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            _calendarVC = [sb instantiateViewControllerWithIdentifier:@"WLCalendarViewController"];
+        }
+        [weakSelf setViewControllers:@[_calendarVC] animated:NO];
+    }];
     
     // You can also assign a custom view for any particular item
     // Uncomment the code below and add `customViewItem` to `initWithItems` array, for example:
@@ -93,8 +87,9 @@
     homeItem.tag = 0;
     exploreItem.tag = 1;
     activityItem.tag = 2;
+    profileItem.tag = 3;
     
-    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem]];
     // Background view
     //
     //self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
