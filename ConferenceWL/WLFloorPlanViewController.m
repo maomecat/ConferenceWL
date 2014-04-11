@@ -1,27 +1,27 @@
 //
-//  WLAttendeesViewController.m
+//  WLFloorPlanViewController.m
 //  ConferenceWL
 //
 //  Created by Rishabh Tayal on 4/11/14.
 //
 //
 
-#import "WLAttendeesViewController.h"
+#import "WLFloorPlanViewController.h"
 #import "WLNavigationController.h"
 
-@interface WLAttendeesViewController ()
+@interface WLFloorPlanViewController ()
 
 @end
 
-@implementation WLAttendeesViewController
+@implementation WLFloorPlanViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Floor Plans";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
 
-    self.title = @"Attendees";
     // Do any additional setup after loading the view.
 }
 

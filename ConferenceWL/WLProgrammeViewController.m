@@ -7,7 +7,6 @@
 //
 
 #import "WLProgrammeViewController.h"
-#import "WLAttendeesViewController.h"
 #import "WLNavigationController.h"
 
 @interface WLProgrammeViewController ()
@@ -32,12 +31,13 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-    WLNavigationController *navigationController = (WLNavigationController *)self.navigationController;
-    [navigationController.menu setNeedsLayout];
-}
+////////DOESN'T SEEM TO BE DOING ANY THING WHEN REMOVED....ADDDED BY REMENU
+//- (void)viewWillLayoutSubviews
+//{
+//    [super viewWillLayoutSubviews];
+//    WLNavigationController *navigationController = (WLNavigationController *)self.navigationController;
+//    [navigationController.menu setNeedsLayout];
+//}
 
 - (void)didReceiveMemoryWarning
 {

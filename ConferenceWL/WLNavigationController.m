@@ -9,6 +9,7 @@
 #import "WLNavigationController.h"
 #import "WLProgrammeViewController.h"
 #import "WLAttendeesViewController.h"
+#import "WLFloorPlanViewController.h"
 
 @interface WLNavigationController ()
 
@@ -58,15 +59,12 @@
                                                              [weakSelf setViewControllers:@[controller] animated:NO];
                                                          }];
     
-    //    REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"Activity"
-    //                                                        subtitle:@"Perform 3 additional activities"
-    //                                                           image:[UIImage imageNamed:@"Icon_Activity"]
-    //                                                highlightedImage:nil
-    //                                                          action:^(REMenuItem *item) {
-    //                                                              NSLog(@"Item: %@", item);
-    //                                                              ActivityViewController *controller = [[ActivityViewController alloc] init];
-    //                                                              [weakSelf setViewControllers:@[controller] animated:NO];
-    //                                                          }];
+    REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"Floor Plan" subtitle:@"View the floor plan" image:[UIImage imageNamed:@"Icon_Activity"] highlightedImage:nil action:^(REMenuItem *item) {
+        NSLog(@"Item: %@", item);
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WLFloorPlanViewController* floorVC = [sb instantiateViewControllerWithIdentifier:@"WLFloorPlanViewController"];
+        [weakSelf setViewControllers:@[floorVC] animated:NO];
+    }];
     //
     //    activityItem.badge = @"12";
     //
@@ -94,8 +92,9 @@
     
     homeItem.tag = 0;
     exploreItem.tag = 1;
+    activityItem.tag = 2;
     
-    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem]];
     // Background view
     //
     //self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
@@ -124,7 +123,7 @@
         badgeLabel.backgroundColor = [UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1];
         badgeLabel.layer.borderColor = [UIColor colorWithRed:0.000 green:0.648 blue:0.507 alpha:1.000].CGColor;
     };
-
+    
     [self.menu setClosePreparationBlock:^{
         NSLog(@"Menu will close");
     }];
@@ -141,7 +140,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 - (void)toggleMenu
 {

@@ -147,6 +147,32 @@
             </objects>
             <point key="canvasLocation" x="1058" y="-537"/>
         </scene>
+        <!--Floor Plan View Controller-->
+        <scene sceneID="8A7-Fw-rUY">
+            <objects>
+                <viewController restorationIdentifier="WLFloorPlanViewController" storyboardIdentifier="WLFloorPlanViewController" id="Afd-Jk-PVY" customClass="WLFloorPlanViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WHs-v2-UgY"/>
+                        <viewControllerLayoutGuide type="bottom" id="f7M-AT-gh6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s38-ch-3mY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Floor Plan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6c-nP-xFR">
+                                <rect key="frame" x="121" y="273" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tRg-Ft-RNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434" y="-106"/>
+        </scene>
         <!--Attendees View Controller-->
         <scene sceneID="daq-9u-NVG">
             <objects>
@@ -171,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yT8-b2-gEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1567" y="-156"/>
+            <point key="canvasLocation" x="1497" y="-709"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WKF-bd-f0l">
