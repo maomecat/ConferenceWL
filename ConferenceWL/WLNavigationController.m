@@ -14,6 +14,9 @@
 
 @property (strong, readwrite, nonatomic) REMenu *menu;
 
+@property (nonatomic, strong) WLProgrammeViewController* programmeVC;
+@property (nonatomic, strong) WLAttendeesViewController* attendeesVC;
+
 @end
 
 @implementation WLNavigationController
@@ -30,19 +33,22 @@
     }
     
     __typeof (self) __weak weakSelf = self;
-    REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Home"
-                                                    subtitle:@"Return to Home Screen"
+    REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Programme"
+                                                    subtitle:@"View programmes of conference"
                                                        image:[UIImage imageNamed:@"Icon_Home"]
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
-                                                          UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                                          WLProgrammeViewController *controller = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
-                                                          [weakSelf setViewControllers:@[controller] animated:NO];
+                                                          if (!_programmeVC) {
+                                                              
+                                                              UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                                              _programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+                                                          }
+                                                          [weakSelf setViewControllers:@[_programmeVC] animated:NO];
                                                       }];
     
-    REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"Explore"
-                                                       subtitle:@"Explore 47 additional options"
+    REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"Attendees"
+                                                       subtitle:@"View all attendess"
                                                           image:[UIImage imageNamed:@"Icon_Explore"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
@@ -90,7 +96,6 @@
     exploreItem.tag = 1;
     
     self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem]];
-    
     // Background view
     //
     //self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
@@ -119,7 +124,7 @@
         badgeLabel.backgroundColor = [UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1];
         badgeLabel.layer.borderColor = [UIColor colorWithRed:0.000 green:0.648 blue:0.507 alpha:1.000].CGColor;
     };
-    
+
     [self.menu setClosePreparationBlock:^{
         NSLog(@"Menu will close");
     }];

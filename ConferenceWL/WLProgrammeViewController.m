@@ -27,16 +27,10 @@
     //
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    imageView.image = [UIImage imageNamed:@"Balloon"];
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:imageView];
+    self.title = @"Programmes";
     
     // Do any additional setup after loading the view.
 }
-
-
 
 - (void)viewWillLayoutSubviews
 {
@@ -50,14 +44,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//- (void)toggleMenu
-//{
-//    if (self.menu.isOpen)
-//        return [self.menu close];
-//
-//    [self.menu showFromNavigationController:self.navigationController];
-//}
 
 /*
  #pragma mark - Navigation
