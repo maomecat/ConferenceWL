@@ -37,7 +37,7 @@
     }
     
     __typeof (self) __weak weakSelf = self;
-    REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"Programme" subtitle:@"View programmes of conference" image:[UIImage imageNamed:@"Icon_Home"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *programmeItem = [[REMenuItem alloc] initWithTitle:@"Programme" subtitle:@"View programmes of conference" image:[UIImage imageNamed:@"Icon_Home"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_programmeVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
@@ -45,7 +45,7 @@
         [weakSelf setViewControllers:@[_programmeVC] animated:NO];
     }];
     
-    REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"Attendees" subtitle:@"View all attendess" image:[UIImage imageNamed:@"Icon_Explore"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *attendeesItem = [[REMenuItem alloc] initWithTitle:@"Attendees" subtitle:@"View all attendess" image:[UIImage imageNamed:@"Icon_Explore"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_attendeesVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _attendeesVC = [sb instantiateViewControllerWithIdentifier:@"WLAttendeesViewController"];
@@ -53,7 +53,7 @@
         [weakSelf setViewControllers:@[_attendeesVC] animated:NO];
     }];
     
-    REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"Floor Plan" subtitle:@"View the floor plan" image:[UIImage imageNamed:@"Icon_Activity"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *floorPlanItem = [[REMenuItem alloc] initWithTitle:@"Floor Plan" subtitle:@"View the floor plan" image:[UIImage imageNamed:@"Icon_Activity"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_floorVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _floorVC = [sb instantiateViewControllerWithIdentifier:@"WLFloorPlanViewController"];
@@ -63,7 +63,7 @@
     //
     //    activityItem.badge = @"12";
     //
-    REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"Icon_Profile"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *calendarItem = [[REMenuItem alloc] initWithTitle:@"Calendar" image:[UIImage imageNamed:@"Icon_Profile"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_calendarVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _calendarVC = [sb instantiateViewControllerWithIdentifier:@"WLCalendarViewController"];
@@ -84,12 +84,12 @@
      }];
      */
     
-    homeItem.tag = 0;
-    exploreItem.tag = 1;
-    activityItem.tag = 2;
-    profileItem.tag = 3;
+    programmeItem.tag = 0;
+    attendeesItem.tag = 1;
+    floorPlanItem.tag = 2;
+    calendarItem.tag = 3;
     
-    self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[programmeItem, attendeesItem, floorPlanItem, calendarItem]];
     // Background view
     //
     //self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
