@@ -7,6 +7,8 @@
 //
 
 #import "WLLoginViewController.h"
+#import "WLProgrammeViewController.h"
+#import "WLNavigationController.h"
 
 @interface WLLoginViewController ()
 
@@ -24,6 +26,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(IBAction)LoginPressed:(id)sender
+{
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+    self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
 }
 
 @end

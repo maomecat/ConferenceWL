@@ -10,4 +10,6 @@
 
 @interface WLLoginViewController : UIViewController
 
+-(IBAction)LoginPressed:(id)sender;
+
 @end

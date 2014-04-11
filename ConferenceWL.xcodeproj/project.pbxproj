@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0601155218F847C00017D61D /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601154918F847C00017D61D /* RECommonFunctions.m */; };
+		0601155318F847C00017D61D /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601154B18F847C00017D61D /* REMenu.m */; };
+		0601155418F847C00017D61D /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601154D18F847C00017D61D /* REMenuContainerView.m */; };
+		0601155518F847C00017D61D /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601154F18F847C00017D61D /* REMenuItem.m */; };
+		0601155618F847C00017D61D /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155118F847C00017D61D /* REMenuItemView.m */; };
+		0601155B18F847E60017D61D /* WLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155818F847E60017D61D /* WLNavigationController.m */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -22,6 +28,8 @@
 		0671D0A618F7474A00D18071 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0671D0A418F7474A00D18071 /* InfoPlist.strings */; };
 		0671D0A818F7474A00D18071 /* ConferenceWLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0A718F7474A00D18071 /* ConferenceWLTests.m */; };
 		0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0B218F74B1300D18071 /* WLSignupViewController.m */; };
+		0671D0B618F7939B00D18071 /* WLProgrammeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */; };
+		0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0601154818F847C00017D61D /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		0601154918F847C00017D61D /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		0601154A18F847C00017D61D /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
+		0601154B18F847C00017D61D /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
+		0601154C18F847C00017D61D /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
+		0601154D18F847C00017D61D /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
+		0601154E18F847C00017D61D /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
+		0601154F18F847C00017D61D /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
+		0601155018F847C00017D61D /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
+		0601155118F847C00017D61D /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
+		0601155718F847E60017D61D /* WLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLNavigationController.h; sourceTree = "<group>"; };
+		0601155818F847E60017D61D /* WLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLNavigationController.m; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +76,10 @@
 		0671D0A718F7474A00D18071 /* ConferenceWLTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConferenceWLTests.m; sourceTree = "<group>"; };
 		0671D0B118F74B1300D18071 /* WLSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupViewController.h; sourceTree = "<group>"; };
 		0671D0B218F74B1300D18071 /* WLSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupViewController.m; sourceTree = "<group>"; };
+		0671D0B418F7939B00D18071 /* WLProgrammeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProgrammeViewController.h; sourceTree = "<group>"; };
+		0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLProgrammeViewController.m; sourceTree = "<group>"; };
+		0671D0C718F83B7500D18071 /* WLAttendeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAttendeesViewController.h; sourceTree = "<group>"; };
+		0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAttendeesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0601154718F847C00017D61D /* REMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0601154818F847C00017D61D /* RECommonFunctions.h */,
+				0601154918F847C00017D61D /* RECommonFunctions.m */,
+				0601154A18F847C00017D61D /* REMenu.h */,
+				0601154B18F847C00017D61D /* REMenu.m */,
+				0601154C18F847C00017D61D /* REMenuContainerView.h */,
+				0601154D18F847C00017D61D /* REMenuContainerView.m */,
+				0601154E18F847C00017D61D /* REMenuItem.h */,
+				0601154F18F847C00017D61D /* REMenuItem.m */,
+				0601155018F847C00017D61D /* REMenuItemView.h */,
+				0601155118F847C00017D61D /* REMenuItemView.m */,
+			);
+			path = REMenu;
+			sourceTree = "<group>";
+		};
 		0671D07018F7474A00D18071 = {
 			isa = PBXGroup;
 			children = (
@@ -115,9 +156,16 @@
 		0671D08218F7474A00D18071 /* ConferenceWL */ = {
 			isa = PBXGroup;
 			children = (
+				0601154718F847C00017D61D /* REMenu */,
 				0671D08B18F7474A00D18071 /* WLAppDelegate.h */,
 				0671D08C18F7474A00D18071 /* WLAppDelegate.m */,
 				0671D08E18F7474A00D18071 /* Main.storyboard */,
+				0601155718F847E60017D61D /* WLNavigationController.h */,
+				0601155818F847E60017D61D /* WLNavigationController.m */,
+				0671D0C718F83B7500D18071 /* WLAttendeesViewController.h */,
+				0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */,
+				0671D0B418F7939B00D18071 /* WLProgrammeViewController.h */,
+				0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */,
 				0671D0B118F74B1300D18071 /* WLSignupViewController.h */,
 				0671D0B218F74B1300D18071 /* WLSignupViewController.m */,
 				0671D09118F7474A00D18071 /* WLLoginViewController.h */,
@@ -255,9 +303,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0671D09318F7474A00D18071 /* WLLoginViewController.m in Sources */,
+				0671D0B618F7939B00D18071 /* WLProgrammeViewController.m in Sources */,
+				0601155618F847C00017D61D /* REMenuItemView.m in Sources */,
 				0671D08918F7474A00D18071 /* main.m in Sources */,
+				0601155518F847C00017D61D /* REMenuItem.m in Sources */,
+				0601155318F847C00017D61D /* REMenu.m in Sources */,
+				0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */,
+				0601155B18F847E60017D61D /* WLNavigationController.m in Sources */,
+				0601155418F847C00017D61D /* REMenuContainerView.m in Sources */,
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
 				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
+				0601155218F847C00017D61D /* RECommonFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +518,7 @@
 				0671D0AD18F7474A00D18071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0671D0AE18F7474A00D18071 /* Build configuration list for PBXNativeTarget "ConferenceWLTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +527,7 @@
 				0671D0B018F7474A00D18071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puo-AY-hOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="320"/>
+            <point key="canvasLocation" x="-371" y="396"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -60,11 +60,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uQA-FY-8bv" kind="push" id="mTB-Nu-nMu"/>
+                                    <action selector="LoginPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4re-5b-fe4"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pFv-Z2-X1T" userLabel="Line View">
-                                <rect key="frame" x="70" y="430" width="180" height="3"/>
+                                <rect key="frame" x="70" y="431" width="180" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -103,10 +103,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="9z1-mm-NaT">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Mme-TM-anK" customClass="WLNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkw-Cu-Lxq">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uQA-FY-8bv" kind="relationship" relationship="rootViewController" id="2sK-zU-nU1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djY-3n-YzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645" y="-537"/>
+        </scene>
+        <!--Programme View Controller-->
         <scene sceneID="3MM-Os-zfY">
             <objects>
-                <viewController id="uQA-FY-8bv" sceneMemberID="viewController">
+                <viewController restorationIdentifier="WLProgrammeViewController" storyboardIdentifier="WLProgrammeViewController" id="uQA-FY-8bv" customClass="WLProgrammeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iJb-NA-G8F"/>
                         <viewControllerLayoutGuide type="bottom" id="JRW-1R-SC5"/>
@@ -114,13 +129,49 @@
                     <view key="view" contentMode="scaleToFill" id="4vN-qL-pb4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Programme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ug-kY-kXN">
+                                <rect key="frame" x="115" y="273" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QMe-3o-osV"/>
+                    <navigationItem key="navigationItem" id="QMe-3o-osV">
+                        <nil key="title"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IoB-AO-Meo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1115" y="-29"/>
+        </scene>
+        <!--Attendees View Controller-->
+        <scene sceneID="daq-9u-NVG">
+            <objects>
+                <viewController restorationIdentifier="WLAttendeesViewController" storyboardIdentifier="WLAttendeesViewController" id="QOp-Yo-STj" customClass="WLAttendeesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ano-06-vMA"/>
+                        <viewControllerLayoutGuide type="bottom" id="tQ5-6A-8PF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Vz-0F-TuD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attendees" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cs3-8Q-qt8">
+                                <rect key="frame" x="121" y="273" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yT8-b2-gEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1567" y="-156"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WKF-bd-f0l">
