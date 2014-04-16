@@ -85,7 +85,7 @@
         <!--Navigation Controller-->
         <scene sceneID="9z1-mm-NaT">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Mme-TM-anK" customClass="WLNavigationController" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="WLNavigationController" storyboardIdentifier="WLNavigationController" definesPresentationContext="YES" id="Mme-TM-anK" customClass="WLNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkw-Cu-Lxq">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -153,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zYj-VL-JAQ">
-                                <rect key="frame" x="118" y="483" width="84" height="33"/>
+                                <rect key="frame" x="76" y="492" width="169" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
