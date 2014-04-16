@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLAttendeesViewController : UIViewController
+@interface WLAttendeesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

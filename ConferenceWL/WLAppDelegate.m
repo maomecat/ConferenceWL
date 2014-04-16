@@ -7,12 +7,32 @@
 //
 
 #import "WLAppDelegate.h"
+#import "WLNavigationController.h"
+
+@interface WLAppDelegate()
+
+@property (strong) UIViewController* viewConroller;
+
+@end
 
 @implementation WLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"loggedIn"] boolValue]) {
+        _viewConroller = [[WLNavigationController alloc] initWithRootViewController:[sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"]];
+    } else {
+        _viewConroller = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
+    }
+    
+    self.window.rootViewController = _viewConroller;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

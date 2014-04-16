@@ -11,6 +11,7 @@
 #import "WLAttendeesViewController.h"
 #import "WLFloorPlanViewController.h"
 #import "WLCalendarViewController.h"
+#import "WLSettingsViewController.h"
 
 @interface WLNavigationController ()
 
@@ -20,6 +21,7 @@
 @property (strong) WLAttendeesViewController* attendeesVC;
 @property (strong) WLFloorPlanViewController* floorVC;
 @property (strong) WLCalendarViewController* calendarVC;
+@property (strong) WLSettingsViewController* settingsVC;
 
 @end
 
@@ -71,6 +73,13 @@
         [weakSelf setViewControllers:@[_calendarVC] animated:NO];
     }];
     
+    REMenuItem *settingsItem = [[REMenuItem alloc] initWithTitle:@"Setting" image:[UIImage imageNamed:@"Icon_Profile"] highlightedImage:nil action:^(REMenuItem *item) {
+        if (!_settingsVC) {
+            UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            _settingsVC = [sb instantiateViewControllerWithIdentifier:@"WLSettingsViewController"];
+        }
+        [weakSelf setViewControllers:@[_settingsVC] animated:NO];
+    }];
     // You can also assign a custom view for any particular item
     // Uncomment the code below and add `customViewItem` to `initWithItems` array, for example:
     // self.menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem, customViewItem]]
@@ -89,7 +98,7 @@
     floorPlanItem.tag = 2;
     calendarItem.tag = 3;
     
-    self.menu = [[REMenu alloc] initWithItems:@[programmeItem, attendeesItem, floorPlanItem, calendarItem]];
+    self.menu = [[REMenu alloc] initWithItems:@[programmeItem, attendeesItem, floorPlanItem, calendarItem, settingsItem]];
     // Background view
     //
     //self.menu.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];

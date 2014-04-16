@@ -31,6 +31,9 @@
 
 -(IBAction)LoginPressed:(id)sender
 {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
     self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
