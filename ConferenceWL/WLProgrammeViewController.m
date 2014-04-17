@@ -11,6 +11,10 @@
 
 @interface WLProgrammeViewController ()
 
+@property (strong) IBOutlet UITableView* tableView;
+
+@property (strong) UIRefreshControl* refreshControl;
+@property (strong) NSMutableArray* datasource;
 
 @end
 
@@ -28,6 +32,11 @@
     
     self.title = @"Programmes";
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
+    [self refreshTable:self.refreshControl];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -39,10 +48,33 @@
 //    [navigationController.menu setNeedsLayout];
 //}
 
+-(void)refreshTable:(UIRefreshControl*)refreshControl {
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://appikon.com/Webservices/api.php?method=getAllProgrammes"]];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    _datasource = [[NSMutableArray alloc] initWithArray:json];
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _datasource.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    cell.textLabel.text = _datasource[indexPath.row][@"name"];
+    return cell;
 }
 
 /*
