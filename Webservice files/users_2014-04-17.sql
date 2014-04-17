@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.17)
 # Database: users
-# Generation Time: 2014-04-17 22:01:11 +0000
+# Generation Time: 2014-04-17 22:37:21 +0000
 # ************************************************************
 
 
@@ -37,8 +37,9 @@ LOCK TABLES `attendees` WRITE;
 
 INSERT INTO `attendees` (`id`, `FirstName`, `LastName`)
 VALUES
-	(1,'rishabh','Tayal'),
-	(2,'Priya','Thakur');
+	(1,'Steve','Jobs'),
+	(2,'Bill','Gates'),
+	(3,'Elon','Musk');
 
 /*!40000 ALTER TABLE `attendees` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -51,16 +52,20 @@ DROP TABLE IF EXISTS `programmes`;
 
 CREATE TABLE `programmes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `programmes` WRITE;
 /*!40000 ALTER TABLE `programmes` DISABLE KEYS */;
 
-INSERT INTO `programmes` (`id`, `name`)
+INSERT INTO `programmes` (`id`, `name`, `date`)
 VALUES
-	(1,'Keynote');
+	(1,'Keynote','2012-01-01'),
+	(2,'iOS Session','2012-01-01'),
+	(3,'Android Session','2012-01-01'),
+	(4,'Windows Session','2012-01-01');
 
 /*!40000 ALTER TABLE `programmes` ENABLE KEYS */;
 UNLOCK TABLES;
