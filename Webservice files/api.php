@@ -6,7 +6,27 @@ mysql_select_db("rtiosappdb");
 
 //CAll the [assed in function 
 if (function_exists($_GET['method'])) {
-	$_GET['method']();
+	if($_GET['method'] == 'signup')
+	{
+	 	$_GET['method']($_GET['firstname'], $_GET['lastname'], $_GET['email'], $_GET['password']);
+	} else {
+		$_GET['method']();
+	}
+}
+
+function signup($firstname, $lastname, $email, $password) {
+	$sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
+
+	$retval = mysql_query($sql);
+	echo $retval;
+	$result;
+	if(!$retval) {
+		$result = "not successful";
+		echo $result;
+	} else {
+		$result = "Successful";
+		echo $result;
+	}
 }
 
 function getAllUsers() {

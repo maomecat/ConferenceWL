@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.17)
 # Database: users
-# Generation Time: 2014-04-17 22:37:21 +0000
+# Generation Time: 2014-04-17 23:29:04 +0000
 # ************************************************************
 
 
@@ -69,6 +69,20 @@ VALUES
 
 /*!40000 ALTER TABLE `programmes` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `firstname` varchar(50) DEFAULT NULL,
+  `lastname` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 
 
