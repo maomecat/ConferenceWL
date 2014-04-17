@@ -19,6 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    [self.view addGestureRecognizer:tapGesture];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -28,6 +31,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)tapped:(UIGestureRecognizer*)reco {
+    [self.view endEditing:YES];
+}
 
 -(IBAction)LoginPressed:(id)sender
 {
@@ -37,17 +43,6 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
     self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 2;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    return cell;
 }
 
 @end
