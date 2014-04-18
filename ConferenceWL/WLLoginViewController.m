@@ -52,9 +52,16 @@
     [self.view endEditing:YES];
 }
 
+- (BOOL)validateEmail: (NSString *) candidate {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
+
 -(IBAction)LoginPressed:(id)sender
 {
-    if (self.emailTextField.text.length == 0) {
+    if (self.emailTextField.text.length == 0 || ![self validateEmail:self.emailTextField.text]) {
         [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a valid email."];
         return;
     }
@@ -85,7 +92,7 @@
             } completion:nil];
             
         } else {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error Signing in" message:result[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Login" message:result[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
         }
     }];

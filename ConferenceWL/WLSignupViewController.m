@@ -51,6 +51,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (BOOL)validateEmail: (NSString *) candidate {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
+
 -(void)signupPressed:(id)sender
 {
     WLSignupTableViewCell* nameCell = (WLSignupTableViewCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -60,7 +67,7 @@
         [CSNotificationView  showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a name"];
         return;
     }
-    if (emailCell.textfield.text.length == 0) {
+    if (emailCell.textfield.text.length == 0 || ![self validateEmail:emailCell.textfield.text]) {
         [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a valid email."];
         return;
     }
