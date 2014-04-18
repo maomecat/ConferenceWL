@@ -64,6 +64,7 @@
 		0601156018F85CDC0017D61D /* WLCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCalendarViewController.h; sourceTree = "<group>"; };
 		0601156118F85CDC0017D61D /* WLCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCalendarViewController.m; sourceTree = "<group>"; };
 		0601156518F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wwdc13-maps-floorplan-level-1-day1.png"; sourceTree = "<group>"; };
+		062D1A8E19009D37003C3BA4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -201,6 +202,7 @@
 				0671D08518F7474A00D18071 /* InfoPlist.strings */,
 				0671D08818F7474A00D18071 /* main.m */,
 				0671D08A18F7474A00D18071 /* ConferenceWL-Prefix.pch */,
+				062D1A8E19009D37003C3BA4 /* Constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

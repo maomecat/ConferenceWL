@@ -18,15 +18,13 @@ function signup($firstname, $lastname, $email, $password) {
 	$sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
 
 	$retval = mysql_query($sql);
-	echo $retval;
 	$result;
 	if(!$retval) {
-		$result = "not successful";
-		echo $result;
+		$result = array("success"=>"false");
 	} else {
-		$result = "Successful";
-		echo $result;
+		$result = array("success"=>"true");
 	}
+	echo json_encode($result);
 }
 
 function getAllUsers() {

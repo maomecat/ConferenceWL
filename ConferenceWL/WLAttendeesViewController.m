@@ -43,7 +43,7 @@
 }
 
 -(void)refreshTable:(UIRefreshControl*)refreshControl {
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://appikon.com/Webservices/api.php?method=getAllUsers"]];
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", webservice_base_url, webservice_getAllAttendees]]];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"%@", json);
     self.datasource = [[NSMutableArray alloc] initWithArray:json];

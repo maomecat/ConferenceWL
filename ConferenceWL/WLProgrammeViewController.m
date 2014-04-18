@@ -49,7 +49,7 @@
 //}
 
 -(void)refreshTable:(UIRefreshControl*)refreshControl {
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://appikon.com/Webservices/api.php?method=getAllProgrammes"]];
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", webservice_base_url, webservice_getAllProgrammes]]];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     _datasource = [[NSMutableArray alloc] initWithArray:json];
     [self.tableView reloadData];
