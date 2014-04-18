@@ -7,8 +7,13 @@
 //
 
 #import "WLSignupViewController.h"
+#import "WLSignupTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WLSignupViewController ()
+
+@property (strong) IBOutlet UIButton* signupButton;
+@property (strong) IBOutlet UITableView* tableView;
 
 @end
 
@@ -18,6 +23,13 @@
 {
     [super viewDidLoad];
     self.title = @"Signup";
+    
+    [self.signupButton.layer setBorderWidth:1];
+    self.signupButton.layer.borderColor = self.signupButton.tintColor.CGColor;
+    self.signupButton.layer.cornerRadius = 4;
+    
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tapGesture];
     // Do any additional setup after loading the view.
 }
 
@@ -27,6 +39,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dismissKeyboard:(UIGestureRecognizer*)reco
+{
+    [self.view endEditing:YES];
+}
+
 -(IBAction)cancelPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -34,21 +51,54 @@
 
 -(void)signupPressed:(id)sender
 {
+    WLSignupTableViewCell* cell = (WLSignupTableViewCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
     NSString* urlString = [NSString stringWithFormat:kURLSignup, @"name", @"last", @"r@r.r", @"pass"];
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"%@", json);
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UITableView Datasource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return 3;
 }
-*/
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WLSignupTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.textfield.placeholder = @"Name";
+            break;
+        case 1:
+            cell.textfield.placeholder = @"Email";
+            cell.textfield.keyboardType = UIKeyboardTypeEmailAddress;
+            break;
+        default:
+            cell.textfield.placeholder = @"Password";
+            cell.textfield.keyboardAppearance = UIKeyboardAppearanceAlert;
+            cell.textfield.secureTextEntry = YES;
+            break;
+    }
+    
+    return cell;
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

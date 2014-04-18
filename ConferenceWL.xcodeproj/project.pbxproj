@@ -16,6 +16,7 @@
 		0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155E18F857070017D61D /* WLFloorPlanViewController.m */; };
 		0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601156118F85CDC0017D61D /* WLCalendarViewController.m */; };
 		0601156618F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601156518F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png */; };
+		062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -65,6 +66,8 @@
 		0601156118F85CDC0017D61D /* WLCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCalendarViewController.m; sourceTree = "<group>"; };
 		0601156518F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wwdc13-maps-floorplan-level-1-day1.png"; sourceTree = "<group>"; };
 		062D1A8E19009D37003C3BA4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		062D1A9019017514003C3BA4 /* WLSignupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupTableViewCell.h; sourceTree = "<group>"; };
+		062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupTableViewCell.m; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,17 @@
 			path = REMenu;
 			sourceTree = "<group>";
 		};
+		062D1A8F190174F7003C3BA4 /* Signup View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0671D0B118F74B1300D18071 /* WLSignupViewController.h */,
+				0671D0B218F74B1300D18071 /* WLSignupViewController.m */,
+				062D1A9019017514003C3BA4 /* WLSignupTableViewCell.h */,
+				062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */,
+			);
+			name = "Signup View Controller";
+			sourceTree = "<group>";
+		};
 		0671D07018F7474A00D18071 = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +198,7 @@
 				0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */,
 				0671D0B418F7939B00D18071 /* WLProgrammeViewController.h */,
 				0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */,
-				0671D0B118F74B1300D18071 /* WLSignupViewController.h */,
-				0671D0B218F74B1300D18071 /* WLSignupViewController.m */,
+				062D1A8F190174F7003C3BA4 /* Signup View Controller */,
 				0671D09118F7474A00D18071 /* WLLoginViewController.h */,
 				0671D09218F7474A00D18071 /* WLLoginViewController.m */,
 				0671D09418F7474A00D18071 /* Images.xcassets */,
@@ -337,6 +350,7 @@
 				06FCCEF418FF2F62001FA6B9 /* WLSettingsViewController.m in Sources */,
 				0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */,
 				0601155218F847C00017D61D /* RECommonFunctions.m in Sources */,
+				062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */,
 				0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

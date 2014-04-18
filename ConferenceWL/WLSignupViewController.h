@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLSignupViewController : UIViewController
+@interface WLSignupViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 -(IBAction)cancelPressed:(id)sender;
 -(IBAction)signupPressed:(id)sender;
