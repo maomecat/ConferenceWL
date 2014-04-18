@@ -1,10 +1,13 @@
 PODS:
   - CSNotificationView (0.4)
+  - REMenu (1.8.5)
 
 DEPENDENCIES:
   - CSNotificationView
+  - REMenu
 
 SPEC CHECKSUMS:
   CSNotificationView: 09575b44d549a17dc4a313107bebdca98a40fcc1
+  REMenu: 282a6b5feee8cce5403d7f28e15ffbc0aee359ab
 
 COCOAPODS: 0.32.1

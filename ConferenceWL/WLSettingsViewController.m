@@ -24,9 +24,9 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
-
+    
     self.title = @"Settings";
-
+    
     [self.logoutButton.layer setBorderWidth:1];
     self.logoutButton.layer.borderColor = self.logoutButton.tintColor.CGColor;
     self.logoutButton.layer.cornerRadius = 4;
@@ -41,23 +41,31 @@
 
 -(void)logoutClicked:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"loggedIn"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    WLLoginViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
-    self.view.window.rootViewController = navC;
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Yes" otherButtonTitles:nil, nil];
+    [sheet showInView:self.view.window];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"loggedIn"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WLLoginViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
+        self.view.window.rootViewController = navC;
+    }
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

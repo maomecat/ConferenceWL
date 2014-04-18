@@ -73,7 +73,7 @@
         [weakSelf setViewControllers:@[_calendarVC] animated:NO];
     }];
     
-    REMenuItem *settingsItem = [[REMenuItem alloc] initWithTitle:@"Setting" image:[UIImage imageNamed:@"Icon_Profile"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *settingsItem = [[REMenuItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"Icon_Profile"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_settingsVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _settingsVC = [sb instantiateViewControllerWithIdentifier:@"WLSettingsViewController"];
