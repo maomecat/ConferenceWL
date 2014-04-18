@@ -44,7 +44,7 @@
 
     [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
         _datasource = [[NSMutableArray alloc] initWithArray:result];
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [refreshControl endRefreshing];
     }];
 }
@@ -66,9 +66,10 @@
 {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = _datasource[indexPath.row][@"name"];
+    cell.detailTextLabel.text = _datasource[indexPath.row][@"date"];
     return cell;
 }
 

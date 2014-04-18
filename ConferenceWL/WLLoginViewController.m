@@ -63,6 +63,7 @@
         [WLActivityView hide];
         if ([result[@"success"] boolValue]) {
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
+            [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"username"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

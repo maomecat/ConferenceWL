@@ -15,6 +15,7 @@
 @interface WLSettingsViewController ()
 
 @property (strong) IBOutlet UIButton* logoutButton;
+@property (strong) IBOutlet UILabel* usernameLabel;
 
 @end
 
@@ -27,6 +28,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
     self.title = @"Settings";
+    
+    _usernameLabel.text = [NSString stringWithFormat:@"Welcome %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
     
     [self.logoutButton.layer setBorderWidth:1];
     self.logoutButton.layer.borderColor = self.logoutButton.tintColor.CGColor;

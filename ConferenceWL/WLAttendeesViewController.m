@@ -46,7 +46,7 @@
 {
     [WLWebCaller getDataFromURL:kURLGetAttendees withCompletionBlock:^(bool success, id result) {
         self.datasource = [[NSMutableArray alloc] initWithArray:result];
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [refreshControl endRefreshing];
     }];
 }

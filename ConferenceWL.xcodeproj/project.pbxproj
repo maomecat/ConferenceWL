@@ -15,6 +15,7 @@
 		062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9719018E26003C3BA4 /* WLActivityView.m */; };
 		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
 		062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9D19019265003C3BA4 /* WLWebCaller.m */; };
+		062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -62,6 +63,7 @@
 		062D1A9919018E5C003C3BA4 /* WLActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLActivityView.xib; sourceTree = "<group>"; };
 		062D1A9C19019265003C3BA4 /* WLWebCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebCaller.h; sourceTree = "<group>"; };
 		062D1A9D19019265003C3BA4 /* WLWebCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLWebCaller.m; sourceTree = "<group>"; };
+		062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wwdc14-home-branding.png"; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +142,7 @@
 		062D1A9419017FEA003C3BA4 /* temp */ = {
 			isa = PBXGroup;
 			children = (
+				062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */,
 				0601156518F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png */,
 			);
 			name = temp;
@@ -168,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				0671D08218F7474A00D18071 /* ConferenceWL */,
-				0671D0A118F7474A00D18071 /* ConferenceWLTests */,
 				0671D07B18F7474A00D18071 /* Frameworks */,
 				0671D07A18F7474A00D18071 /* Products */,
 				0990CDA482DF4712940F6A0C /* Pods.xcconfig */,
@@ -234,6 +236,7 @@
 				0671D08518F7474A00D18071 /* InfoPlist.strings */,
 				0671D08818F7474A00D18071 /* main.m */,
 				0671D08A18F7474A00D18071 /* ConferenceWL-Prefix.pch */,
+				0671D0A118F7474A00D18071 /* ConferenceWLTests */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -245,7 +248,7 @@
 				0671D0A218F7474A00D18071 /* Supporting Files */,
 			);
 			path = ConferenceWLTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		0671D0A218F7474A00D18071 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0601156618F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png in Resources */,
+				062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */,
 				0671D09518F7474A00D18071 /* Images.xcassets in Resources */,
 				0671D08718F7474A00D18071 /* InfoPlist.strings in Resources */,
 				062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */,
