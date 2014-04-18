@@ -39,7 +39,7 @@
     }
     
     __typeof (self) __weak weakSelf = self;
-    REMenuItem *programmeItem = [[REMenuItem alloc] initWithTitle:@"Programme" subtitle:@"View programmes of conference" image:[UIImage imageNamed:@"Icon_Home"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *programmeItem = [[REMenuItem alloc] initWithTitle:@"Programme" subtitle:@"" image:[UIImage imageNamed:@"Icon_Home"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_programmeVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
@@ -47,7 +47,7 @@
         [weakSelf setViewControllers:@[_programmeVC] animated:NO];
     }];
     
-    REMenuItem *attendeesItem = [[REMenuItem alloc] initWithTitle:@"Attendees" subtitle:@"View all attendess" image:[UIImage imageNamed:@"Icon_Explore"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *attendeesItem = [[REMenuItem alloc] initWithTitle:@"Attendees" subtitle:@"" image:[UIImage imageNamed:@"Icon_Explore"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_attendeesVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _attendeesVC = [sb instantiateViewControllerWithIdentifier:@"WLAttendeesViewController"];
@@ -55,7 +55,7 @@
         [weakSelf setViewControllers:@[_attendeesVC] animated:NO];
     }];
     
-    REMenuItem *floorPlanItem = [[REMenuItem alloc] initWithTitle:@"Floor Plan" subtitle:@"View the floor plan" image:[UIImage imageNamed:@"Icon_Activity"] highlightedImage:nil action:^(REMenuItem *item) {
+    REMenuItem *floorPlanItem = [[REMenuItem alloc] initWithTitle:@"Floor Plan" subtitle:@"" image:[UIImage imageNamed:@"Icon_Activity"] highlightedImage:nil action:^(REMenuItem *item) {
         if (!_floorVC) {
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             _floorVC = [sb instantiateViewControllerWithIdentifier:@"WLFloorPlanViewController"];

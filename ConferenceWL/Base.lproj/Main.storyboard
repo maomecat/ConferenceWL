@@ -73,7 +73,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="q2q-7I-7sU" id="8gi-U3-gsa"/>
+                        <outlet property="loginButton" destination="1DD-0H-82A" id="IsG-W4-eky"/>
                         <outlet property="passwordTextField" destination="DSq-CR-Odl" id="mkJ-y8-5Ac"/>
+                        <outlet property="signupButton" destination="mCm-8x-MNi" id="N2m-Td-erW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

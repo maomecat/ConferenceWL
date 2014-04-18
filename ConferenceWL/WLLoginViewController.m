@@ -17,6 +17,9 @@
 @property (strong) IBOutlet UITextField* emailTextField;
 @property (strong) IBOutlet UITextField* passwordTextField;
 
+@property (strong) IBOutlet UIButton* loginButton;
+@property (strong) IBOutlet UIButton* signupButton;
+
 @end
 
 @implementation WLLoginViewController
@@ -28,6 +31,14 @@
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     [self.view addGestureRecognizer:tapGesture];
     
+    
+    [self.loginButton.layer setBorderWidth:1];
+    self.loginButton.layer.borderColor = self.loginButton.tintColor.CGColor;
+    self.loginButton.layer.cornerRadius = 4;
+    
+    [self.signupButton.layer setBorderWidth:1];
+    self.signupButton.layer.borderColor = self.signupButton.tintColor.CGColor;
+    self.signupButton.layer.cornerRadius = 4;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
