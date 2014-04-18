@@ -10,6 +10,7 @@
 #import "WLSignupTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CSNotificationView.h"
+#import "WLActivityView.h"
 
 @interface WLSignupViewController ()
 
@@ -73,17 +74,24 @@
 
 -(void)signupWithFirstName:(NSString*)firstName lastName:(NSString*)lastName email:(NSString*)email pasword:(NSString*)password
 {
+    [WLActivityView showInView:self.view loadingMessage:@"Creating account..."];
+    
     NSString* urlString = [NSString stringWithFormat:kURLSignup, firstName, lastName,email, password];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    if ([json[@"success"] boolValue]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:json[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    [WLWebCaller getDataFromURL:urlString withCompletionBlock:^(bool success, id result) {
+        if ([result[@"success"] boolValue]) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                if (_delegate) {
+                    [_delegate signUpVC:self didSigninWithEmail:email password:password];
+                }
+            }];
+        } else {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+    
 }
 
 #pragma mark - UITableView Datasource

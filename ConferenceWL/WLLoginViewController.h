@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLSignupViewController.h"
 
-@interface WLLoginViewController : UIViewController
+@interface WLLoginViewController : UIViewController<WLSignupDelegate>
 
 -(IBAction)LoginPressed:(id)sender;
 

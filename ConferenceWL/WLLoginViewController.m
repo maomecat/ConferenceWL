@@ -76,4 +76,20 @@
     }];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"signupSegue"]) {
+        UINavigationController* navC = segue.destinationViewController;
+        WLSignupViewController* signupVC = navC.viewControllers[0];
+        signupVC.delegate = self;
+    }
+}
+
+#pragma mark - Signup ViewController Delegate
+
+-(void)signUpVC:(id)controller didSigninWithEmail:(NSString *)email password:(NSString *)password
+{
+    [self loginWithEmail:email password:password];
+}
+
 @end
