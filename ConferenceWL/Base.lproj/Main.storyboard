@@ -54,7 +54,7 @@
                                     <segue destination="hej-El-ipa" kind="modal" identifier="signupSegue" id="0KT-Q0-bHh"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="r@r.r" borderStyle="roundedRect" placeholder="email@example.com*" minimumFontSize="17" clearButtonMode="whileEditing" id="q2q-7I-7sU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="r@r.rr" borderStyle="roundedRect" placeholder="email@example.com*" minimumFontSize="17" clearButtonMode="whileEditing" id="q2q-7I-7sU">
                                 <rect key="frame" x="20" y="235" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
