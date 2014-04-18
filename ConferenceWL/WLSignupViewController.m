@@ -9,6 +9,7 @@
 #import "WLSignupViewController.h"
 #import "WLSignupTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CSNotificationView.h"
 
 @interface WLSignupViewController ()
 
@@ -51,11 +52,23 @@
 
 -(void)signupPressed:(id)sender
 {
-    WLSignupTableViewCell* cell = (WLSignupTableViewCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-    NSString* urlString = [NSString stringWithFormat:kURLSignup, @"name", @"last", @"r@r.r", @"pass"];
+    WLSignupTableViewCell* nameCell = (WLSignupTableViewCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    WLSignupTableViewCell* emailCell = (WLSignupTableViewCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    WLSignupTableViewCell* passwordCell = (WLSignupTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    if (nameCell.textfield.text.length == 0) {
+        [CSNotificationView  showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a name"];
+        return;
+    }
+    if (emailCell.textfield.text.length == 0) {
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a valid email."];
+        return;
+    }
+    if (passwordCell.textfield.text.length == 0) {
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter password"];
+        return;
+    }
+    
+    NSString* urlString = [NSString stringWithFormat:kURLSignup, nameCell.textfield.text, nameCell.textfield.text, emailCell.textfield.text, passwordCell.textfield.text];
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"%@", json);
