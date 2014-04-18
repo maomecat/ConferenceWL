@@ -66,9 +66,12 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
-            self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
-
+            WLProgrammeViewController* programVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+            WLNavigationController* navC = [[WLNavigationController alloc] initWithRootViewController:programVC];
+            [UIView transitionWithView:self.view.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+                self.view.window.rootViewController = navC;
+            } completion:nil];
+            
         } else {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error Signing in" message:result[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];

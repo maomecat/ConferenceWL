@@ -62,7 +62,10 @@
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     WLLoginViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
-    self.view.window.rootViewController = navC;
+    
+    [UIView transitionWithView:self.view.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        self.view.window.rootViewController = navC;
+    } completion:nil];
 }
 
 /*
