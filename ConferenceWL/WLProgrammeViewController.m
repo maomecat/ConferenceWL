@@ -62,6 +62,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableView Datasource
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _datasource.count;
@@ -77,6 +79,12 @@
     return cell;
 }
 
+#pragma mark - UITableView Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 /*
  #pragma mark - Navigation
  

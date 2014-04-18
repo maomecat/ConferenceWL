@@ -51,6 +51,8 @@
     [refreshControl endRefreshing];
 }
 
+#pragma mark - UITableView Datasource
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.datasource.count;
@@ -64,6 +66,13 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.datasource[indexPath.row][@"FirstName"], _datasource[indexPath.row][@"LastName"]];
     return cell;
+}
+
+#pragma mark - UITableView Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
