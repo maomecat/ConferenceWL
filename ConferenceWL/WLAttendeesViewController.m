@@ -42,13 +42,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)refreshTable:(UIRefreshControl*)refreshControl {
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kURLGetAttendees]];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"%@", json);
-    self.datasource = [[NSMutableArray alloc] initWithArray:json];
-    [self.tableView reloadData];
-    [refreshControl endRefreshing];
+-(void)refreshTable:(UIRefreshControl*)refreshControl
+{
+    [WLWebCaller getDataFromURL:kURLGetAttendees withCompletionBlock:^(bool success, id result) {
+        self.datasource = [[NSMutableArray alloc] initWithArray:result];
+        [self.tableView reloadData];
+        [refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - UITableView Datasource

@@ -10,6 +10,7 @@
 #import "WLProgrammeViewController.h"
 #import "WLNavigationController.h"
 #import "CSNotificationView.h"
+#import "WLActivityView.h"
 
 @interface WLLoginViewController ()
 
@@ -26,6 +27,7 @@
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     [self.view addGestureRecognizer:tapGesture];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -54,19 +56,24 @@
 }
 
 -(void)loginWithEmail:(NSString*)email password:(NSString*)password {
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:kURLLogin, email, password]]];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    if ([json[@"success"] boolValue]) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
-        self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
-    } else {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error Signing in" message:json[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    
+    [WLActivityView showInView:self.view loadingMessage:@"Logging in..."];
+    
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLLogin, email, password] withCompletionBlock:^(bool success, id result) {
+        [WLActivityView hide];
+        if ([result[@"success"] boolValue]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+            self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
+
+        } else {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error Signing in" message:result[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
 }
 
 @end

@@ -40,20 +40,13 @@
     // Do any additional setup after loading the view.
 }
 
-////////DOESN'T SEEM TO BE DOING ANY THING WHEN REMOVED....ADDDED BY REMENU
-//- (void)viewWillLayoutSubviews
-//{
-//    [super viewWillLayoutSubviews];
-//    WLNavigationController *navigationController = (WLNavigationController *)self.navigationController;
-//    [navigationController.menu setNeedsLayout];
-//}
-
 -(void)refreshTable:(UIRefreshControl*)refreshControl {
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kURLGetAllProgrammes]];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    _datasource = [[NSMutableArray alloc] initWithArray:json];
-    [self.tableView reloadData];
-    [refreshControl endRefreshing];
+
+    [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
+        _datasource = [[NSMutableArray alloc] initWithArray:result];
+        [self.tableView reloadData];
+        [refreshControl endRefreshing];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

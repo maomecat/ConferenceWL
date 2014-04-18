@@ -12,6 +12,9 @@
 		0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601156118F85CDC0017D61D /* WLCalendarViewController.m */; };
 		0601156618F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601156518F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png */; };
 		062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */; };
+		062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9719018E26003C3BA4 /* WLActivityView.m */; };
+		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
+		062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9D19019265003C3BA4 /* WLWebCaller.m */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -54,6 +57,11 @@
 		062D1A8E19009D37003C3BA4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		062D1A9019017514003C3BA4 /* WLSignupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupTableViewCell.h; sourceTree = "<group>"; };
 		062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupTableViewCell.m; sourceTree = "<group>"; };
+		062D1A9619018E26003C3BA4 /* WLActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLActivityView.h; sourceTree = "<group>"; };
+		062D1A9719018E26003C3BA4 /* WLActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLActivityView.m; sourceTree = "<group>"; };
+		062D1A9919018E5C003C3BA4 /* WLActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLActivityView.xib; sourceTree = "<group>"; };
+		062D1A9C19019265003C3BA4 /* WLWebCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebCaller.h; sourceTree = "<group>"; };
+		062D1A9D19019265003C3BA4 /* WLWebCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLWebCaller.m; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +145,25 @@
 			name = temp;
 			sourceTree = "<group>";
 		};
+		062D1A9519018E09003C3BA4 /* WLActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				062D1A9619018E26003C3BA4 /* WLActivityView.h */,
+				062D1A9719018E26003C3BA4 /* WLActivityView.m */,
+				062D1A9919018E5C003C3BA4 /* WLActivityView.xib */,
+			);
+			name = WLActivityView;
+			sourceTree = "<group>";
+		};
+		062D1A9B19019251003C3BA4 /* WebCaller */ = {
+			isa = PBXGroup;
+			children = (
+				062D1A9C19019265003C3BA4 /* WLWebCaller.h */,
+				062D1A9D19019265003C3BA4 /* WLWebCaller.m */,
+			);
+			name = WebCaller;
+			sourceTree = "<group>";
+		};
 		0671D07018F7474A00D18071 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +199,8 @@
 		0671D08218F7474A00D18071 /* ConferenceWL */ = {
 			isa = PBXGroup;
 			children = (
+				062D1A9B19019251003C3BA4 /* WebCaller */,
+				062D1A9519018E09003C3BA4 /* WLActivityView */,
 				0671D08B18F7474A00D18071 /* WLAppDelegate.h */,
 				0671D08C18F7474A00D18071 /* WLAppDelegate.m */,
 				0671D08E18F7474A00D18071 /* Main.storyboard */,
@@ -308,6 +337,7 @@
 				0601156618F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png in Resources */,
 				0671D09518F7474A00D18071 /* Images.xcassets in Resources */,
 				0671D08718F7474A00D18071 /* InfoPlist.strings in Resources */,
+				062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */,
 				0671D09018F7474A00D18071 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,8 +396,10 @@
 				0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */,
 				0601155B18F847E60017D61D /* WLNavigationController.m in Sources */,
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
+				062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */,
 				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
 				06FCCEF418FF2F62001FA6B9 /* WLSettingsViewController.m in Sources */,
+				062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */,
 				0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */,
 				062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */,
 				0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */,
