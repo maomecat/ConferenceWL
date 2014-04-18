@@ -11,6 +11,7 @@
 
 #define kURLPrefix @"http://appikon.com/Webservices/api.php?"
 #define kURLSignup [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=signup&firstname=%@&lastname=%@&email=%@&password=%@"]
+#define kURLLogin [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=login&email=%@&password=%@"]
 #define kURLGetAttendees [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getAllUsers"]
 #define kURLGetAllProgrammes [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getAllProgrammes"]
 

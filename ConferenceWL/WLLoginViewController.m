@@ -9,8 +9,12 @@
 #import "WLLoginViewController.h"
 #import "WLProgrammeViewController.h"
 #import "WLNavigationController.h"
+#import "CSNotificationView.h"
 
 @interface WLLoginViewController ()
+
+@property (strong) IBOutlet UITextField* emailTextField;
+@property (strong) IBOutlet UITextField* passwordTextField;
 
 @end
 
@@ -37,12 +41,32 @@
 
 -(IBAction)LoginPressed:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (self.emailTextField.text.length == 0) {
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a valid email."];
+        return;
+    }
+    if (self.passwordTextField.text.length == 0) {
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter password."];
+        return;
+    }
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
-    self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
+    [self loginWithEmail:self.emailTextField.text password:self.passwordTextField.text];
+}
+
+-(void)loginWithEmail:(NSString*)email password:(NSString*)password {
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:kURLLogin, email, password]]];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([json[@"success"] boolValue]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WLProgrammeViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+        self.view.window.rootViewController = [[WLNavigationController alloc] initWithRootViewController:navC];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error Signing in" message:json[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 @end

@@ -77,6 +77,10 @@
                         <color key="backgroundColor" red="0.0" green="0.80392156859999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="mP7-gP-kzW"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="q2q-7I-7sU" id="8gi-U3-gsa"/>
+                        <outlet property="passwordTextField" destination="DSq-CR-Odl" id="mkJ-y8-5Ac"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
