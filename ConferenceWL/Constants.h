@@ -9,9 +9,9 @@
 #ifndef ConferenceWL_Constants_h
 #define ConferenceWL_Constants_h
 
-#define webservice_base_url @"http://appikon.com/Webservices/api.php?"
-#define webservice_signup_url @"method=signup&firstname=%@&lastname=\%@&email=\%@&password=\%@"
-#define webservice_getAllAttendees @"method=getAllUsers"
-#define webservice_getAllProgrammes @"method=getAllProgrammes"
+#define kURLPrefix @"http://appikon.com/Webservices/api.php?"
+#define kURLSignup [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=signup&firstname=%@&lastname=%@&email=%@&password=%@"]
+#define kURLGetAttendees [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getAllUsers"]
+#define kURLGetAllProgrammes [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getAllProgrammes"]
 
 #endif

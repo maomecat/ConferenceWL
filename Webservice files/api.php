@@ -15,14 +15,24 @@ if (function_exists($_GET['method'])) {
 }
 
 function signup($firstname, $lastname, $email, $password) {
-	$sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
 
-	$retval = mysql_query($sql);
-	$result;
-	if(!$retval) {
-		$result = array("success"=>"false");
+	//First check if user exists
+	if (checkIfUserExists($email))
+	{
+		$result = array ("success"=>"false",
+					"message"=>"We found an account with this email address. Please login with your credentials");
 	} else {
-		$result = array("success"=>"true");
+		//Then insert into database if user doesn't exists
+		$sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
+ 
+		$retval = mysql_query($sql);
+	
+		if(!$retval) {
+			$result = array("success"=>"false",
+							"message"=>"Could not create account. Please try again later.");
+		} else {
+			$result = array("success"=>"true");
+		}
 	}
 	echo json_encode($result);
 }
@@ -48,5 +58,16 @@ function getAllProgrammes() {
 	$programmes = json_encode($programmes);
 	header("Content-type:application/json");
 	echo $programmes;
+}
+
+function checkIfUserExists($email)
+{
+	$sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+	$result = mysql_query($sql);
+	if (mysql_fetch_array($result) != false) {
+		return true;
+	} else {
+		return false;
+	}
 }
 ?>

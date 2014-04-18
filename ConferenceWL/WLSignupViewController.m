@@ -23,9 +23,6 @@
 
 - (void)didReceiveMemoryWarning
 {
-    
-    http://localhost:8080/api.php/?method=signup&firstname=rishabh&lastname=tayal&email=e@s.c&password=123
-    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -37,7 +34,7 @@
 
 -(void)signupPressed:(id)sender
 {
-    NSString* urlString =[NSString stringWithFormat:@"%@method=signup&firstname=newFirstName&lastname=newLastName&email=newEmail&password=newPass", webservice_base_url];
+    NSString* urlString = [NSString stringWithFormat:kURLSignup, @"name", @"last", @"r@r.r", @"pass"];
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"%@", json);
