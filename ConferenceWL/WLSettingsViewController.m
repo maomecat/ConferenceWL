@@ -10,6 +10,7 @@
 #import "WLNavigationController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WLLoginViewController.h"
+#import "WLActivityView.h"
 
 @interface WLSettingsViewController ()
 
@@ -48,13 +49,20 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"loggedIn"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        WLLoginViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
-        self.view.window.rootViewController = navC;
+        [WLActivityView showInView:self.view loadingMessage:@"Signing out..."];
+         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(logoutComplete:) userInfo:nil repeats:NO];
     }
+}
+
+-(void)logoutComplete:(NSTimer*)logoutTimer
+{
+    [WLActivityView hide];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"loggedIn"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WLLoginViewController* navC = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
+    self.view.window.rootViewController = navC;
 }
 
 /*
