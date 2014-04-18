@@ -68,10 +68,22 @@
         return;
     }
     
-    NSString* urlString = [NSString stringWithFormat:kURLSignup, nameCell.textfield.text, nameCell.textfield.text, emailCell.textfield.text, passwordCell.textfield.text];
+    [self signupWithFirstName:nameCell.textfield.text lastName:nameCell.textfield.text email:emailCell.textfield.text pasword:passwordCell.textfield.text];
+}
+
+-(void)signupWithFirstName:(NSString*)firstName lastName:(NSString*)lastName email:(NSString*)email pasword:(NSString*)password
+{
+    NSString* urlString = [NSString stringWithFormat:kURLSignup, firstName, lastName,email, password];
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"%@", json);
+    
+    if ([json[@"success"] boolValue]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:json[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 #pragma mark - UITableView Datasource
@@ -92,6 +104,7 @@
         case 1:
             cell.textfield.placeholder = @"Email";
             cell.textfield.keyboardType = UIKeyboardTypeEmailAddress;
+            cell.textfield.autocorrectionType = UITextAutocorrectionTypeNo;
             break;
         default:
             cell.textfield.placeholder = @"Password";
@@ -99,6 +112,8 @@
             cell.textfield.secureTextEntry = YES;
             break;
     }
+    
+    cell.textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     return cell;
 }
