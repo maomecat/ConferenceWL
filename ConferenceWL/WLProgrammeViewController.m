@@ -73,29 +73,44 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (_datasource.count == 0) {
+        return 2;
+    }
     return _datasource.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = _datasource[indexPath.row][@"name"];
-    cell.detailTextLabel.text = _datasource[indexPath.row][@"date"];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
-    if ([[_programesIAmAttending valueForKey:@"id"] containsObject:_datasource[indexPath.row][@"id"]]) {
-        [button setTitle:@"Attending" forState:UIControlStateNormal];
+    if (_datasource.count == 0) {
+        //There are no programmes to show - let the user know
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"No Programmes";
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+        }
+        return cell;
+        
     } else {
-        [button setTitle:@"RSVP" forState:UIControlStateNormal];
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        }
+        cell.textLabel.text = _datasource[indexPath.row][@"name"];
+        cell.detailTextLabel.text = _datasource[indexPath.row][@"date"];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        if ([[_programesIAmAttending valueForKey:@"id"] containsObject:_datasource[indexPath.row][@"id"]]) {
+            [button setTitle:@"Attending" forState:UIControlStateNormal];
+        } else {
+            [button setTitle:@"RSVP" forState:UIControlStateNormal];
+        }
+        [button setFrame:CGRectMake(0, 0, 100, 35)];
+        cell.accessoryView = button;
+        
+        return cell;
     }
-    [button setFrame:CGRectMake(0, 0, 100, 35)];
-    cell.accessoryView = button;
-    
-    return cell;
 }
 
 #pragma mark - UITableView Delegate

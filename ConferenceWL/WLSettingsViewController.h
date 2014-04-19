@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLSettingsViewController : UIViewController<UIActionSheetDelegate>
+@interface WLSettingsViewController : UITableViewController<UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 -(IBAction)logoutClicked:(id)sender;
 

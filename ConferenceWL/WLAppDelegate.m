@@ -42,7 +42,16 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
+
++(NSString *)appVersionNumberDisplayString {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    
+    return [NSString stringWithFormat:@"%@ (%@)", majorVersion, minorVersion];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

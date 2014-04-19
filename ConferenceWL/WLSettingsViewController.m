@@ -11,11 +11,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "WLLoginViewController.h"
 #import "WLActivityView.h"
+#import "WLAppDelegate.h"
 
 @interface WLSettingsViewController ()
 
 @property (strong) IBOutlet UIButton* logoutButton;
 @property (strong) IBOutlet UILabel* usernameLabel;
+@property (strong) IBOutlet UILabel* versionLabel;
 
 @end
 
@@ -29,11 +31,14 @@
     
     self.title = @"Settings";
     
-    _usernameLabel.text = [NSString stringWithFormat:@"Welcome %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+    _usernameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"user_firstname"], [[NSUserDefaults standardUserDefaults] objectForKey:@"user_lastname"]];
     
     [self.logoutButton.layer setBorderWidth:1];
     self.logoutButton.layer.borderColor = self.logoutButton.tintColor.CGColor;
     self.logoutButton.layer.cornerRadius = 4;
+    
+    _versionLabel.text = [WLAppDelegate appVersionNumberDisplayString];
+
     // Do any additional setup after loading the view.
 }
 
@@ -70,6 +75,8 @@
         self.view.window.rootViewController = navC;
     } completion:nil];
 }
+
+#pragma mark - UITableView Datasource
 
 /*
  #pragma mark - Navigation

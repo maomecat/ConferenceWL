@@ -206,8 +206,7 @@
 				0671D08B18F7474A00D18071 /* WLAppDelegate.h */,
 				0671D08C18F7474A00D18071 /* WLAppDelegate.m */,
 				0671D08E18F7474A00D18071 /* Main.storyboard */,
-				06FCCEF218FF2F62001FA6B9 /* WLSettingsViewController.h */,
-				06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */,
+				067869781903124C00A0C098 /* Settings View Controller */,
 				0601156018F85CDC0017D61D /* WLCalendarViewController.h */,
 				0601156118F85CDC0017D61D /* WLCalendarViewController.m */,
 				0601155D18F857070017D61D /* WLFloorPlanViewController.h */,
@@ -257,6 +256,15 @@
 				0671D0A418F7474A00D18071 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		067869781903124C00A0C098 /* Settings View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				06FCCEF218FF2F62001FA6B9 /* WLSettingsViewController.h */,
+				06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */,
+			);
+			name = "Settings View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
