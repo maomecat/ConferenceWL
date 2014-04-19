@@ -78,6 +78,15 @@
 
 #pragma mark - UITableView Datasource
 
+#pragma mark - UITableView Delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 4 && indexPath.row == 0) {
+        [self logoutClicked:nil];
+    }
+}
 /*
  #pragma mark - Navigation
  

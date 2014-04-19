@@ -105,6 +105,8 @@
             [button setTitle:@"Attending" forState:UIControlStateNormal];
         } else {
             [button setTitle:@"RSVP" forState:UIControlStateNormal];
+            button.tag = indexPath.row;
+            [button addTarget:self action:@selector(rsvpClicked:) forControlEvents:UIControlEventTouchUpInside];
         }
         [button setFrame:CGRectMake(0, 0, 100, 35)];
         cell.accessoryView = button;
@@ -120,6 +122,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void)rsvpClicked:(UIButton*)sender {
+    NSLog(@"%@", _datasource[sender.tag]);
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], _datasource[sender.tag][@"id"]] withCompletionBlock:^(bool success, id result) {
+        NSLog(@"%@", result);
+        [self refreshTable:self.refreshControl];
+//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    
+}
 
 /*
  #pragma mark - Navigation

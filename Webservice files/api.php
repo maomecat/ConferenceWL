@@ -13,6 +13,8 @@ if (function_exists($_GET['method'])) {
 		$_GET['method']($_GET['email'], $_GET['password']);
 	} elseif($_GET['method'] == 'getProgrammesForUser') {
 		$_GET['method']($_GET['userid']);
+	} elseif($_GET['method'] == 'setRSVPForUser') {
+		$_GET['method']($_GET['userid'], $_GET['programmeid']);
 	} else {
 		$_GET['method']();
 	}
@@ -49,30 +51,17 @@ function login($email, $password) {
 		$retval = mysql_query($sql);
 		
 		$users = array();
-	while($user = mysql_fetch_array($retval)) {
-		$users = $user;
-	}		
+		while($user = mysql_fetch_array($retval)) {
+			$users = $user;
+		}		
 
-	if(count($users) > 0) {
-		$result = array("success"=>"true",
+		if(count($users) > 0) {
+			$result = array("success"=>"true",
 						"user"=> $users);
-	} else {
+		} else {
  			$result = array("success"=>"false",
  							"message"=>"Password is not correct.");
-	}
-
-		
-		
-// 		if(mysql_fetch_array($retval) != false) {
-// 			$result = array("success"=>"true");		
-// 			$users = array();
-// 			while($user = mysql_fetch_array($retval)) {
-// 			$users[] = $user;
-// 			}
-
-		// } else {
-
-// 		}
+		}
 	} else {
 		//Username doesnt exists in DB
 		$result = array("success"=>"false",
@@ -101,6 +90,20 @@ function getAllProgrammes() {
 	$programmes = json_encode($programmes);
 	header("Content-type:application/json");
 	echo $programmes;
+}
+
+function setRSVPForUser($userid, $programmeid) {
+	$sql = "INSERT INTO user_programmes (userid, programmeid) VALUES ('$userid', '$programmeid')";
+ 
+	$retval = mysql_query($sql);
+
+	if(!$retval) {
+		$result = array("success"=>"false",
+						"message"=>"Could not create account. Please try again later.");
+	} else {
+		$result = array("success"=>"true");
+	}
+	echo json_encode($result);
 }
 
 function getProgrammesForUser($user) {
