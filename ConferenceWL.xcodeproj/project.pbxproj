@@ -33,6 +33,8 @@
 		0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0B218F74B1300D18071 /* WLSignupViewController.m */; };
 		0671D0B618F7939B00D18071 /* WLProgrammeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */; };
 		0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */; };
+		0678698019031EBC00A0C098 /* WLTerms&PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0678697F19031EBC00A0C098 /* WLTerms&PrivacyViewController.m */; };
+		067869821903214400A0C098 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067869811903214400A0C098 /* MessageUI.framework */; };
 		06FCCEF418FF2F62001FA6B9 /* WLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */; };
 		140BE6339FB04D2183FF3403 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7684584620CD497292099C25 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,9 @@
 		0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLProgrammeViewController.m; sourceTree = "<group>"; };
 		0671D0C718F83B7500D18071 /* WLAttendeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAttendeesViewController.h; sourceTree = "<group>"; };
 		0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAttendeesViewController.m; sourceTree = "<group>"; };
+		0678697E19031EBC00A0C098 /* WLTerms&PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLTerms&PrivacyViewController.h"; sourceTree = "<group>"; };
+		0678697F19031EBC00A0C098 /* WLTerms&PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WLTerms&PrivacyViewController.m"; sourceTree = "<group>"; };
+		067869811903214400A0C098 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		06FCCEF218FF2F62001FA6B9 /* WLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSettingsViewController.h; sourceTree = "<group>"; };
 		06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSettingsViewController.m; sourceTree = "<group>"; };
 		0990CDA482DF4712940F6A0C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067869821903214400A0C098 /* MessageUI.framework in Frameworks */,
 				0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */,
 				0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */,
 				0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */,
@@ -189,6 +195,7 @@
 		0671D07B18F7474A00D18071 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				067869811903214400A0C098 /* MessageUI.framework */,
 				0671D07C18F7474A00D18071 /* Foundation.framework */,
 				0671D07E18F7474A00D18071 /* CoreGraphics.framework */,
 				0671D08018F7474A00D18071 /* UIKit.framework */,
@@ -261,10 +268,20 @@
 		067869781903124C00A0C098 /* Settings View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0678697E19031EBC00A0C098 /* WLTerms&PrivacyViewController.h */,
+				0678697F19031EBC00A0C098 /* WLTerms&PrivacyViewController.m */,
+				0678697D19031E3000A0C098 /* Main View Controller */,
+			);
+			name = "Settings View Controller";
+			sourceTree = "<group>";
+		};
+		0678697D19031E3000A0C098 /* Main View Controller */ = {
+			isa = PBXGroup;
+			children = (
 				06FCCEF218FF2F62001FA6B9 /* WLSettingsViewController.h */,
 				06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */,
 			);
-			name = "Settings View Controller";
+			name = "Main View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +426,7 @@
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
 				062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */,
 				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
+				0678698019031EBC00A0C098 /* WLTerms&PrivacyViewController.m in Sources */,
 				06FCCEF418FF2F62001FA6B9 /* WLSettingsViewController.m in Sources */,
 				062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */,
 				0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */,

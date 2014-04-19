@@ -12,6 +12,7 @@
 #import "WLLoginViewController.h"
 #import "WLActivityView.h"
 #import "WLAppDelegate.h"
+#import "WLTerms&PrivacyViewController.h"
 
 @interface WLSettingsViewController ()
 
@@ -83,19 +84,42 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.section == 3 && indexPath.row == 0) {
+        if ([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController* mailVC = [[MFMailComposeViewController alloc] init];
+            mailVC.mailComposeDelegate = self;
+            [mailVC setToRecipients:@[@"email@example.com"]];
+            [mailVC setSubject:@"example subject"];
+            [self presentViewController: mailVC animated:YES completion:nil];
+            
+        }
+    }
     if (indexPath.section == 4 && indexPath.row == 0) {
         [self logoutClicked:nil];
     }
 }
-/*
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+
+     if ([segue.identifier isEqualToString:@"TermsSegue"]) {
+         WLTerms_PrivacyViewController* termPrivacyVC = [segue destinationViewController];
+         termPrivacyVC.viewType = WLTerms_PrivacyViewTypeTerms;
+     }
+     if ([segue.identifier isEqualToString:@"PrivacySegue"]) {
+         WLTerms_PrivacyViewController* termsPrivacyVC = [segue destinationViewController];
+         termsPrivacyVC.viewType = WLTerms_PrivacyViewTypePrivacy;
+     }
+     
  }
- */
+
 
 @end

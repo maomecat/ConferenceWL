@@ -46,6 +46,7 @@
     
 //    [self.navigationItem setTitleView:[UIView setNavigationTitleImage:NAVIGATIONBARTITLEVIEW]];
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:NAVIGATIONBARBACKGROUND] forBarMetrics:UIBarMetricsDefault];
+    self.title = @"Conference App";
     
     UIImageView* footerIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 8)];
     footerIV.image = [UIImage imageNamed:@"left_panel_shadow_1px.png"];

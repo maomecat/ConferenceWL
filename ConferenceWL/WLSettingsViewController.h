@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface WLSettingsViewController : UITableViewController<UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface WLSettingsViewController : UITableViewController<UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate>
 
 -(IBAction)logoutClicked:(id)sender;
 
