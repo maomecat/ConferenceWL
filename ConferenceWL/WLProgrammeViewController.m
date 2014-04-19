@@ -14,6 +14,7 @@
 @property (strong) IBOutlet UITableView* tableView;
 
 @property (strong) NSMutableArray* datasource;
+@property (strong) NSMutableArray* programesIAmAttending;
 @property (strong) UIRefreshControl* refreshControl;
 
 @end
@@ -55,6 +56,11 @@
             [refreshControl endRefreshing];
         }];
     }
+    
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
+        _programesIAmAttending = [[NSMutableArray alloc] initWithArray:result];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +84,17 @@
     }
     cell.textLabel.text = _datasource[indexPath.row][@"name"];
     cell.detailTextLabel.text = _datasource[indexPath.row][@"date"];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    if ([[_programesIAmAttending valueForKey:@"id"] containsObject:_datasource[indexPath.row][@"id"]]) {
+        [button setTitle:@"Attending" forState:UIControlStateNormal];
+    } else {
+        [button setTitle:@"RSVP" forState:UIControlStateNormal];
+    }
+    [button setFrame:CGRectMake(0, 0, 100, 35)];
+    cell.accessoryView = button;
+    
     return cell;
 }
 
@@ -87,6 +104,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
 /*
  #pragma mark - Navigation
  

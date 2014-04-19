@@ -47,12 +47,32 @@ function login($email, $password) {
 		//Username exists in DB
 		$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
 		$retval = mysql_query($sql);
-		if(mysql_fetch_array($retval) != false) {
-			$result = array("success"=>"true");		
-		} else {
-			$result = array("success"=>"false",
-							"message"=>"Password is not correct.");
-		}
+		
+		$users = array();
+	while($user = mysql_fetch_array($retval)) {
+		$users = $user;
+	}		
+
+	if(count($users) > 0) {
+		$result = array("success"=>"true",
+						"user"=> $users);
+	} else {
+ 			$result = array("success"=>"false",
+ 							"message"=>"Password is not correct.");
+	}
+
+		
+		
+// 		if(mysql_fetch_array($retval) != false) {
+// 			$result = array("success"=>"true");		
+// 			$users = array();
+// 			while($user = mysql_fetch_array($retval)) {
+// 			$users[] = $user;
+// 			}
+
+		// } else {
+
+// 		}
 	} else {
 		//Username doesnt exists in DB
 		$result = array("success"=>"false",
