@@ -7,14 +7,14 @@
 //
 
 #import "WLProgrammeViewController.h"
-#import "WLNavigationController.h"
+//#import "WLNavigationController.h"
 
 @interface WLProgrammeViewController ()
 
 @property (strong) IBOutlet UITableView* tableView;
 
-@property (strong) UIRefreshControl* refreshControl;
 @property (strong) NSMutableArray* datasource;
+@property (strong) UIRefreshControl* refreshControl;
 
 @end
 
@@ -23,12 +23,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
     self.view.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
     
     // Here self.navigationController is an instance of NavigationViewController (which is a root controller for the main window)
     //
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
     self.title = @"Programmes";
     
@@ -41,12 +41,20 @@
 }
 
 -(void)refreshTable:(UIRefreshControl*)refreshControl {
-
-    [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
-        _datasource = [[NSMutableArray alloc] initWithArray:result];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [refreshControl endRefreshing];
-    }];
+    
+    if (_userid) {
+        [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, _userid] withCompletionBlock:^(bool success, id result) {
+            _datasource = [[NSMutableArray alloc] initWithArray:result];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [refreshControl endRefreshing];
+        }];
+    } else {
+        [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
+            _datasource = [[NSMutableArray alloc] initWithArray:result];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [refreshControl endRefreshing];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning

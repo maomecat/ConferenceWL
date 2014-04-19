@@ -7,7 +7,7 @@
 //
 
 #import "WLFloorPlanViewController.h"
-#import "WLNavigationController.h"
+//#import "WLNavigationController.h"
 
 @interface WLFloorPlanViewController ()
 
@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.title = @"Floor Plans";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
 
     // Do any additional setup after loading the view.
 }

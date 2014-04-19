@@ -10,4 +10,6 @@
 
 @interface WLProgrammeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong) NSString* userid;
+
 @end

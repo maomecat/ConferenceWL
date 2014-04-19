@@ -14,5 +14,5 @@
 #define kURLLogin [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=login&email=%@&password=%@"]
 #define kURLGetAttendees [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getAllUsers"]
 #define kURLGetAllProgrammes [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getAllProgrammes"]
-
+#define kURLGetProgrammesForUser [NSString stringWithFormat:@"%@%@", kURLPrefix, @"method=getProgrammesForUser&userid=%@"]
 #endif

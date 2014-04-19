@@ -8,9 +8,10 @@
 
 #import "WLLoginViewController.h"
 #import "WLProgrammeViewController.h"
-#import "WLNavigationController.h"
 #import "CSNotificationView.h"
 #import "WLActivityView.h"
+#import "MFSideMenu.h"
+#import "WLMenuViewController.h"
 
 @interface WLLoginViewController ()
 
@@ -86,9 +87,11 @@
             
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             WLProgrammeViewController* programVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
-            WLNavigationController* navC = [[WLNavigationController alloc] initWithRootViewController:programVC];
+            UINavigationController* navC = [[UINavigationController alloc] initWithRootViewController:programVC];
+            MFSideMenuContainerViewController* sideMenu = [MFSideMenuContainerViewController containerWithCenterViewController:navC leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] init]] rightMenuViewController:nil];
+
             [UIView transitionWithView:self.view.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-                self.view.window.rootViewController = navC;
+                self.view.window.rootViewController = sideMenu;
             } completion:nil];
             
         } else {

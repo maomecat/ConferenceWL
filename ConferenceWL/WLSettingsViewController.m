@@ -7,7 +7,7 @@
 //
 
 #import "WLSettingsViewController.h"
-#import "WLNavigationController.h"
+//#import "WLNavigationController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WLLoginViewController.h"
 #import "WLActivityView.h"
@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
     self.title = @"Settings";
     

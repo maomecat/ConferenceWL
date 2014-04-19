@@ -7,7 +7,8 @@
 //
 
 #import "WLAttendeesViewController.h"
-#import "WLNavigationController.h"
+//#import "WLNavigationController.h"
+#import "WLProgrammeViewController.h"
 
 @interface WLAttendeesViewController ()
 
@@ -24,14 +25,14 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
-   
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+    
     self.title = @"Attendees";
-
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
-
+    
     [self refreshTable:self.refreshControl];
     // Do any additional setup after loading the view.
 }
@@ -64,7 +65,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.datasource[indexPath.row][@"FirstName"], _datasource[indexPath.row][@"LastName"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.datasource[indexPath.row][@"firstname"], _datasource[indexPath.row][@"lastname"]];
     return cell;
 }
 
@@ -73,17 +74,23 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSLog(@"%@", _datasource[indexPath.row]);
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WLProgrammeViewController* prog = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+    prog.userid = _datasource[indexPath.row][@"id"];
+    [self.navigationController pushViewController:prog animated:YES];
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

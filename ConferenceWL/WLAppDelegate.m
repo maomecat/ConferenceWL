@@ -7,7 +7,10 @@
 //
 
 #import "WLAppDelegate.h"
-#import "WLNavigationController.h"
+//#import "WLNavigationController.h"
+#import "MFSideMenu.h"
+#import "WLProgrammeViewController.h"
+#import "WLMenuViewController.h"
 
 @interface WLAppDelegate()
 
@@ -26,7 +29,11 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"loggedIn"] boolValue]) {
-        _viewConroller = [[WLNavigationController alloc] initWithRootViewController:[sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"]];
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WLProgrammeViewController* programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
+        UINavigationController* navc = [[UINavigationController alloc] initWithRootViewController:programmeVC];
+        _viewConroller = [MFSideMenuContainerViewController containerWithCenterViewController:navc leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] init]] rightMenuViewController:nil];
+//        _viewConroller = [[WLNavigationController alloc] initWithRootViewController:[sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"]];
     } else {
         _viewConroller = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
     }

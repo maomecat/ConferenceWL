@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-REMenu.xcscheme</key>
+		<key>Pods-MFSideMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>278D046B12524A9DA580E946</key>
+		<key>01907A52A8A34A9083B063F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89ECC9E9A7604FBBA5FA92F1</key>
+		<key>18E5D0EFFD8442FE94D9B5C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE9A822A38C24525B4C7E722</key>
+		<key>6F526A80193E46EA96E9139A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,6 +11,8 @@ if (function_exists($_GET['method'])) {
 	 	$_GET['method']($_GET['firstname'], $_GET['lastname'], $_GET['email'], $_GET['password']);
 	} elseif($_GET['method'] == 'login') {
 		$_GET['method']($_GET['email'], $_GET['password']);
+	} elseif($_GET['method'] == 'getProgrammesForUser') {
+		$_GET['method']($_GET['userid']);
 	} else {
 		$_GET['method']();
 	}
@@ -60,7 +62,7 @@ function login($email, $password) {
 }
 
 function getAllUsers() {
-	$user_sql = mysql_query("select * from attendees");
+	$user_sql = mysql_query("select * from users");
 	$users = array();
 	while($user = mysql_fetch_array($user_sql)) {
 		$users[] = $user;
@@ -79,6 +81,16 @@ function getAllProgrammes() {
 	$programmes = json_encode($programmes);
 	header("Content-type:application/json");
 	echo $programmes;
+}
+
+function getProgrammesForUser($user) {
+	$sql =  "SELECT * FROM programmes WHERE id IN (SELECT programmeid FROM user_programmes WHERE userid = '$user')";
+	$prog_sql = mysql_query($sql);
+	$progs = array();
+	while($prog = mysql_fetch_array($prog_sql)) {
+		$progs[] = $prog;
+	}
+	echo json_encode($progs);	
 }
 
 function checkIfUserExists($email)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0601155B18F847E60017D61D /* WLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155818F847E60017D61D /* WLNavigationController.m */; };
 		0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155E18F857070017D61D /* WLFloorPlanViewController.m */; };
 		0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601156118F85CDC0017D61D /* WLCalendarViewController.m */; };
 		0601156618F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601156518F886580017D61D /* wwdc13-maps-floorplan-level-1-day1.png */; };
@@ -16,6 +15,7 @@
 		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
 		062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9D19019265003C3BA4 /* WLWebCaller.m */; };
 		062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */; };
+		062D1AA51902F928003C3BA4 /* WLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1AA41902F928003C3BA4 /* WLMenuViewController.m */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -48,8 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0601155718F847E60017D61D /* WLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLNavigationController.h; sourceTree = "<group>"; };
-		0601155818F847E60017D61D /* WLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLNavigationController.m; sourceTree = "<group>"; };
 		0601155D18F857070017D61D /* WLFloorPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFloorPlanViewController.h; sourceTree = "<group>"; };
 		0601155E18F857070017D61D /* WLFloorPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFloorPlanViewController.m; sourceTree = "<group>"; };
 		0601156018F85CDC0017D61D /* WLCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCalendarViewController.h; sourceTree = "<group>"; };
@@ -64,6 +62,8 @@
 		062D1A9C19019265003C3BA4 /* WLWebCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebCaller.h; sourceTree = "<group>"; };
 		062D1A9D19019265003C3BA4 /* WLWebCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLWebCaller.m; sourceTree = "<group>"; };
 		062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wwdc14-home-branding.png"; sourceTree = "<group>"; };
+		062D1AA31902F928003C3BA4 /* WLMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMenuViewController.h; sourceTree = "<group>"; };
+		062D1AA41902F928003C3BA4 /* WLMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMenuViewController.m; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -212,12 +212,12 @@
 				0601156118F85CDC0017D61D /* WLCalendarViewController.m */,
 				0601155D18F857070017D61D /* WLFloorPlanViewController.h */,
 				0601155E18F857070017D61D /* WLFloorPlanViewController.m */,
-				0601155718F847E60017D61D /* WLNavigationController.h */,
-				0601155818F847E60017D61D /* WLNavigationController.m */,
 				0671D0C718F83B7500D18071 /* WLAttendeesViewController.h */,
 				0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */,
 				0671D0B418F7939B00D18071 /* WLProgrammeViewController.h */,
 				0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */,
+				062D1AA31902F928003C3BA4 /* WLMenuViewController.h */,
+				062D1AA41902F928003C3BA4 /* WLMenuViewController.m */,
 				062D1A8F190174F7003C3BA4 /* Signup View Controller */,
 				0671D09118F7474A00D18071 /* WLLoginViewController.h */,
 				0671D09218F7474A00D18071 /* WLLoginViewController.m */,
@@ -398,7 +398,6 @@
 				0671D0B618F7939B00D18071 /* WLProgrammeViewController.m in Sources */,
 				0671D08918F7474A00D18071 /* main.m in Sources */,
 				0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */,
-				0601155B18F847E60017D61D /* WLNavigationController.m in Sources */,
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
 				062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */,
 				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
@@ -407,6 +406,7 @@
 				0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */,
 				062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */,
 				0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */,
+				062D1AA51902F928003C3BA4 /* WLMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

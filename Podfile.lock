@@ -1,13 +1,13 @@
 PODS:
   - CSNotificationView (0.4)
-  - REMenu (1.8.5)
+  - MFSideMenu (0.5.4)
 
 DEPENDENCIES:
   - CSNotificationView
-  - REMenu
+  - MFSideMenu
 
 SPEC CHECKSUMS:
   CSNotificationView: 09575b44d549a17dc4a313107bebdca98a40fcc1
-  REMenu: 282a6b5feee8cce5403d7f28e15ffbc0aee359ab
+  MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30
 
 COCOAPODS: 0.32.1
