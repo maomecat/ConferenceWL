@@ -8,6 +8,7 @@
 
 #import "WLProgrammeViewController.h"
 //#import "WLNavigationController.h"
+#import "WLProgrammeTableViewCell.h"
 
 @interface WLProgrammeViewController ()
 
@@ -52,14 +53,18 @@
     } else {
         [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
             _datasource = [[NSMutableArray alloc] initWithArray:result];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            NSLog(@"%@", _datasource);
+            
+            [self.tableView reloadData];
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             [refreshControl endRefreshing];
         }];
     }
     
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
         _programesIAmAttending = [[NSMutableArray alloc] initWithArray:result];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadData];
+//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
 }
 
@@ -71,12 +76,22 @@
 
 #pragma mark - UITableView Datasource
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return [_datasource valueForKey:@"date"][section];
+//}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_datasource.count == 0) {
         return 2;
     }
-    return _datasource.count;
+    return [_datasource count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,12 +107,12 @@
         return cell;
         
     } else {
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        WLProgrammeTableViewCell* cell = (WLProgrammeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+            cell = [[WLProgrammeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         }
-        cell.textLabel.text = _datasource[indexPath.row][@"name"];
-        cell.detailTextLabel.text = _datasource[indexPath.row][@"date"];
+        cell.progNameLabel.text = _datasource[indexPath.row][@"name"];
+        cell.timeLabel.text = _datasource[indexPath.row][@"date"];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
@@ -127,9 +142,7 @@
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], _datasource[sender.tag][@"id"]] withCompletionBlock:^(bool success, id result) {
         NSLog(@"%@", result);
         [self refreshTable:self.refreshControl];
-//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
-    
 }
 
 /*

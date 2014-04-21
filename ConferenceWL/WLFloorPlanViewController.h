@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLFloorPlanViewController : UIViewController
+@interface WLFloorPlanViewController : UIViewController<UIScrollViewAccessibilityDelegate>
 
 @end

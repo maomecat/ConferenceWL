@@ -47,6 +47,8 @@
 {
     [WLWebCaller getDataFromURL:kURLGetAttendees withCompletionBlock:^(bool success, id result) {
         self.datasource = [[NSMutableArray alloc] initWithArray:result];
+        NSSortDescriptor* sorter = [[NSSortDescriptor alloc] initWithKey:@"firstname" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+        [self.datasource sortUsingDescriptors:[NSArray arrayWithObjects:sorter, nil]];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [refreshControl endRefreshing];
     }];
