@@ -25,7 +25,11 @@
     if (loadingMessage.length) {
         activity.loadingMessageLabel.text = loadingMessage;
     }
-    [view addSubview:activity];
+    activity.alpha = 0;
+    [UIView animateWithDuration:0.2 animations:^{
+        [view addSubview:activity];
+        activity.alpha = 1;
+    }];
 }
 
 +(void)hide
@@ -59,12 +63,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
