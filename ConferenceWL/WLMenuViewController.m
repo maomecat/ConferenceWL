@@ -53,7 +53,7 @@
     footerIV.image = [UIImage imageNamed:@"left_panel_shadow_1px.png"];
     self.tableView.tableFooterView = footerIV;
    
-    UIImage* img = [UIImage imageNamed:@"bodybg.jpg"];
+    UIImage* img = [UIImage imageNamed:@"chicago1.jpg"];
     UIImage* blurImage = [self gaussianBlur:img];
     UIImageView* iv = [[UIImageView alloc] initWithImage:blurImage];
     iv.contentMode = UIViewContentModeScaleAspectFill;
@@ -75,7 +75,7 @@
     CIFilter* gaussianBLurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [gaussianBLurFilter setDefaults];
     [gaussianBLurFilter setValue:[CIImage imageWithCGImage:[img CGImage]] forKey:kCIInputImageKey];
-    [gaussianBLurFilter setValue:@20 forKey:kCIInputRadiusKey];
+    [gaussianBLurFilter setValue:@10 forKey:kCIInputRadiusKey];
     
     CIImage* outImage = [gaussianBLurFilter outputImage];
     CIContext* context = [CIContext contextWithOptions:nil];
@@ -119,6 +119,36 @@
 {
     // Return the number of sections.
     return 1;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    UIImageView* iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 80, 80)];
+    iv.image = [UIImage imageNamed:@"profile-placeholder-75"];
+    
+    CGPoint center;
+    center.x = view.center.x;
+    center.y = iv.center.y;
+    iv.center = center;
+    
+    UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, iv.frame.origin.y + iv.frame.size.height, self.view.frame.size.width, 40)];
+    nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"user_firstname"], [[NSUserDefaults standardUserDefaults] objectForKey:@"user_lastname"]];
+    nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.textColor = [UIColor lightGrayColor];
+    
+    center.x = view.center.x;
+    center.y = nameLabel.center.y;
+    nameLabel.center = center;
+    
+    [view addSubview:nameLabel];
+    [view addSubview:iv];
+    return view;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 150;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

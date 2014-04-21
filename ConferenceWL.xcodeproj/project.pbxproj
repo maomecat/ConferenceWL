@@ -14,6 +14,9 @@
 		062CA2221905B83700C5CE13 /* bodybg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2211905B83700C5CE13 /* bodybg.jpg */; };
 		062CA2251905C03900C5CE13 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2231905C03900C5CE13 /* menu-button.png */; };
 		062CA2261905C03900C5CE13 /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2241905C03900C5CE13 /* menu-button@2x.png */; };
+		062CA2291905C4DB00C5CE13 /* profile-placeholder-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */; };
+		062CA22A1905C4DB00C5CE13 /* profile-placeholder-75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */; };
+		062CA22C1905C7E700C5CE13 /* chicago1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 062CA22B1905C7E700C5CE13 /* chicago1.jpg */; };
 		062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */; };
 		062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9719018E26003C3BA4 /* WLActivityView.m */; };
 		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
@@ -65,6 +68,9 @@
 		062CA2211905B83700C5CE13 /* bodybg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bodybg.jpg; sourceTree = "<group>"; };
 		062CA2231905C03900C5CE13 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
 		062CA2241905C03900C5CE13 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
+		062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder-75.png"; sourceTree = "<group>"; };
+		062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder-75@2x.png"; sourceTree = "<group>"; };
+		062CA22B1905C7E700C5CE13 /* chicago1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicago1.jpg; sourceTree = "<group>"; };
 		062D1A8E19009D37003C3BA4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		062D1A9019017514003C3BA4 /* WLSignupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupTableViewCell.h; sourceTree = "<group>"; };
 		062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupTableViewCell.m; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 		062D1A9319017FE3003C3BA4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				062CA22B1905C7E700C5CE13 /* chicago1.jpg */,
+				062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */,
+				062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */,
 				062CA2231905C03900C5CE13 /* menu-button.png */,
 				062CA2241905C03900C5CE13 /* menu-button@2x.png */,
 				062CA2211905B83700C5CE13 /* bodybg.jpg */,
@@ -387,8 +396,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				062CA2261905C03900C5CE13 /* menu-button@2x.png in Resources */,
+				062CA22C1905C7E700C5CE13 /* chicago1.jpg in Resources */,
+				062CA2291905C4DB00C5CE13 /* profile-placeholder-75.png in Resources */,
 				062CA2221905B83700C5CE13 /* bodybg.jpg in Resources */,
 				062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */,
+				062CA22A1905C4DB00C5CE13 /* profile-placeholder-75@2x.png in Resources */,
 				062CA2251905C03900C5CE13 /* menu-button.png in Resources */,
 				0671D09518F7474A00D18071 /* Images.xcassets in Resources */,
 				0671D08718F7474A00D18071 /* InfoPlist.strings in Resources */,
