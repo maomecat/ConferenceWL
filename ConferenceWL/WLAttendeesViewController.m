@@ -10,6 +10,7 @@
 //#import "WLNavigationController.h"
 #import "WLProgrammeViewController.h"
 #import "MFSideMenu.h"
+#import "WLAttendeesTableViewCell.h"
 
 @interface WLAttendeesViewController ()
 
@@ -79,11 +80,14 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    WLAttendeesTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[WLAttendeesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.datasource[indexPath.row][@"firstname"], _datasource[indexPath.row][@"lastname"]];
+    
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.datasource[indexPath.row][@"firstname"], _datasource[indexPath.row][@"lastname"]];
+    cell.thumbImageView.image = [UIImage imageNamed:@"profile-placeholder-75"];
+    
     return cell;
 }
 

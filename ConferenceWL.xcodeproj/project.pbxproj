@@ -17,6 +17,7 @@
 		062CA2291905C4DB00C5CE13 /* profile-placeholder-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */; };
 		062CA22A1905C4DB00C5CE13 /* profile-placeholder-75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */; };
 		062CA22C1905C7E700C5CE13 /* chicago1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 062CA22B1905C7E700C5CE13 /* chicago1.jpg */; };
+		062CA2301905C90F00C5CE13 /* WLAttendeesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CA22F1905C90F00C5CE13 /* WLAttendeesTableViewCell.m */; };
 		062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */; };
 		062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9719018E26003C3BA4 /* WLActivityView.m */; };
 		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
@@ -71,6 +72,8 @@
 		062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder-75.png"; sourceTree = "<group>"; };
 		062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder-75@2x.png"; sourceTree = "<group>"; };
 		062CA22B1905C7E700C5CE13 /* chicago1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicago1.jpg; sourceTree = "<group>"; };
+		062CA22E1905C90F00C5CE13 /* WLAttendeesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAttendeesTableViewCell.h; sourceTree = "<group>"; };
+		062CA22F1905C90F00C5CE13 /* WLAttendeesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAttendeesTableViewCell.m; sourceTree = "<group>"; };
 		062D1A8E19009D37003C3BA4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		062D1A9019017514003C3BA4 /* WLSignupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupTableViewCell.h; sourceTree = "<group>"; };
 		062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupTableViewCell.m; sourceTree = "<group>"; };
@@ -153,6 +156,44 @@
 				062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */,
 			);
 			name = "Programme View Controller";
+			sourceTree = "<group>";
+		};
+		062CA22D1905C8DD00C5CE13 /* Attendees View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0671D0C718F83B7500D18071 /* WLAttendeesViewController.h */,
+				0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */,
+				062CA22E1905C90F00C5CE13 /* WLAttendeesTableViewCell.h */,
+				062CA22F1905C90F00C5CE13 /* WLAttendeesTableViewCell.m */,
+			);
+			name = "Attendees View Controller";
+			sourceTree = "<group>";
+		};
+		062CA2311905CA0A00C5CE13 /* Calendar View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0601156018F85CDC0017D61D /* WLCalendarViewController.h */,
+				0601156118F85CDC0017D61D /* WLCalendarViewController.m */,
+			);
+			name = "Calendar View Controller";
+			sourceTree = "<group>";
+		};
+		062CA2321905CA1900C5CE13 /* Floor View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0601155D18F857070017D61D /* WLFloorPlanViewController.h */,
+				0601155E18F857070017D61D /* WLFloorPlanViewController.m */,
+			);
+			name = "Floor View Controller";
+			sourceTree = "<group>";
+		};
+		062CA2331905CA3100C5CE13 /* Login View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0671D09118F7474A00D18071 /* WLLoginViewController.h */,
+				0671D09218F7474A00D18071 /* WLLoginViewController.m */,
+			);
+			name = "Login View Controller";
 			sourceTree = "<group>";
 		};
 		062D1A8F190174F7003C3BA4 /* Signup View Controller */ = {
@@ -248,18 +289,14 @@
 				0671D08C18F7474A00D18071 /* WLAppDelegate.m */,
 				0671D08E18F7474A00D18071 /* Main.storyboard */,
 				067869781903124C00A0C098 /* Settings View Controller */,
-				0601156018F85CDC0017D61D /* WLCalendarViewController.h */,
-				0601156118F85CDC0017D61D /* WLCalendarViewController.m */,
-				0601155D18F857070017D61D /* WLFloorPlanViewController.h */,
-				0601155E18F857070017D61D /* WLFloorPlanViewController.m */,
-				0671D0C718F83B7500D18071 /* WLAttendeesViewController.h */,
-				0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */,
+				062CA2311905CA0A00C5CE13 /* Calendar View Controller */,
+				062CA2321905CA1900C5CE13 /* Floor View Controller */,
+				062CA22D1905C8DD00C5CE13 /* Attendees View Controller */,
 				062CA1FA1905677A00C5CE13 /* Programme View Controller */,
+				062D1A8F190174F7003C3BA4 /* Signup View Controller */,
+				062CA2331905CA3100C5CE13 /* Login View Controller */,
 				062D1AA31902F928003C3BA4 /* WLMenuViewController.h */,
 				062D1AA41902F928003C3BA4 /* WLMenuViewController.m */,
-				062D1A8F190174F7003C3BA4 /* Signup View Controller */,
-				0671D09118F7474A00D18071 /* WLLoginViewController.h */,
-				0671D09218F7474A00D18071 /* WLLoginViewController.m */,
 				0671D09418F7474A00D18071 /* Images.xcassets */,
 				0671D08318F7474A00D18071 /* Supporting Files */,
 			);
@@ -463,6 +500,7 @@
 				0671D08918F7474A00D18071 /* main.m in Sources */,
 				0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */,
 				0671D08D18F7474A00D18071 /* WLAppDelegate.m in Sources */,
+				062CA2301905C90F00C5CE13 /* WLAttendeesTableViewCell.m in Sources */,
 				062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */,
 				0671D0B318F74B1300D18071 /* WLSignupViewController.m in Sources */,
 				0678698019031EBC00A0C098 /* WLTerms&PrivacyViewController.m in Sources */,
