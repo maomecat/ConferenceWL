@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F94A57429441487295996D72"
-               BuildableName = "libPods-MZAppearance.a"
-               BlueprintName = "Pods-MZAppearance"
+               BlueprintIdentifier = "60251ED337BC42C59E5D7997"
+               BuildableName = "libPods-FXBlurView.a"
+               BlueprintName = "Pods-FXBlurView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

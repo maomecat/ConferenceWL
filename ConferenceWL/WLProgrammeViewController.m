@@ -10,6 +10,7 @@
 //#import "WLNavigationController.h"
 #import "WLProgrammeTableViewCell.h"
 #import "WLProgrammeDetailViewController.h"
+#import "MFSideMenu.h"
 
 @interface WLProgrammeViewController ()
 
@@ -39,8 +40,25 @@
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
     [self refreshTable:self.refreshControl];
-    
+
+    if (!_userid) {
+        [self setupLeftMenuBarButton];
+    }
     // Do any additional setup after loading the view.
+}
+
+-(void)setupLeftMenuBarButton
+{
+    UIButton* barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [barButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
+    [barButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [barButton addTarget:self action:@selector(leftSideMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:barButton]];
+}
+
+-(void)leftSideMenuButtonPressed:(id)sender
+{
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 -(void)refreshTable:(UIRefreshControl*)refreshControl {

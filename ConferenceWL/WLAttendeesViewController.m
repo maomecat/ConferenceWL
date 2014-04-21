@@ -9,6 +9,7 @@
 #import "WLAttendeesViewController.h"
 //#import "WLNavigationController.h"
 #import "WLProgrammeViewController.h"
+#import "MFSideMenu.h"
 
 @interface WLAttendeesViewController ()
 
@@ -34,6 +35,7 @@
     [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
     
     [self refreshTable:self.refreshControl];
+    [self setupLeftMenuBarButton];
     // Do any additional setup after loading the view.
 }
 
@@ -41,6 +43,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setupLeftMenuBarButton
+{
+    UIButton* barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [barButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
+    [barButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [barButton addTarget:self action:@selector(leftSideMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:barButton]];
+}
+
+-(void)leftSideMenuButtonPressed:(id)sender
+{
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 -(void)refreshTable:(UIRefreshControl*)refreshControl

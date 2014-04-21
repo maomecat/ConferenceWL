@@ -33,13 +33,20 @@
         WLProgrammeViewController* programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
         UINavigationController* navc = [[UINavigationController alloc] initWithRootViewController:programmeVC];
         _viewConroller = [MFSideMenuContainerViewController containerWithCenterViewController:navc leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] init]] rightMenuViewController:nil];
-//        _viewConroller = [[WLNavigationController alloc] initWithRootViewController:[sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"]];
     } else {
         _viewConroller = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
     }
     
     self.window.rootViewController = _viewConroller;
     [self.window makeKeyAndVisible];
+    
+    //SETup navigation bar UI for the app
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor blueColor]];
+    [UINavigationBar appearance].barTintColor = [UIColor redColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    [UIView appearance].tintColor = [UIColor whiteColor];
+    
+//    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
     return YES;
 }
 

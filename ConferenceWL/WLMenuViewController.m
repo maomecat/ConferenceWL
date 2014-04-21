@@ -15,6 +15,7 @@
 //#import "WMNewsDocument.h"
 //#import "WMSPRViewController.h"
 #import "MFSideMenu.h"
+#import "FXBlurView.h"
 
 @interface WLMenuViewController ()
 
@@ -51,20 +52,42 @@
     UIImageView* footerIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 8)];
     footerIV.image = [UIImage imageNamed:@"left_panel_shadow_1px.png"];
     self.tableView.tableFooterView = footerIV;
-    //
-    //    _navC = [[UINavigationController alloc] init];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+   
+    UIImage* img = [UIImage imageNamed:@"bodybg.jpg"];
+    UIImage* blurImage = [self gaussianBlur:img];
+    UIImageView* iv = [[UIImageView alloc] initWithImage:blurImage];
+    iv.contentMode = UIViewContentModeScaleAspectFill;
+    iv.frame = self.tableView.frame;
+    self.tableView.backgroundView = iv;
+    self.tableView.backgroundColor = [UIColor clearColor];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataReloaded:) name:@"noteModified" object:nil];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIImage*)gaussianBlur:(UIImage*)img
+{
+    CIFilter* gaussianBLurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [gaussianBLurFilter setDefaults];
+    [gaussianBLurFilter setValue:[CIImage imageWithCGImage:[img CGImage]] forKey:kCIInputImageKey];
+    [gaussianBLurFilter setValue:@20 forKey:kCIInputRadiusKey];
+    
+    CIImage* outImage = [gaussianBLurFilter outputImage];
+    CIContext* context = [CIContext contextWithOptions:nil];
+    CGRect rect = [outImage extent];
+    
+    rect.origin.x += (rect.size.width - img.size.width) / 2;
+    rect.origin.y += (rect.size.height - img.size.height) / 2;
+    rect.size = img.size;
+    
+    CGImageRef cgimg = [context createCGImage:outImage fromRect:rect];
+    UIImage* image = [UIImage imageWithCGImage:cgimg];
+    return image;
 }
 
 //-(BOOL)shouldAutorotate
@@ -106,7 +129,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 70;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,12 +138,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selection-bar-off.png"]]];
-        [cell setSelectedBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selection-bar-on.png"]]];
+        cell.selectedBackgroundView = [UIView new];
     }
-    cell.textLabel.textColor = [UIColor blackColor];
-    cell.textLabel.highlightedTextColor = [UIColor blackColor];
+    
+    cell.textLabel.textColor = [UIColor lightGrayColor];
+    cell.textLabel.highlightedTextColor = [UIColor whiteColor];
     cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:28];
+    cell.backgroundColor = [UIColor clearColor];
+    
     // Configure the cell...
     switch (indexPath.row) {
         case 0:

@@ -8,6 +8,7 @@
 
 #import "WLFloorPlanViewController.h"
 //#import "WLNavigationController.h"
+#import "MFSideMenu.h"
 
 @interface WLFloorPlanViewController ()
 {
@@ -47,6 +48,7 @@
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * images.count, self.scrollView.frame.size.height);
 
+    [self setupLeftMenuBarButton];
     // Do any additional setup after loading the view.
 }
 
@@ -54,6 +56,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)setupLeftMenuBarButton
+{
+    UIButton* barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [barButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
+    [barButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [barButton addTarget:self action:@selector(leftSideMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:barButton]];
+}
+
+-(void)leftSideMenuButtonPressed:(id)sender
+{
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
