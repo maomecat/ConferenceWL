@@ -24,6 +24,12 @@
     // Initialization code
 }
 
+-(void)layoutSubviews
+{
+    _thumbImageView.layer.cornerRadius = _thumbImageView.frame.size.width/2;
+    _thumbImageView.layer.masksToBounds = YES;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

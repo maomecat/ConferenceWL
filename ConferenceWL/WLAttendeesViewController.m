@@ -11,6 +11,7 @@
 #import "WLProgrammeViewController.h"
 #import "MFSideMenu.h"
 #import "WLAttendeesTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface WLAttendeesViewController ()
 
@@ -86,7 +87,12 @@
     }
     
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.datasource[indexPath.row][@"firstname"], _datasource[indexPath.row][@"lastname"]];
-    cell.thumbImageView.image = [UIImage imageNamed:@"profile-placeholder-75"];
+//    cell.thumbImageView.image = [UIImage] [UIImage imageNamed:@"profile-placeholder-75"];
+    if (_datasource[indexPath.row][@"photo"] != NULL) {
+        NSLog(@"%@", _datasource[indexPath.row][@"photo"]);
+        [cell.thumbImageView setImageWithURL:[NSURL URLWithString:_datasource[indexPath.row][@"photo"]] placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"]];
+    }
+
     
     return cell;
 }
