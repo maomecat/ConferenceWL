@@ -9,6 +9,7 @@
 #import "WLProgrammeViewController.h"
 //#import "WLNavigationController.h"
 #import "WLProgrammeTableViewCell.h"
+#import "WLProgrammeDetailViewController.h"
 
 @interface WLProgrammeViewController ()
 
@@ -51,20 +52,19 @@
             [refreshControl endRefreshing];
         }];
     } else {
-        [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
             _datasource = [[NSMutableArray alloc] initWithArray:result];
             NSLog(@"%@", _datasource);
-            
-            [self.tableView reloadData];
-//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+//         [self.tableView reloadData];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             [refreshControl endRefreshing];
         }];
     }
-    
+
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
         _programesIAmAttending = [[NSMutableArray alloc] initWithArray:result];
-        [self.tableView reloadData];
-//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
 }
 
@@ -145,15 +145,17 @@
     }];
 }
 
-/*
- #pragma mark - Navigation
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+    if ([segue.identifier isEqualToString:@"ProgrammeDetailSegue"]) {
+        WLProgrammeDetailViewController* progDetail = segue.destinationViewController;
+        progDetail.dictionary = [_datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    }
+}
 
 @end

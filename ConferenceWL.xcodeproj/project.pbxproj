@@ -10,6 +10,7 @@
 		0601155F18F857070017D61D /* WLFloorPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601155E18F857070017D61D /* WLFloorPlanViewController.m */; };
 		0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601156118F85CDC0017D61D /* WLCalendarViewController.m */; };
 		062CA1FD1905679200C5CE13 /* WLProgrammeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CA1FC1905679200C5CE13 /* WLProgrammeTableViewCell.m */; };
+		062CA2001905929400C5CE13 /* WLProgrammeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */; };
 		062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */; };
 		062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9719018E26003C3BA4 /* WLActivityView.m */; };
 		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
@@ -56,6 +57,8 @@
 		0601156118F85CDC0017D61D /* WLCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCalendarViewController.m; sourceTree = "<group>"; };
 		062CA1FB1905679200C5CE13 /* WLProgrammeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProgrammeTableViewCell.h; sourceTree = "<group>"; };
 		062CA1FC1905679200C5CE13 /* WLProgrammeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLProgrammeTableViewCell.m; sourceTree = "<group>"; };
+		062CA1FE1905929400C5CE13 /* WLProgrammeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProgrammeDetailViewController.h; sourceTree = "<group>"; };
+		062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLProgrammeDetailViewController.m; sourceTree = "<group>"; };
 		062D1A8E19009D37003C3BA4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		062D1A9019017514003C3BA4 /* WLSignupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSignupTableViewCell.h; sourceTree = "<group>"; };
 		062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSignupTableViewCell.m; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */,
 				062CA1FB1905679200C5CE13 /* WLProgrammeTableViewCell.h */,
 				062CA1FC1905679200C5CE13 /* WLProgrammeTableViewCell.m */,
+				062CA1FE1905929400C5CE13 /* WLProgrammeDetailViewController.h */,
+				062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */,
 			);
 			name = "Programme View Controller";
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0671D09318F7474A00D18071 /* WLLoginViewController.m in Sources */,
+				062CA2001905929400C5CE13 /* WLProgrammeDetailViewController.m in Sources */,
 				0671D0B618F7939B00D18071 /* WLProgrammeViewController.m in Sources */,
 				0671D08918F7474A00D18071 /* main.m in Sources */,
 				0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */,
