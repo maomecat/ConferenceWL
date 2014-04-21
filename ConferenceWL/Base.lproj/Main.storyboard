@@ -51,7 +51,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hej-El-ipa" kind="modal" identifier="signupSegue" id="0KT-Q0-bHh"/>
+                                    <segue destination="hej-El-ipa" kind="custom" identifier="signupSegue" customClass="BlurryModalSegue" id="0KT-Q0-bHh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="r@r.rr" borderStyle="roundedRect" placeholder="email@example.com*" minimumFontSize="17" clearButtonMode="whileEditing" id="q2q-7I-7sU">
@@ -598,7 +598,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IBA-Gr-fKd">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ECz-cT-XzP">
