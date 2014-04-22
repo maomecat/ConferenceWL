@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MZDayPicker.h"
 
-@interface WLCalendarViewController : UIViewController
+@interface WLCalendarViewController : UIViewController<MZDayPickerDataSource,MZDayPickerDelegate>
 
 @end

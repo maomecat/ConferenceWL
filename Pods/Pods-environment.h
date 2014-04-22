@@ -78,6 +78,12 @@
 #define COCOAPODS_VERSION_MINOR_MZAppearance 1
 #define COCOAPODS_VERSION_PATCH_MZAppearance 2
 
+// MZDayPicker
+#define COCOAPODS_POD_AVAILABLE_MZDayPicker
+#define COCOAPODS_VERSION_MAJOR_MZDayPicker 0
+#define COCOAPODS_VERSION_MINOR_MZDayPicker 0
+#define COCOAPODS_VERSION_PATCH_MZDayPicker 5
+
 // UIImage+BlurredFrame
 #define COCOAPODS_POD_AVAILABLE_UIImage_BlurredFrame
 #define COCOAPODS_VERSION_MAJOR_UIImage_BlurredFrame 0

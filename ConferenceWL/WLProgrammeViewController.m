@@ -133,6 +133,7 @@
         cell.timeLabel.text = _datasource[indexPath.row][@"date"];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         
         if ([[_programesIAmAttending valueForKey:@"id"] containsObject:_datasource[indexPath.row][@"id"]]) {
             [button setTitle:@"Attending" forState:UIControlStateNormal];

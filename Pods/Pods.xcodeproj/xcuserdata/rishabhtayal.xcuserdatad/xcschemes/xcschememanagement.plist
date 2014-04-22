@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MZDayPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UIImage+BlurredFrame.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,42 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1485390A63D440D2941DD99E</key>
+		<key>348FB0A93F7E4E1586060AD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D2237824342439ABBF2FD8A</key>
+		<key>471566A827A545038629E61B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D6A2C4F4BD84ED1AC2AAA25</key>
+		<key>72F6275BC5C14315ADB2E3D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E6FF60B91134E3394C07B8A</key>
+		<key>AA76983EBAD540309F1EF456</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B070FF1EE754C999EBEF837</key>
+		<key>ACB8AAFBB24E4801A5064B76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5F411D84318430CBC3F8ABE</key>
+		<key>AF230CCE2F754C26A3C7E21E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9FACEFFE6D44DF28CD01066</key>
+		<key>CCF26E228084486FAED5589A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F309BF3CCCD9471E92FA2AA0</key>
+		<key>CF1B30CE0A2746BF8EC32AE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAC9929BC70F4DCC93C7200E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

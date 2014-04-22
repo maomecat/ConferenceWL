@@ -11,6 +11,8 @@
 
 @interface WLCalendarViewController ()
 
+@property (strong) IBOutlet MZDayPicker* dayPicker;
+
 @end
 
 @implementation WLCalendarViewController
@@ -22,6 +24,10 @@
     self.title = @"Calendar";
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
+    self.dayPicker.delegate = self;
+    self.dayPicker.dataSource = self;
+    
+//    self.dayPicker.dayNameLabelFontSize
     // Do any additional setup after loading the view.
 }
 
