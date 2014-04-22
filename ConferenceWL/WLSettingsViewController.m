@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
     self.title = @"Settings";
     
@@ -40,7 +40,7 @@
     self.logoutButton.layer.cornerRadius = 4;
     
     _versionLabel.text = [WLAppDelegate appVersionNumberDisplayString];
-
+    
     [self setupLeftMenuBarButton];
     // Do any additional setup after loading the view.
 }
@@ -68,7 +68,7 @@
 
 -(void)logoutClicked:(id)sender
 {
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Yes" otherButtonTitles:nil, nil];
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
     [sheet showInView:self.view.window];
 }
 
@@ -76,7 +76,7 @@
 {
     if (buttonIndex == 0) {
         [WLActivityView showInView:self.view loadingMessage:@"Signing out..."];
-         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(logoutComplete:) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(logoutComplete:) userInfo:nil repeats:NO];
     }
 }
 
@@ -121,22 +121,20 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
+#pragma mark - Navigation
 
-     if ([segue.identifier isEqualToString:@"TermsSegue"]) {
-         WLTerms_PrivacyViewController* termPrivacyVC = [segue destinationViewController];
-         termPrivacyVC.viewType = WLTerms_PrivacyViewTypeTerms;
-     }
-     if ([segue.identifier isEqualToString:@"PrivacySegue"]) {
-         WLTerms_PrivacyViewController* termsPrivacyVC = [segue destinationViewController];
-         termsPrivacyVC.viewType = WLTerms_PrivacyViewTypePrivacy;
-     }
-     
- }
-
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"TermsSegue"]) {
+        WLTerms_PrivacyViewController* termPrivacyVC = [segue destinationViewController];
+        termPrivacyVC.viewType = WLTerms_PrivacyViewTypeTerms;
+    }
+    if ([segue.identifier isEqualToString:@"PrivacySegue"]) {
+        WLTerms_PrivacyViewController* termsPrivacyVC = [segue destinationViewController];
+        termsPrivacyVC.viewType = WLTerms_PrivacyViewTypePrivacy;
+    }
+}
 
 @end
