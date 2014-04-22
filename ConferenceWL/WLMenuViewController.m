@@ -126,10 +126,13 @@
 {
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
     UIImageView* iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 80, 80)];
-#warning photo url is null always.
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"photoURL"]);
+    iv.contentMode = UIViewContentModeScaleAspectFill;
+    iv.layer.cornerRadius = iv.frame.size.height/2;
+    iv.layer.masksToBounds = YES;
+    iv.layer.borderColor = [UIColor redColor].CGColor;
+    iv.layer.borderWidth = 1;
+    
     [iv setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"photoURL"]] placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"]];
-//    iv.image = [UIImage imageNamed:@"profile-placeholder-75"];
     
     CGPoint center;
     center.x = view.center.x;

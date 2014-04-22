@@ -362,7 +362,6 @@ static BOOL NSRangeContainsRow (NSRange range, NSInteger row) {
     CGFloat contentSizeLimit = startActiveDaysWidth + ((self.activeDays.length+1)*self.dayCellSize.width) + (self.frame.size.width/2) - (self.dayCellSize.width/2);
     
     self.tableView.contentSize = CGSizeMake(self.tableView.frame.size.height, contentSizeLimit);
-    
 }
 
 - (void)setStartDate:(NSDate *)startDate endDate:(NSDate *)endDate

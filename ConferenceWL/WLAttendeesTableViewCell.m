@@ -28,6 +28,8 @@
 {
     _thumbImageView.layer.cornerRadius = _thumbImageView.frame.size.width/2;
     _thumbImageView.layer.masksToBounds = YES;
+    _thumbImageView.layer.borderColor = [UIColor redColor].CGColor;
+    _thumbImageView.layer.borderWidth = 1;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

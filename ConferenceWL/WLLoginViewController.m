@@ -86,7 +86,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"id"] forKey:@"userid"];
             [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"firstname"] forKey:@"user_firstname"];
             [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"lastname"] forKey:@"user_lastname"];
-            [[NSUserDefaults standardUserDefaults] setObject:result[@"photo"] forKey:@"photoURL"];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"photo"] forKey:@"photoURL"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

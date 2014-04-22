@@ -12,6 +12,10 @@
 @interface WLCalendarViewController ()
 
 @property (strong) IBOutlet MZDayPicker* dayPicker;
+@property (strong) IBOutlet UITableView* tableView;
+
+@property (strong) NSMutableArray* datasource;
+@property (strong) NSArray* allProgrammesArray;
 
 @end
 
@@ -22,12 +26,26 @@
     [super viewDidLoad];
     
     self.title = @"Calendar";
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+    
+    self.datasource = [NSMutableArray new];
+    
+    [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
+        NSLog(@"%@", result);
+        _allProgrammesArray = [NSArray arrayWithArray:result];
+    }];
     
     self.dayPicker.delegate = self;
     self.dayPicker.dataSource = self;
     
-//    self.dayPicker.dayNameLabelFontSize
+    self.dayPicker.year = 2014;
+    [self.dayPicker setStartDate:[NSDate dateFromDay:18 month:4 year:2014] endDate:[NSDate dateFromDay:30 month:4 year:2014]];
+    [self.dayPicker setCurrentDate:[NSDate date] animated:YES];
+
+    self.dayPicker.dayNameLabelFontSize = 12.0f;
+    self.dayPicker.dayLabelFontSize = 18.0f;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(todayClicked:)];
     // Do any additional setup after loading the view.
 }
 
@@ -35,6 +53,76 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)todayClicked:(id)sender {
+    [self.dayPicker setCurrentDate:[NSDate date] animated:YES];
+}
+
+#pragma mark - UITableView Datasource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (_datasource.count == 0) {
+        return 2;
+    }
+    return [self.datasource count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    
+    if (_datasource.count == 0) {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"No Programmes";
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+            
+        }
+        return cell;
+    } else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", _datasource[indexPath.row][@"name"]];
+    }
+    
+    return cell;
+}
+
+#pragma mark - UITableView Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - MZDayPicker Datasource
+
+#pragma mark - MZDayPicker Delegate
+
+-(void)dayPicker:(MZDayPicker *)dayPicker didSelectDay:(MZDay *)day
+{
+    self.datasource = [NSMutableArray new];
+    
+    for (NSDictionary* dict in _allProgrammesArray) {
+        if ([dict[@"date"] isEqualToString:getStringFromDate(day.date)]) {
+            [self.datasource addObject:dict];
+        }
+    }
+    [self.tableView reloadData];
+}
+
+#pragma mark - Helper Function
+
+NSString * getStringFromDate(NSDate* date) {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *stringFromDate = [formatter stringFromDate:date];
+    return stringFromDate;
 }
 
 /*
