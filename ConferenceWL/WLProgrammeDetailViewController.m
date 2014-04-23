@@ -30,6 +30,9 @@
     _progTime.text = _dictionary[@"time"];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    
+    self.tableView.tableFooterView = [UIView new];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -39,6 +42,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _dictionary[@"name"];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, self.tableView.frame.size.width, 60)];
+    label.text = _dictionary[@"name"];
+    label.font = [UIFont boldSystemFontOfSize:20];
+    label.backgroundColor = [UIColor lightGrayColor];
+    return label;
+}
 /*
 #pragma mark - Navigation
 
