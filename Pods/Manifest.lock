@@ -25,7 +25,7 @@ PODS:
   - FXBlurView (1.6)
   - MFSideMenu (0.5.4)
   - MZAppearance (1.1.2)
-  - MZDayPicker (0.0.5)
+  - TapkuLibrary (0.3.3)
   - UIImage+BlurredFrame (0.0.4)
 
 DEPENDENCIES:
@@ -34,7 +34,7 @@ DEPENDENCIES:
   - CSNotificationView
   - FXBlurView
   - MFSideMenu
-  - MZDayPicker
+  - TapkuLibrary
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
@@ -43,7 +43,7 @@ SPEC CHECKSUMS:
   FXBlurView: 06f9f602d529c8e2d87648293d73a618621d3d81
   MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30
   MZAppearance: 75bc6c786025c311ebc247b01e1dead5cd29f7c5
-  MZDayPicker: 1ebc98a0aa72906dc367de4c5b7d4ddb054bb910
+  TapkuLibrary: ba2ece1a466fafbab6394e93c527bb1ddb9f39f5
   UIImage+BlurredFrame: e604fa605955f47f24aecfbdc013efe5d5aa0b6c
 
 COCOAPODS: 0.32.1

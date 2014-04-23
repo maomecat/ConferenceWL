@@ -34,7 +34,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MZDayPicker.xcscheme</key>
+		<key>Pods-TapkuLibrary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,47 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>348FB0A93F7E4E1586060AD5</key>
+		<key>4BD1C964B6E4440F965802FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>471566A827A545038629E61B</key>
+		<key>6991BE6A0E97401BBF500AC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72F6275BC5C14315ADB2E3D0</key>
+		<key>872E448302364F25B9ED8CA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA76983EBAD540309F1EF456</key>
+		<key>8AD71189434448C0956A2FDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACB8AAFBB24E4801A5064B76</key>
+		<key>975FF3D31EAD4C68A7B1B5D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF230CCE2F754C26A3C7E21E</key>
+		<key>B23B9CAE18284DC99CE2101C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCF26E228084486FAED5589A</key>
+		<key>BDAD69FAD69940819ADAD6D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF1B30CE0A2746BF8EC32AE2</key>
+		<key>D023178961B54B36A9B67591</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DAC9929BC70F4DCC93C7200E</key>
+		<key>F84866E88AE740BCAEF3048C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
