@@ -105,6 +105,7 @@
         if ([MFMailComposeViewController canSendMail]) {
             MFMailComposeViewController* mailVC = [[MFMailComposeViewController alloc] init];
             mailVC.mailComposeDelegate = self;
+            mailVC.view.tintColor = [UIColor whiteColor];
             [mailVC setToRecipients:@[@"email@example.com"]];
             [mailVC setSubject:@"example subject"];
             [self presentViewController: mailVC animated:YES completion:nil];
