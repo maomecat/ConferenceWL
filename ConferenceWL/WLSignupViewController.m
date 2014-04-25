@@ -76,7 +76,11 @@
         return;
     }
     
-    [self signupWithFirstName:nameCell.textfield.text lastName:nameCell.textfield.text email:emailCell.textfield.text pasword:passwordCell.textfield.text];
+    NSMutableArray* array = [NSMutableArray arrayWithArray:[nameCell.textfield.text componentsSeparatedByString:@" "]];
+    NSString* firstName = [array firstObject];
+    [array removeObjectAtIndex:0];
+    NSString* lastName = [[array valueForKey:@"description"] componentsJoinedByString:@" "];
+    [self signupWithFirstName:firstName lastName:lastName email:emailCell.textfield.text pasword:passwordCell.textfield.text];
 }
 
 -(void)signupWithFirstName:(NSString*)firstName lastName:(NSString*)lastName email:(NSString*)email pasword:(NSString*)password
