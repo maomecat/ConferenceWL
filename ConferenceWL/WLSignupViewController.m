@@ -91,6 +91,7 @@
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [WLWebCaller getDataFromURL:urlString withCompletionBlock:^(bool success, id result) {
+        [WLActivityView hide];
         if ([result[@"success"] boolValue]) {
             [self dismissViewControllerAnimated:YES completion:^{
                 if (_delegate) {
@@ -102,7 +103,6 @@
             [alert show];
         }
     }];
-    
 }
 
 #pragma mark - UITableView Datasource

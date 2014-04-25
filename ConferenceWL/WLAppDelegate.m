@@ -45,6 +45,7 @@
     [UINavigationBar appearance].barTintColor = [UIColor redColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     [UIView appearance].tintColor = [UIColor whiteColor];
+    [UITextField appearance].tintColor = [UIColor redColor];
     
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
     return YES;
