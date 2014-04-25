@@ -26,6 +26,7 @@ PODS:
   - MFSideMenu (0.5.4)
   - MZAppearance (1.1.2)
   - MZDayPicker (0.0.5)
+  - TLIndexPathTools (0.3.0)
   - UIImage+BlurredFrame (0.0.4)
 
 DEPENDENCIES:
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - FXBlurView
   - MFSideMenu
   - MZDayPicker
+  - TLIndexPathTools
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30
   MZAppearance: 75bc6c786025c311ebc247b01e1dead5cd29f7c5
   MZDayPicker: 1ebc98a0aa72906dc367de4c5b7d4ddb054bb910
+  TLIndexPathTools: 1c4158d341c4bf4375e86a6a579955de84cbf34e
   UIImage+BlurredFrame: e604fa605955f47f24aecfbdc013efe5d5aa0b6c
 
 COCOAPODS: 0.32.1

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TLIndexPathTools/TLTableViewController.h>
 
-@interface WLAttendeesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface WLAttendeesViewController : TLTableViewController
 
 @end

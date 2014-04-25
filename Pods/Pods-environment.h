@@ -84,6 +84,12 @@
 #define COCOAPODS_VERSION_MINOR_MZDayPicker 0
 #define COCOAPODS_VERSION_PATCH_MZDayPicker 5
 
+// TLIndexPathTools
+#define COCOAPODS_POD_AVAILABLE_TLIndexPathTools
+#define COCOAPODS_VERSION_MAJOR_TLIndexPathTools 0
+#define COCOAPODS_VERSION_MINOR_TLIndexPathTools 3
+#define COCOAPODS_VERSION_PATCH_TLIndexPathTools 0
+
 // UIImage+BlurredFrame
 #define COCOAPODS_POD_AVAILABLE_UIImage_BlurredFrame
 #define COCOAPODS_VERSION_MAJOR_UIImage_BlurredFrame 0
