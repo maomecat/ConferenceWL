@@ -66,7 +66,7 @@
             NSArray* datasource = result;
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:datasource sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
-                NSString* str = [dict objectForKey:@"date"];
+                NSString* str = [self formatDate:[dict objectForKey:@"date"]];
                 return str;
             } identifierBlock:nil];
             [self.tableView reloadData];
@@ -77,7 +77,7 @@
             NSArray* datasource = result;
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:datasource sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
-                NSString* str = [dict objectForKey:@"date"];
+                NSString* str = [self formatDate:[dict objectForKey:@"date"]];
                 return str;
             } identifierBlock:nil];
             [self.tableView reloadData];
@@ -127,10 +127,10 @@
     
     NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
     cell.progNameLabel.text = dict[@"name"];
-    cell.timeLabel.text = dict[@"time"];
+    cell.timeLabel.text = [self formatTime:dict[@"time"]];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
     if ([[_programesIAmAttending valueForKey:@"id"] containsObject:dict[@"id"]]) {
         [button setTitle:@"Attending" forState:UIControlStateNormal];
@@ -171,6 +171,28 @@
         progDetail.dictionary = [self.indexPathController.dataModel itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
         //        progDetail.dictionary = [_datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
+}
+
+-(NSString*)formatTime:(NSString*)rawTime
+{
+    NSDateFormatter* formattter = [[NSDateFormatter alloc] init];
+    [formattter setDateFormat:@"HH:mm:ss"];
+    NSDate* date = [formattter dateFromString:rawTime];
+    [formattter setDateFormat:@"h:mm a"];
+    NSString* convertedTime = [formattter stringFromDate:date];
+    NSLog(@"%@", convertedTime);
+    return convertedTime;
+}
+
+-(NSString*)formatDate:(NSString*)rawDate
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate* date = [formatter dateFromString:rawDate];
+    [formatter setDateFormat:@"MMM dd"];
+    NSString* convertedDate = [formatter stringFromDate:date];
+    NSLog(@"%@", convertedDate);
+    return convertedDate;
 }
 
 @end
