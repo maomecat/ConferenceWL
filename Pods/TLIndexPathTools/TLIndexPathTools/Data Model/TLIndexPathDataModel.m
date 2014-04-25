@@ -26,7 +26,7 @@
 #import "TLIndexPathItem.h"
 #import "TLIndexPathSectionInfo.h"
 
-const NSString *TLIndexPathDataModelNilSectionName = @"__TLIndexPathDataModelNilSectionName__";
+const NSString *TLIndexPathDataModelNilSectionName = @"";
 
 @interface TLIndexPathDataModel ()
 @property (strong, nonatomic) NSString *(^sectionNameBlock)(id item);

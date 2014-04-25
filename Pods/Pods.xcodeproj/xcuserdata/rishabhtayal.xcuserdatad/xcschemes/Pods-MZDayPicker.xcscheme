@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "683E11CCE2D0482995B4F136"
+               BlueprintIdentifier = "B1D38AFBB13D4D7085C380B2"
                BuildableName = "libPods-MZDayPicker.a"
                BlueprintName = "Pods-MZDayPicker"
                ReferencedContainer = "container:Pods.xcodeproj">

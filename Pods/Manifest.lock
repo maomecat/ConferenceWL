@@ -21,7 +21,7 @@ PODS:
   - BlurryModalSegue (1.0.0):
     - MZAppearance (~> 1.1.1)
     - UIImage+BlurredFrame (~> 0.0.4)
-  - CSNotificationView (0.4)
+  - CSNotificationView (0.4.2)
   - FXBlurView (1.6)
   - MFSideMenu (0.5.4)
   - MZAppearance (1.1.2)
@@ -41,7 +41,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   BlurryModalSegue: 35b785b80d61fa05b7c422673bac2f975f312367
-  CSNotificationView: 09575b44d549a17dc4a313107bebdca98a40fcc1
+  CSNotificationView: 453e0785421ed936877ddf350245f576bb2adf5a
   FXBlurView: 06f9f602d529c8e2d87648293d73a618621d3d81
   MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30
   MZAppearance: 75bc6c786025c311ebc247b01e1dead5cd29f7c5

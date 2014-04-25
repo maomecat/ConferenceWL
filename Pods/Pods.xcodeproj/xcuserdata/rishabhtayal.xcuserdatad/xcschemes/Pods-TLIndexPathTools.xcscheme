@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5818C52500004AE38D6F9480"
+               BlueprintIdentifier = "FF736EE86148491AA8CBE3E7"
                BuildableName = "libPods-TLIndexPathTools.a"
                BlueprintName = "Pods-TLIndexPathTools"
                ReferencedContainer = "container:Pods.xcodeproj">

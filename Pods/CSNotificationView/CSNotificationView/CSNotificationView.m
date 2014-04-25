@@ -178,15 +178,23 @@ static NSString * kCSNavigationBarBoundsKeyPath = @"bounds";
             {
                 _textLabel = [[UILabel alloc] init];
                 
-                UIFontDescriptor* textLabelFontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-                _textLabel.font = [UIFont fontWithDescriptor:textLabelFontDescriptor size:17.0f];
+                _textLabel.textColor = [UIColor whiteColor];
+                _textLabel.backgroundColor = [UIColor clearColor];
+                _textLabel.translatesAutoresizingMaskIntoConstraints = NO;
+            
+                _textLabel.numberOfLines = 2;
                 _textLabel.minimumScaleFactor = 0.6;
                 _textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-                _textLabel.adjustsFontSizeToFitWidth = YES;
                 
-                _textLabel.numberOfLines = 2;
-                _textLabel.textColor = [UIColor whiteColor];
-                _textLabel.translatesAutoresizingMaskIntoConstraints = NO;
+                if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+                    UIFontDescriptor* textLabelFontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+                    _textLabel.font = [UIFont fontWithDescriptor:textLabelFontDescriptor size:17.0f];
+                    _textLabel.adjustsFontSizeToFitWidth = YES; //This only works in iOS 7 with multiline labels. UILabel doc: "In iOS 6 and earlier, this property is effective only when the numberOfLines property is set to 1."
+                } else {
+                    _textLabel.font = [UIFont systemFontOfSize:17.0f];
+                    _textLabel.preferredMaxLayoutWidth = 1; //Settings this to a minimum enforces line breaks.
+                }
+                
                 [self addSubview:_textLabel];
             }
             //symbolView
@@ -286,6 +294,45 @@ static NSString * kCSNavigationBarBoundsKeyPath = @"bounds";
     [super updateConstraints];
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews]; //Has to be called again after layout changes.
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        //Manually adjustsFontSizeToFitWidth in iOS 6
+
+        CGFloat defaultPointSize, minimumPointSize;
+        defaultPointSize = self.textLabel.font.pointSize;
+        minimumPointSize = ceilf(defaultPointSize * self.textLabel.minimumScaleFactor);
+
+        UIFont *font = self.textLabel.font;
+        CGSize constrainedSize = CGSizeMake(self.textLabel.frame.size.width, CGFLOAT_MAX);
+
+        for (NSInteger pointSize = defaultPointSize; pointSize >= minimumPointSize; pointSize--) {
+            
+            font = [font fontWithSize:pointSize];
+            
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            
+            CGSize fitSize = [self.textLabel.text sizeWithFont:font
+                                             constrainedToSize:constrainedSize
+                                                 lineBreakMode:NSLineBreakByTruncatingTail];
+            
+#pragma clang diagnostic pop
+            
+            if (fitSize.height <= CGRectGetHeight(self.textLabel.frame)) {
+                break;
+            }
+        }
+        
+        self.textLabel.font = font;
+        
+        [super layoutSubviews];
+    }
+    
+}
+
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
@@ -299,7 +346,11 @@ static NSString * kCSNavigationBarBoundsKeyPath = @"bounds";
 {
     _tintColor = tintColor;
     //Use 0.6 alpha value for translucency blur in UIToolbar
-    [self.toolbar setBarTintColor:[tintColor colorWithAlphaComponent:0.6]];
+    if ([self.toolbar respondsToSelector:@selector(setBarTintColor:)]) {
+        [self.toolbar setBarTintColor:[tintColor colorWithAlphaComponent:0.6]];
+    } else {
+        [self.toolbar setTintColor:[tintColor colorWithAlphaComponent:0.6]];
+    }
     self.contentColor = [self legibleTextColorForBlurTintColor:tintColor];
 }
 
@@ -398,6 +449,10 @@ static NSString * kCSNavigationBarBoundsKeyPath = @"bounds";
 {
     UIViewController* viewController = self.parentNavigationController ?: self.parentViewController;
     
+    if (!viewController.isViewLoaded) {
+        return CGRectZero;
+    }
+    
     CGFloat topLayoutGuideLength = [self topLayoutGuideLengthCalculation];
 
     CGSize transformedSize = CGSizeApplyAffineTransform(viewController.view.frame.size, viewController.view.transform);
@@ -410,6 +465,10 @@ static NSString * kCSNavigationBarBoundsKeyPath = @"bounds";
 - (CGRect)hiddenFrame
 {
     UIViewController* viewController = self.parentNavigationController ?: self.parentViewController;
+    
+    if (!viewController.isViewLoaded) {
+        return CGRectZero;
+    }
     
     CGFloat topLayoutGuideLength = [self topLayoutGuideLengthCalculation];
 
