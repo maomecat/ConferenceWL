@@ -11,12 +11,10 @@
 #import "WLProgrammeTableViewCell.h"
 #import "WLProgrammeDetailViewController.h"
 #import "MFSideMenu.h"
+#import <TLIndexPathTools/TLIndexPathDataModel.h>
 
 @interface WLProgrammeViewController ()
 
-@property (strong) IBOutlet UITableView* tableView;
-
-@property (strong) NSMutableArray* datasource;
 @property (strong) NSMutableArray* programesIAmAttending;
 @property (strong) UIRefreshControl* refreshControl;
 
@@ -40,7 +38,7 @@
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
     [self refreshTable:self.refreshControl];
-
+    
     if (!_userid) {
         [self setupLeftMenuBarButton];
     }
@@ -65,24 +63,31 @@
     
     if (_userid) {
         [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, _userid] withCompletionBlock:^(bool success, id result) {
-            _datasource = [[NSMutableArray alloc] initWithArray:result];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            NSArray* datasource = result;
+            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:datasource sectionNameBlock:^NSString *(id item) {
+                NSDictionary* dict = item;
+                NSString* str = [dict objectForKey:@"date"];
+                return str;
+            } identifierBlock:nil];
+            [self.tableView reloadData];
             [refreshControl endRefreshing];
         }];
     } else {
-    [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
-            _datasource = [[NSMutableArray alloc] initWithArray:result];
-            NSLog(@"%@", _datasource);
-//         [self.tableView reloadData];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
+            NSArray* datasource = result;
+            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:datasource sectionNameBlock:^NSString *(id item) {
+                NSDictionary* dict = item;
+                NSString* str = [dict objectForKey:@"date"];
+                return str;
+            } identifierBlock:nil];
+            [self.tableView reloadData];
             [refreshControl endRefreshing];
         }];
     }
-
+    
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
         _programesIAmAttending = [[NSMutableArray alloc] initWithArray:result];
-//        [self.tableView reloadData];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadData];
     }];
 }
 
@@ -94,59 +99,50 @@
 
 #pragma mark - UITableView Datasource
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    return [self.indexPathController.dataModel sectionNameForSection:section];
 }
 
-//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return [_datasource valueForKey:@"date"][section];
-//}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    if (_datasource.count == 0) {
-        return 2;
+    return [self.indexPathController.dataModel sectionForSectionName:title];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView prototypeForCellIdentifier:(NSString *)cellIdentifier
+{
+    WLProgrammeTableViewCell* cell = (WLProgrammeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[WLProgrammeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    return [_datasource count];
+    return cell;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_datasource.count == 0) {
-        //There are no programmes to show - let the user know
-        UITableViewCell *cell = [[UITableViewCell alloc] init];
-        if (indexPath.row == 1) {
-            cell.textLabel.text = @"No Programmes";
-            cell.textLabel.textAlignment = NSTextAlignmentCenter;
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-        }
-        return cell;
-        
-    } else {
-        WLProgrammeTableViewCell* cell = (WLProgrammeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (!cell) {
-            cell = [[WLProgrammeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        }
-        cell.progNameLabel.text = _datasource[indexPath.row][@"name"];
-        cell.timeLabel.text = _datasource[indexPath.row][@"date"];
-        
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        
-        if ([[_programesIAmAttending valueForKey:@"id"] containsObject:_datasource[indexPath.row][@"id"]]) {
-            [button setTitle:@"Attending" forState:UIControlStateNormal];
-        } else {
-            [button setTitle:@"RSVP" forState:UIControlStateNormal];
-            button.tag = indexPath.row;
-            [button addTarget:self action:@selector(rsvpClicked:) forControlEvents:UIControlEventTouchUpInside];
-        }
-        [button setFrame:CGRectMake(0, 0, 100, 35)];
-        cell.accessoryView = button;
-        
-        return cell;
+    WLProgrammeTableViewCell* cell = (WLProgrammeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[WLProgrammeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    
+    NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
+    cell.progNameLabel.text = dict[@"name"];
+    cell.timeLabel.text = dict[@"time"];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    if ([[_programesIAmAttending valueForKey:@"id"] containsObject:dict[@"id"]]) {
+        [button setTitle:@"Attending" forState:UIControlStateNormal];
+    } else {
+        [button setTitle:@"RSVP" forState:UIControlStateNormal];
+        button.tag = indexPath.row;
+        [button addTarget:self action:@selector(rsvpClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [button setFrame:CGRectMake(0, 0, 100, 35)];
+    cell.accessoryView = button;
+    
+    return cell;
 }
 
 #pragma mark - UITableView Delegate
@@ -157,23 +153,23 @@
 }
 
 -(void)rsvpClicked:(UIButton*)sender {
-    NSLog(@"%@", _datasource[sender.tag]);
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], _datasource[sender.tag][@"id"]] withCompletionBlock:^(bool success, id result) {
-        NSLog(@"%@", result);
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:    [self.tableView indexPathForRowAtPoint:buttonPosition]];
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], dict[@"id"]] withCompletionBlock:^(bool success, id result) {
         [self refreshTable:self.refreshControl];
     }];
 }
-
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
- 
+    
     if ([segue.identifier isEqualToString:@"ProgrammeDetailSegue"]) {
         WLProgrammeDetailViewController* progDetail = segue.destinationViewController;
-        progDetail.dictionary = [_datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        progDetail.dictionary = [self.indexPathController.dataModel itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        //        progDetail.dictionary = [_datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

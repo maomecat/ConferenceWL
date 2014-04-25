@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TLIndexPathTools/TLTableViewController.h>
 
-@interface WLProgrammeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface WLProgrammeViewController : TLTableViewController
 
 @property (strong) NSString* userid;
 
