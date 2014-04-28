@@ -64,7 +64,8 @@
     if (_userid) {
         [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, _userid] withCompletionBlock:^(bool success, id result) {
             NSArray* datasource = result;
-            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:datasource sectionNameBlock:^NSString *(id item) {
+            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date"];
+            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
                 NSString* str = [self formatDate:[dict objectForKey:@"date"]];
                 return str;
@@ -75,7 +76,8 @@
     } else {
         [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
             NSArray* datasource = result;
-            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:datasource sectionNameBlock:^NSString *(id item) {
+            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date"];
+            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
                 NSString* str = [self formatDate:[dict objectForKey:@"date"]];
                 return str;
@@ -99,9 +101,22 @@
 
 #pragma mark - UITableView Datasource
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [self.indexPathController.dataModel sectionNameForSection:section];
+    UILabel* label = [[UILabel alloc] init];
+    label.frame = CGRectMake(20, 0, 320, 40);
+    label.font = [UIFont boldSystemFontOfSize:20];
+    label.text = [self.indexPathController.dataModel sectionNameForSection:section];
+    
+    UIView* header = [[UIView alloc] initWithFrame:label.bounds];
+    header.backgroundColor = [UIColor colorWithRed:250 green:250 blue:250 alpha:0.8];
+    [header addSubview:label];
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
@@ -171,6 +186,20 @@
         progDetail.dictionary = [self.indexPathController.dataModel itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
         //        progDetail.dictionary = [_datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
+}
+
+-(NSArray*)sortedArray:(NSArray*)orgArray withKey:(NSString*)key
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSArray* sortedArray = [orgArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSDate* date1 = [formatter dateFromString:obj1[key]];
+        NSDate* date2 = [formatter dateFromString:obj2[key]];
+        
+        return [date1 compare:date2];
+    }];
+    return sortedArray;
 }
 
 -(NSString*)formatTime:(NSString*)rawTime
