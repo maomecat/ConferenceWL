@@ -15,11 +15,13 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         dispatch_async(dispatch_get_main_queue(), ^{
-            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            if (completion) {
-                if (json) {
+            if (data) {
+                id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                if (completion) {
                     completion(true, json);
-                } else {
+                }
+            } else {
+                if (completion) {
                     completion(false, nil);
                 }
             }
