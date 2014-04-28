@@ -8,6 +8,7 @@
 
 #import "WLCalendarViewController.h"
 //#import "WLNavigationController.h"
+#import "MFSideMenu.h"
 
 @interface WLCalendarViewController ()
 
@@ -45,6 +46,8 @@
     self.dayPicker.dayLabelFontSize = 18.0f;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(todayClicked:)];
+    
+    [self setupLeftMenuBarButton];
     // Do any additional setup after loading the view.
 }
 
@@ -52,6 +55,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setupLeftMenuBarButton
+{
+    UIButton* barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [barButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
+    [barButton setFrame:CGRectMake(0, 0, 20, 20)];
+    [barButton addTarget:self action:@selector(leftSideMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:barButton]];
+}
+
+-(void)leftSideMenuButtonPressed:(id)sender
+{
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 -(void)todayClicked:(id)sender {
