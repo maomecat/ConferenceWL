@@ -12,6 +12,7 @@
 #import "WLProgrammeDetailViewController.h"
 #import "MFSideMenu.h"
 #import <TLIndexPathTools/TLIndexPathDataModel.h>
+#import "WLFormatter.h"
 
 @interface WLProgrammeViewController ()
 
@@ -67,7 +68,7 @@
             NSArray* sortedArray = [self sortedArray:datasource withKey:@"date"];
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
-                NSString* str = [self formatDate:[dict objectForKey:@"date"]];
+                NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
                 return str;
             } identifierBlock:nil];
             [self.tableView reloadData];
@@ -79,7 +80,7 @@
             NSArray* sortedArray = [self sortedArray:datasource withKey:@"date"];
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
-                NSString* str = [self formatDate:[dict objectForKey:@"date"]];
+                NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
                 return str;
             } identifierBlock:nil];
             [self.tableView reloadData];
@@ -142,7 +143,7 @@
     
     NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
     cell.progNameLabel.text = dict[@"name"];
-    cell.timeLabel.text = [self formatTime:dict[@"time"]];
+    cell.timeLabel.text = [WLFormatter formatTime:dict[@"time"]];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -188,6 +189,8 @@
     }
 }
 
+#pragma mark -
+
 -(NSArray*)sortedArray:(NSArray*)orgArray withKey:(NSString*)key
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -200,28 +203,6 @@
         return [date1 compare:date2];
     }];
     return sortedArray;
-}
-
--(NSString*)formatTime:(NSString*)rawTime
-{
-    NSDateFormatter* formattter = [[NSDateFormatter alloc] init];
-    [formattter setDateFormat:@"HH:mm:ss"];
-    NSDate* date = [formattter dateFromString:rawTime];
-    [formattter setDateFormat:@"h:mm a"];
-    NSString* convertedTime = [formattter stringFromDate:date];
-    NSLog(@"%@", convertedTime);
-    return convertedTime;
-}
-
--(NSString*)formatDate:(NSString*)rawDate
-{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate* date = [formatter dateFromString:rawDate];
-    [formatter setDateFormat:@"MMM dd"];
-    NSString* convertedDate = [formatter stringFromDate:date];
-    NSLog(@"%@", convertedDate);
-    return convertedDate;
 }
 
 @end

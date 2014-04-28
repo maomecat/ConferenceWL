@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLProgrammeDetailViewController : UITableViewController
+@interface WLProgrammeDetailViewController : UITableViewController<UIActionSheetDelegate>
 
 @property (strong) NSDictionary* dictionary;
 
