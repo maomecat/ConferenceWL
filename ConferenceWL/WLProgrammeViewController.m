@@ -65,7 +65,7 @@
     if (_userid) {
         [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, _userid] withCompletionBlock:^(bool success, id result) {
             NSArray* datasource = result;
-            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date"];
+            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date" key2:@"time"];
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
                 NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
@@ -77,7 +77,7 @@
     } else {
         [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
             NSArray* datasource = result;
-            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date"];
+            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date" key2:@"time"];
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
                 NSDictionary* dict = item;
                 NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
@@ -191,17 +191,17 @@
 
 #pragma mark -
 
--(NSArray*)sortedArray:(NSArray*)orgArray withKey:(NSString*)key
+-(NSArray*)sortedArray:(NSArray*)orgArray withKey:(NSString*)key1 key2:(NSString*)key2
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"hh:mm:ss"];
+    NSSortDescriptor* timeDesc = [[NSSortDescriptor alloc] initWithKey:key2 ascending:YES];
     
-    NSArray* sortedArray = [orgArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        NSDate* date1 = [formatter dateFromString:obj1[key]];
-        NSDate* date2 = [formatter dateFromString:obj2[key]];
-        
-        return [date1 compare:date2];
-    }];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSSortDescriptor* dateDesc = [[NSSortDescriptor alloc] initWithKey:key1 ascending:YES];
+
+    NSArray* desc = [NSArray arrayWithObjects:dateDesc, timeDesc, nil];
+    NSArray* sortedArray = [orgArray sortedArrayUsingDescriptors:desc];
     return sortedArray;
 }
 
