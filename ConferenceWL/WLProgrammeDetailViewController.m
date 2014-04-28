@@ -64,10 +64,10 @@
     if (section == 0) {
         label.text = _dictionary[@"name"];
         label.font = [UIFont boldSystemFontOfSize:20];
-//        view.backgroundColor = [UIColor lightGrayColor];
     } else if (section == 1) {
         label.font = [UIFont systemFontOfSize:18];
-        label.text = [NSString stringWithFormat:@"%d attendees", _attendeesArray.count];
+        label.textColor = [UIColor darkGrayColor];
+        label.text = [NSString stringWithFormat:@"%d attending", _attendeesArray.count];
     }
     
     [view addSubview:label];
