@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 
-@interface WLProgrammeDetailViewController : UITableViewController<UIActionSheetDelegate>
+@interface WLProgrammeDetailViewController : UITableViewController<UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property (strong) NSDictionary* dictionary;
 

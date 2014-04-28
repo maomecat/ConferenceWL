@@ -25,6 +25,7 @@
 		062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */; };
 		062D1AA51902F928003C3BA4 /* WLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1AA41902F928003C3BA4 /* WLMenuViewController.m */; };
 		065AAFF9190EDDD100EDE25F /* WLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 065AAFF8190EDDD100EDE25F /* WLFormatter.m */; };
+		065AAFFD190F082B00EDE25F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065AAFFC190F082B00EDE25F /* EventKit.framework */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -88,6 +89,7 @@
 		062D1AA41902F928003C3BA4 /* WLMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMenuViewController.m; sourceTree = "<group>"; };
 		065AAFF7190EDDD100EDE25F /* WLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFormatter.h; sourceTree = "<group>"; };
 		065AAFF8190EDDD100EDE25F /* WLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFormatter.m; sourceTree = "<group>"; };
+		065AAFFC190F082B00EDE25F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				065AAFFD190F082B00EDE25F /* EventKit.framework in Frameworks */,
 				067869821903214400A0C098 /* MessageUI.framework in Frameworks */,
 				0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */,
 				0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */,
@@ -289,6 +292,7 @@
 		0671D07B18F7474A00D18071 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				065AAFFC190F082B00EDE25F /* EventKit.framework */,
 				067869811903214400A0C098 /* MessageUI.framework */,
 				0671D07C18F7474A00D18071 /* Foundation.framework */,
 				0671D07E18F7474A00D18071 /* CoreGraphics.framework */,

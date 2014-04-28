@@ -53,7 +53,7 @@ function login($email, $password) {
 		$retval = mysql_query($sql);
 		
 		$users = array();
-		while($user = mysql_fetch_array($retval)) {
+		while($user = mysql_fetch_assoc($retval)) {
 			$users = $user;
 		}		
 
@@ -75,7 +75,7 @@ function login($email, $password) {
 function getAllUsers() {
 	$user_sql = mysql_query("select * from users");
 	$users = array();
-	while($user = mysql_fetch_array($user_sql)) {
+	while($user = mysql_fetch_assoc($user_sql)) {
 		$users[] = $user;
 	}
 	$users = json_encode($users);
@@ -86,7 +86,7 @@ function getAllUsers() {
 function getAllProgrammes() {
 	$prog_sql = mysql_query("select * from programmes");
 	$programmes = array();
-	while($program = mysql_fetch_array($prog_sql)) {
+	while($program = mysql_fetch_assoc($prog_sql)) {
 		$programmes[] = $program;
 	}
 	$programmes = json_encode($programmes);
@@ -112,17 +112,17 @@ function getProgrammesForUser($user) {
 	$sql =  "SELECT * FROM programmes WHERE id IN (SELECT programmeid FROM user_programmes WHERE userid = '$user')";
 	$prog_sql = mysql_query($sql);
 	$progs = array();
-	while($prog = mysql_fetch_array($prog_sql)) {
+	while($prog = mysql_fetch_assoc($prog_sql)) {
 		$progs[] = $prog;
 	}
 	echo json_encode($progs);	
 }
 
 function getAttendeesForProgramm($programm) {
-	$sql =  "SELECT * FROM users WHERE id IN (SELECT userid FROM user_programmes WHERE programmeid = '$programm')";
+	$sql =  "SELECT firstname as firstname, lastname, photo FROM users WHERE id IN (SELECT userid FROM user_programmes WHERE programmeid = '$programm')";
 	$attendees_sql = mysql_query($sql);
 	$attendees = array();
-	while($attend = mysql_fetch_array($attendees_sql)) {
+	while($attend = mysql_fetch_assoc($attendees_sql)) {
 		$attendees[] = $attend;
 	}
 	echo json_encode($attendees);

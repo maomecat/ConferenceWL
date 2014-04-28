@@ -125,9 +125,35 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
         UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Open in..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Google Maps", @"Apple Maps", nil];
         [sheet showFromRect:self.view.window.frame inView:self.view animated:YES];
+    }
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Add to Calendar" message:[NSString stringWithFormat:@"Add %@ to calendar?", _dictionary[@"name"]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        EKEventStore* store = [[EKEventStore alloc] init];
+        [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (!granted) {
+                return;
+            }
+            EKEvent* event = [EKEvent eventWithEventStore:store];
+            event.title = _dictionary[@"name"];
+            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+            event.startDate = [formatter dateFromString:[NSString stringWithFormat:@"%@ %@",_dictionary[@"date"], _dictionary[@"time"]]];
+            event.endDate = event.startDate;
+            [event setCalendar:[store defaultCalendarForNewEvents]];
+            NSError* err = nil;
+            [store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+        }];
     }
 }
 
