@@ -17,7 +17,6 @@
     NSDate* date = [formattter dateFromString:rawTime];
     [formattter setDateFormat:@"h:mm a"];
     NSString* convertedTime = [formattter stringFromDate:date];
-    NSLog(@"%@", convertedTime);
     return convertedTime;
 }
 
@@ -28,7 +27,6 @@
     NSDate* date = [formatter dateFromString:rawDate];
     [formatter setDateFormat:@"MMM dd"];
     NSString* convertedDate = [formatter stringFromDate:date];
-    NSLog(@"%@", convertedDate);
     return convertedDate;
 }
 

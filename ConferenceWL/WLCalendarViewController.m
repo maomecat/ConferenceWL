@@ -31,7 +31,6 @@
     self.datasource = [NSMutableArray new];
     
     [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
-        NSLog(@"%@", result);
         _allProgrammesArray = [NSArray arrayWithArray:result];
     }];
     

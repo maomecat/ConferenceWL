@@ -23,7 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@", _dictionary);
     
     _progNameLabel.text = _dictionary[@"name"];
     _progVenue.text = _dictionary[@"venue"];

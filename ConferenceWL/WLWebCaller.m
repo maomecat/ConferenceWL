@@ -12,9 +12,11 @@
 
 +(void)getDataFromURL:(NSString*)url withCompletionBlock:(void(^)(bool success, id result))completion
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             if (data) {
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 if (completion) {
