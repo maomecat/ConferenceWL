@@ -150,6 +150,7 @@
             [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
             event.startDate = [formatter dateFromString:[NSString stringWithFormat:@"%@ %@",_dictionary[@"date"], _dictionary[@"time"]]];
             event.endDate = event.startDate;
+            event.location = _dictionary[@"venue"];
             [event setCalendar:[store defaultCalendarForNewEvents]];
             NSError* err = nil;
             [store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
