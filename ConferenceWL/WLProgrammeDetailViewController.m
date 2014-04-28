@@ -83,6 +83,7 @@
     }
 }
 
+#pragma mark - UIActionSheet Delegate
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -93,10 +94,8 @@
     }
     if (buttonIndex == 1) {
         //Apple Maps
-        
         NSString* locationTitleWithAddedPlusSigns = [_progVenue.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@", locationTitleWithAddedPlusSigns]]];
-//        [selectedLocation.mapItem openInMapsWithLaunchOptions:@{MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving}];
     }
 }
 
