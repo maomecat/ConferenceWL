@@ -151,12 +151,8 @@
 		062CA1FA1905677A00C5CE13 /* Programme View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0671D0B418F7939B00D18071 /* WLProgrammeViewController.h */,
-				0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */,
-				062CA1FB1905679200C5CE13 /* WLProgrammeTableViewCell.h */,
-				062CA1FC1905679200C5CE13 /* WLProgrammeTableViewCell.m */,
-				062CA1FE1905929400C5CE13 /* WLProgrammeDetailViewController.h */,
-				062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */,
+				065AAFFB190EF0A400EDE25F /* Main */,
+				065AAFFA190EF09600EDE25F /* Detail */,
 			);
 			name = "Programme View Controller";
 			sourceTree = "<group>";
@@ -249,6 +245,26 @@
 				062D1A9D19019265003C3BA4 /* WLWebCaller.m */,
 			);
 			name = WebCaller;
+			sourceTree = "<group>";
+		};
+		065AAFFA190EF09600EDE25F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				062CA1FE1905929400C5CE13 /* WLProgrammeDetailViewController.h */,
+				062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		065AAFFB190EF0A400EDE25F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0671D0B418F7939B00D18071 /* WLProgrammeViewController.h */,
+				0671D0B518F7939B00D18071 /* WLProgrammeViewController.m */,
+				062CA1FB1905679200C5CE13 /* WLProgrammeTableViewCell.h */,
+				062CA1FC1905679200C5CE13 /* WLProgrammeTableViewCell.m */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		0671D07018F7474A00D18071 = {

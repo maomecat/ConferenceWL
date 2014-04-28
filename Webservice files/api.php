@@ -15,6 +15,8 @@ if (function_exists($_GET['method'])) {
 		$_GET['method']($_GET['userid']);
 	} elseif($_GET['method'] == 'setRSVPForUser') {
 		$_GET['method']($_GET['userid'], $_GET['programmeid']);
+	} elseif($_GET['method'] == 'getAttendeesForProgramm') {
+		$_GET['method']($_GET['programmeid']);
 	} else {
 		$_GET['method']();
 	}
@@ -114,6 +116,16 @@ function getProgrammesForUser($user) {
 		$progs[] = $prog;
 	}
 	echo json_encode($progs);	
+}
+
+function getAttendeesForProgramm($programm) {
+	$sql =  "SELECT * FROM users WHERE id IN (SELECT userid FROM user_programmes WHERE programmeid = '$programm')";
+	$attendees_sql = mysql_query($sql);
+	$attendees = array();
+	while($attend = mysql_fetch_array($attendees_sql)) {
+		$attendees[] = $attend;
+	}
+	echo json_encode($attendees);
 }
 
 function checkIfUserExists($email)
