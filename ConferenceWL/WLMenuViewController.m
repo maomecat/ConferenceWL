@@ -182,22 +182,22 @@
     // Configure the cell...
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"Programmes";
+            cell.textLabel.text = NSLocalizedString(@"Programmes", nil);
             break;
         case 1:
             NSLog(@"%@", NSLocalizedString(@"Attendees", nil));
             cell.textLabel.text = NSLocalizedString(@"Attendees", nil);
             break;
         case 2:
-            cell.textLabel.text = @"Floor Plan";
+            cell.textLabel.text = NSLocalizedString(@"Floor Plan", nil);
             break;
         case 3:
         {
-            cell.textLabel.text = @"Calendar";
+            cell.textLabel.text = NSLocalizedString(@"Calendar", nil);
         }
             break;
         default:
-            cell.textLabel.text = @"Settings";
+            cell.textLabel.text = NSLocalizedString(@"Settings", nil);
             break;
     }
     return cell;

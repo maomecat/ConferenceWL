@@ -33,7 +33,7 @@
     //
     //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
-    self.title = @"Programmes";
+    self.title = NSLocalizedString(@"Programmes", nil);
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView addSubview:self.refreshControl];
