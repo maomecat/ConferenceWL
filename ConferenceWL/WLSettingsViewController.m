@@ -31,7 +31,7 @@
     
     //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
-    self.title = @"Settings";
+    self.title = NSLocalizedString(@"Settings", nil);
     
     _usernameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"user_firstname"], [[NSUserDefaults standardUserDefaults] objectForKey:@"user_lastname"]];
     
@@ -68,7 +68,7 @@
 
 -(void)logoutClicked:(id)sender
 {
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Are you sure?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
     [sheet showInView:self.view.window];
 }
 

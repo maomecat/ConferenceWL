@@ -25,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Floor Plans";
+    self.title = NSLocalizedString(@"Floor Plan", nil);
     
     self.automaticallyAdjustsScrollViewInsets = NO;
 

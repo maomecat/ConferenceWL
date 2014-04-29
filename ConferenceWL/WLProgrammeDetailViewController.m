@@ -143,11 +143,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Open in..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Google Maps", @"Apple Maps", nil];
+        UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Open in...", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:@"Google Maps", @"Apple Maps", nil];
         [sheet showFromRect:self.view.window.frame inView:self.view animated:YES];
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Add to Calendar" message:[NSString stringWithFormat:@"Add %@ to calendar?", _dictionary[@"name"]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add to Calendar", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Add %@ to Calendar?", nil), _dictionary[@"name"]] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Add", nil), nil];
         [alert show];
     }
 }

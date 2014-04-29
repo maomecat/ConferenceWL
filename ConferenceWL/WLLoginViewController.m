@@ -63,11 +63,11 @@
 -(IBAction)LoginPressed:(id)sender
 {
     if (self.emailTextField.text.length == 0 || ![self validateEmail:self.emailTextField.text]) {
-        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a valid email."];
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"Please enter a valid email.", nil)];
         return;
     }
     if (self.passwordTextField.text.length == 0) {
-        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter password."];
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"Please enter password.", nil)];
         return;
     }
     

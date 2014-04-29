@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Calendar";
+    self.title = NSLocalizedString(@"Calendar", nil);
     //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
     self.datasource = [NSMutableArray new];
