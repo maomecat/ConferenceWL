@@ -119,7 +119,7 @@ function getProgrammesForUser($user) {
 }
 
 function getAttendeesForProgramm($programm) {
-	$sql =  "SELECT firstname as firstname, lastname, photo FROM users WHERE id IN (SELECT userid FROM user_programmes WHERE programmeid = '$programm')";
+	$sql =  "SELECT firstname, lastname, photo FROM users WHERE id IN (SELECT userid FROM user_programmes WHERE programmeid = '$programm')";
 	$attendees_sql = mysql_query($sql);
 	$attendees = array();
 	while($attend = mysql_fetch_assoc($attendees_sql)) {
