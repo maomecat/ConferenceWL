@@ -185,7 +185,8 @@
             cell.textLabel.text = @"Programmes";
             break;
         case 1:
-            cell.textLabel.text = @"Attendees";
+            NSLog(@"%@", NSLocalizedString(@"Attendees", nil));
+            cell.textLabel.text = NSLocalizedString(@"Attendees", nil);
             break;
         case 2:
             cell.textLabel.text = @"Floor Plan";

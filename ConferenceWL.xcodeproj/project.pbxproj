@@ -26,6 +26,7 @@
 		062D1AA51902F928003C3BA4 /* WLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1AA41902F928003C3BA4 /* WLMenuViewController.m */; };
 		065AAFF9190EDDD100EDE25F /* WLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 065AAFF8190EDDD100EDE25F /* WLFormatter.m */; };
 		065AAFFD190F082B00EDE25F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065AAFFC190F082B00EDE25F /* EventKit.framework */; };
+		065AB0031910292D00EDE25F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 065AB0051910292D00EDE25F /* Localizable.strings */; };
 		0671D07D18F7474A00D18071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07C18F7474A00D18071 /* Foundation.framework */; };
 		0671D07F18F7474A00D18071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D07E18F7474A00D18071 /* CoreGraphics.framework */; };
 		0671D08118F7474A00D18071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671D08018F7474A00D18071 /* UIKit.framework */; };
@@ -90,6 +91,11 @@
 		065AAFF7190EDDD100EDE25F /* WLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFormatter.h; sourceTree = "<group>"; };
 		065AAFF8190EDDD100EDE25F /* WLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFormatter.m; sourceTree = "<group>"; };
 		065AAFFC190F082B00EDE25F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		065AB000191028D800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		065AB001191028D800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		065AB002191028D800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		065AB0041910292D00EDE25F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		065AB0061910295B00EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -331,6 +337,7 @@
 		0671D08318F7474A00D18071 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				065AB0051910292D00EDE25F /* Localizable.strings */,
 				062D1A9319017FE3003C3BA4 /* Images */,
 				062D1A8E19009D37003C3BA4 /* Constants.h */,
 				0671D08418F7474A00D18071 /* ConferenceWL-Info.plist */,
@@ -440,6 +447,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 0671D07018F7474A00D18071;
 			productRefGroup = 0671D07A18F7474A00D18071 /* Products */;
@@ -458,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				062CA2261905C03900C5CE13 /* menu-button@2x.png in Resources */,
+				065AB0031910292D00EDE25F /* Localizable.strings in Resources */,
 				062CA22C1905C7E700C5CE13 /* chicago1.jpg in Resources */,
 				062CA2291905C4DB00C5CE13 /* profile-placeholder-75.png in Resources */,
 				062CA2221905B83700C5CE13 /* bodybg.jpg in Resources */,
@@ -559,10 +568,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		065AB0051910292D00EDE25F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				065AB0041910292D00EDE25F /* en */,
+				065AB0061910295B00EDE25F /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0671D08518F7474A00D18071 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0671D08618F7474A00D18071 /* en */,
+				065AB001191028D800EDE25F /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -571,6 +590,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0671D08F18F7474A00D18071 /* Base */,
+				065AB000191028D800EDE25F /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -579,6 +599,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0671D0A518F7474A00D18071 /* en */,
+				065AB002191028D800EDE25F /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

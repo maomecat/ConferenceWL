@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Attendees";
+    self.title = NSLocalizedString(@"Attendees", nil);
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView addSubview:self.refreshControl];
