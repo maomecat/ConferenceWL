@@ -44,7 +44,7 @@
 
 -(void)shareProgram
 {
-    NSArray* array = @[_dictionary[@"name"], _dictionary[@"venue"], _dictionary[@"date"], _dictionary[@"time"]];
+    NSArray* array = @[_dictionary[@"name"], _dictionary[@"venue"], _dictionary[@"date"], _dictionary[@"time"], _dictionary[@"description"]];
     UIActivityViewController* actController = [[UIActivityViewController alloc] initWithActivityItems:array applicationActivities:nil];
     [self presentViewController:actController animated:YES completion:nil];
 }
@@ -85,7 +85,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return 3;
     }
     return _attendeesArray.count;
 }
@@ -93,6 +93,12 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+        if (indexPath.row == 2) {
+            NSString* text = _dictionary[@"description"];
+            CGSize constraint = CGSizeMake(300, 20000);
+            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+            return textSize.height + 30;
+        }
         return tableView.rowHeight;
     }
     return 78;
@@ -104,10 +110,19 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             cell.textLabel.text = _dictionary[@"venue"];
+            cell.textLabel.numberOfLines = 0;
+            cell.detailTextLabel.text = @"";
         }
         if (indexPath.row == 1) {
             cell.textLabel.text = [WLFormatter formatDate:_dictionary[@"date"]];
             cell.detailTextLabel.text = [WLFormatter formatTime:_dictionary[@"time"]];
+        }
+        if (indexPath.row == 2) {
+            cell.textLabel.text = _dictionary[@"description"];
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            cell.detailTextLabel.text = @"";
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
     if (indexPath.section == 1) {
@@ -131,7 +146,7 @@
         [sheet showFromRect:self.view.window.frame inView:self.view animated:YES];
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Add to Calendar" message:[NSString stringWithFormat:@"Add %@ to calendar?", _dictionary[@"name"]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Add to Calendar" message:[NSString stringWithFormat:@"Add %@ to calendar?", _dictionary[@"name"]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
         [alert show];
     }
 }
@@ -173,16 +188,5 @@
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@", locationTitleWithAddedPlusSigns]]];
     }
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
