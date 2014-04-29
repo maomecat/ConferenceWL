@@ -147,7 +147,7 @@
         [sheet showFromRect:self.view.window.frame inView:self.view animated:YES];
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add to Calendar", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Add %@ to calendar?", nil), _dictionary[@"name"]] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Add", nil), nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add to Calendar", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Add %@ to Calendar?", nil), _dictionary[@"name"]] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Add", nil), nil];
         [alert show];
     }
 }

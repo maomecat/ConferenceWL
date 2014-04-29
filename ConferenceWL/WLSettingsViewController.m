@@ -68,7 +68,7 @@
 
 -(void)logoutClicked:(id)sender
 {
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Are you sure?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
     [sheet showInView:self.view.window];
 }
 
