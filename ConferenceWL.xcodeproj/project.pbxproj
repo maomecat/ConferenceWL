@@ -91,11 +91,11 @@
 		065AAFF7190EDDD100EDE25F /* WLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFormatter.h; sourceTree = "<group>"; };
 		065AAFF8190EDDD100EDE25F /* WLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFormatter.m; sourceTree = "<group>"; };
 		065AAFFC190F082B00EDE25F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		065AB000191028D800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		065AB001191028D800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		065AB002191028D800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		065AB0041910292D00EDE25F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		065AB0061910295B00EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		065AB0111910307800EDE25F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		0671D07918F7474A00D18071 /* ConferenceWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671D07C18F7474A00D18071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0671D07E18F7474A00D18071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -590,7 +590,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0671D08F18F7474A00D18071 /* Base */,
-				065AB000191028D800EDE25F /* es */,
+				065AB0111910307800EDE25F /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

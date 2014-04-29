@@ -12,3 +12,12 @@
 "Calendar" = "Calendario";
 "Settings" = "Configuración";
 "Push Notifications" = "Empujar Notificatiobs";
+"Open in..." = "Abrir en...";
+"Cancel" = "Cancelar";
+"Add to Calendar" = "Añadir al Calendario";
+"Add %@ to Calendar?" = "Añadir %@ al Calendario?";
+"Add" = "Añadir";
+"Please enter a valid email." = "Por favor, introduzca un email válido.";
+"Please enter password." = "Por favor, introduzca la contraseña.";
+"Please enter a name" = "Por favor, introduzca un nombre";
+"Name" = "Nombre";

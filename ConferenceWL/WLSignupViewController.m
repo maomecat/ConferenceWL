@@ -64,15 +64,15 @@
     WLSignupTableViewCell* emailCell = (WLSignupTableViewCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     WLSignupTableViewCell* passwordCell = (WLSignupTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     if (nameCell.textfield.text.length == 0) {
-        [CSNotificationView  showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a name"];
+        [CSNotificationView  showInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"Please enter a name", nil)];
         return;
     }
     if (emailCell.textfield.text.length == 0 || ![self validateEmail:emailCell.textfield.text]) {
-        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter a valid email."];
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"Please enter a valid email.", nil)];
         return;
     }
     if (passwordCell.textfield.text.length == 0) {
-        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:@"Please enter password"];
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"Please enter password.", nil)];
         return;
     }
     
@@ -118,7 +118,7 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textfield.placeholder = @"Name";
+            cell.textfield.placeholder = NSLocalizedString(@"Name", nil);
             break;
         case 1:
             cell.textfield.placeholder = @"Email";

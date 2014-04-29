@@ -1,18 +1,18 @@
 
 /* Class = "IBUILabel"; text = "Version"; ObjectID = "05J-NP-JHn"; */
-"05J-NP-JHn.text" = "Version";
+"05J-NP-JHn.text" = "Versión";
 
 /* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "1DD-0H-82A"; */
 "1DD-0H-82A.normalTitle" = "Login";
 
 /* Class = "IBUITextField"; placeholder = "Password*"; ObjectID = "DSq-CR-Odl"; */
-"DSq-CR-Odl.placeholder" = "Password*";
+"DSq-CR-Odl.placeholder" = "Contraseña*";
 
 /* Class = "IBUITextField"; text = "pass"; ObjectID = "DSq-CR-Odl"; */
 "DSq-CR-Odl.text" = "pass";
 
 /* Class = "IBUIBarButtonItem"; title = "Cancel"; ObjectID = "ECz-cT-XzP"; */
-"ECz-cT-XzP.title" = "Cancel";
+"ECz-cT-XzP.title" = "Cancelar";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "EJf-0j-G20"; */
 "EJf-0j-G20.text" = "Label";
@@ -20,8 +20,8 @@
 /* Class = "IBUILabel"; text = "Logout"; ObjectID = "FQq-pj-MQh"; */
 "FQq-pj-MQh.text" = "Logout";
 
-/* Class = "IBUILabel"; text = "Push Notifications"; ObjectID = "LOx-l2-dcf"; */
-"LOx-l2-dcf.text" = "Push Notifications";
+/* Class = "IBUILabel"; text = "Empujar Notificatiobs"; ObjectID = "LOx-l2-dcf"; */
+"LOx-l2-dcf.text" = "Empujar Notificatiobs";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "PSh-ff-8zZ"; */
 "PSh-ff-8zZ.text" = "Label";
@@ -33,7 +33,7 @@
 "Trw-bG-dO6.headerTitle" = "Notifications";
 
 /* Class = "IBUILabel"; text = "Logged in as"; ObjectID = "UOK-Ej-4J5"; */
-"UOK-Ej-4J5.text" = "Logged in as";
+"UOK-Ej-4J5.text" = "Conectado Como";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "VQU-Hg-8vt"; */
 "VQU-Hg-8vt.text" = "Label";
@@ -45,10 +45,10 @@
 "XuW-Z9-fDO.text" = "Label";
 
 /* Class = "IBUILabel"; text = "Sound"; ObjectID = "Z5C-8M-ra1"; */
-"Z5C-8M-ra1.text" = "Sound";
+"Z5C-8M-ra1.text" = "Sonido";
 
 /* Class = "IBUILabel"; text = "or"; ObjectID = "ajb-it-k1R"; */
-"ajb-it-k1R.text" = "or";
+"ajb-it-k1R.text" = "o";
 
 /* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "cb9-Kw-ivF"; */
 "cb9-Kw-ivF.text" = "Subtitle";
@@ -69,13 +69,13 @@
 "q2q-7I-7sU.text" = "r@r.rr";
 
 /* Class = "IBUILabel"; text = "Terms of Service"; ObjectID = "qzx-hy-WmP"; */
-"qzx-hy-WmP.text" = "Terms of Service";
+"qzx-hy-WmP.text" = "Términos Del Servicio";
 
 /* Class = "IBUILabel"; text = "Send Feedback"; ObjectID = "tHV-6K-aWS"; */
-"tHV-6K-aWS.text" = "Send Feedback";
+"tHV-6K-aWS.text" = "Envíe Sus Comentarios";
 
 /* Class = "IBUILabel"; text = "Privacy Policy"; ObjectID = "tvF-2n-dI7"; */
-"tvF-2n-dI7.text" = "Privacy Policy";
+"tvF-2n-dI7.text" = "Política De Privacidad";
 
 /* Class = "IBUITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "vCH-jD-H1L"; */
 "vCH-jD-H1L.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
