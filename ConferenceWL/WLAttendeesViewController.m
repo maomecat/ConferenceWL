@@ -73,6 +73,14 @@
                 NSString* str = [[dict objectForKey:@"firstname"] substringToIndex:1];
                 return str;
             } identifierBlock:nil];
+            
+            UILabel* footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+            footerLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Attendees", nil), sortedArray.count];
+            footerLabel.textColor = [UIColor lightGrayColor];
+            footerLabel.font = [UIFont systemFontOfSize:25];
+            footerLabel.textAlignment = NSTextAlignmentCenter;
+            self.tableView.tableFooterView = footerLabel;
+            
             [self.tableView reloadData];
         }
         [refreshControl endRefreshing];
