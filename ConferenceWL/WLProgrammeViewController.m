@@ -80,27 +80,16 @@
         }];
     } else {
         [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
-            if (result != nil) {
-                NSArray* datasource = result;
-                NSArray* sortedArray = [self sortedArray:datasource withKey:@"date" key2:@"time"];
-                self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
-                    NSDictionary* dict = item;
-                    NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
-                    return str;
-                } identifierBlock:nil];
-                [self.tableView reloadData];
-            }
+            NSArray* datasource = result;
+            NSArray* sortedArray = [self sortedArray:datasource withKey:@"date" key2:@"time"];
+            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
+                NSDictionary* dict = item;
+                NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
+                return str;
+            } identifierBlock:nil];
+            [self.tableView reloadData];
             [refreshControl endRefreshing];
-            
         }];
-    }
-    
-    if (!self.indexPathController.dataModel) {
-        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 320, 40)];
-        label.textColor = [UIColor darkGrayColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"No programmes";
-        [self.view addSubview:label];
     }
     
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
@@ -152,7 +141,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WLProgrammeTableViewCell* cell = (WLProgrammeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
     
     NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
     cell.progNameLabel.text = dict[@"name"];

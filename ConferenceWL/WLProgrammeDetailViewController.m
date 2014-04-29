@@ -96,8 +96,9 @@
         if (indexPath.row == 2) {
             NSString* text = _dictionary[@"description"];
             CGSize constraint = CGSizeMake(300, 20000);
-            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-            return textSize.height + 30;
+            CGRect textSize = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:18], NSFontAttributeName, nil] context:nil];
+//            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+            return textSize.size.height + 30;
         }
         return tableView.rowHeight;
     }

@@ -1,6 +1,5 @@
 //
-//  WMMenuViewController.m
-//  JPW Sales
+//  WLMenuViewController.m
 //
 //  Created by Rishabh Tayal on 4/3/14.
 //  Copyright (c) 2014 Rishabh Tayal. All rights reserved.
@@ -12,8 +11,6 @@
 #import "WLFloorPlanViewController.h"
 #import "WLCalendarViewController.h"
 #import "WLSettingsViewController.h"
-//#import "WMNewsDocument.h"
-//#import "WMSPRViewController.h"
 #import "MFSideMenu.h"
 #import "FXBlurView.h"
 #import "UIImageView+AFNetworking.h"
@@ -46,8 +43,6 @@
 {
     [super viewDidLoad];
     
-//    [self.navigationItem setTitleView:[UIView setNavigationTitleImage:NAVIGATIONBARTITLEVIEW]];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:NAVIGATIONBARBACKGROUND] forBarMetrics:UIBarMetricsDefault];
     self.title = @"Conference App";
     
     UIImageView* footerIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 8)];
@@ -61,7 +56,7 @@
     iv.frame = self.tableView.frame;
     self.tableView.backgroundView = iv;
     self.tableView.backgroundColor = [UIColor clearColor];
-    
+       
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 

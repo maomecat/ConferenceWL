@@ -77,14 +77,6 @@
         }
         [refreshControl endRefreshing];
     }];
-    
-    if (!self.indexPathController.dataModel) {
-        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 320, 40)];
-        label.textColor = [UIColor darkGrayColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"No Attendees";
-        [self.view addSubview:label];
-    }
 }
 
 #pragma mark - UITableView Datasource
