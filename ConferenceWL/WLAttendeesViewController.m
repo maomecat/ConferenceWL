@@ -32,7 +32,7 @@
     [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.sectionIndexColor = [UIColor redColor];
-
+    
     [self refreshTable:self.refreshControl];
     [self setupLeftMenuBarButton];
     // Do any additional setup after loading the view.
@@ -61,20 +61,30 @@
 -(void)refreshTable:(UIRefreshControl*)refreshControl
 {
     [WLWebCaller getDataFromURL:kURLGetAttendees withCompletionBlock:^(bool success, id result) {
-        
-        NSArray* datasource = result;
-        NSSortDescriptor* firstNameSorter = [[NSSortDescriptor alloc] initWithKey:@"firstname" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
-        NSSortDescriptor* lastNameSorter = [[NSSortDescriptor alloc] initWithKey:@"lastname" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
-        NSArray* sortedArray = [datasource sortedArrayUsingDescriptors:[NSArray arrayWithObjects:firstNameSorter, lastNameSorter, nil]];
-        
-        self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
-            NSDictionary* dict = item;
-            NSString* str = [[dict objectForKey:@"firstname"] substringToIndex:1];
-            return str;
-        } identifierBlock:nil];
-        [self.tableView reloadData];
+        if (result != nil) {
+            
+            NSArray* datasource = result;
+            NSSortDescriptor* firstNameSorter = [[NSSortDescriptor alloc] initWithKey:@"firstname" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+            NSSortDescriptor* lastNameSorter = [[NSSortDescriptor alloc] initWithKey:@"lastname" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+            NSArray* sortedArray = [datasource sortedArrayUsingDescriptors:[NSArray arrayWithObjects:firstNameSorter, lastNameSorter, nil]];
+            
+            self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
+                NSDictionary* dict = item;
+                NSString* str = [[dict objectForKey:@"firstname"] substringToIndex:1];
+                return str;
+            } identifierBlock:nil];
+            [self.tableView reloadData];
+        }
         [refreshControl endRefreshing];
     }];
+    
+    if (!self.indexPathController.dataModel) {
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 320, 40)];
+        label.textColor = [UIColor darkGrayColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = @"No Attendees";
+        [self.view addSubview:label];
+    }
 }
 
 #pragma mark - UITableView Datasource
@@ -87,7 +97,7 @@
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     return @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
-//    return [self.indexPathController.dataModel sectionNames];
+    //    return [self.indexPathController.dataModel sectionNames];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
@@ -110,15 +120,15 @@
     if (!cell) {
         cell = [[WLAttendeesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-
+    
     NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
     
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", dict[@"firstname"], dict[@"lastname"]];
-
+    
     if (dict[@"photo"] != NULL) {
         [cell.thumbImageView setImageWithURL:[NSURL URLWithString:dict[@"photo"]] placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"]];
     }
-   
+    
     return cell;
 }
 
