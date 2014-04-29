@@ -114,7 +114,7 @@
     label.text = [self.indexPathController.dataModel sectionNameForSection:section];
     
     UIView* header = [[UIView alloc] initWithFrame:label.bounds];
-    header.backgroundColor = [UIColor colorWithRed:250 green:250 blue:250 alpha:0.8];
+    header.backgroundColor = [UIColor colorWithRed:2 green:2 blue:2 alpha:0.5];
     [header addSubview:label];
     return header;
 }
@@ -146,18 +146,23 @@
     cell.progNameLabel.text = dict[@"name"];
     cell.timeLabel.text = [WLFormatter formatTime:dict[@"time"]];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    
-    if ([[_programesIAmAttending valueForKey:@"id"] containsObject:dict[@"id"]]) {
-        [button setTitle:@"Attending" forState:UIControlStateNormal];
-    } else {
-        [button setTitle:@"RSVP" forState:UIControlStateNormal];
-        button.tag = indexPath.row;
-        [button addTarget:self action:@selector(rsvpClicked:) forControlEvents:UIControlEventTouchUpInside];
+    if (!_userid) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        
+        if ([[_programesIAmAttending valueForKey:@"id"] containsObject:dict[@"id"]]) {
+            [button setTitle:@"Attending" forState:UIControlStateNormal];
+        } else {
+            [button setTitle:@"RSVP" forState:UIControlStateNormal];
+            button.tag = indexPath.row;
+            [button addTarget:self action:@selector(rsvpClicked:) forControlEvents:UIControlEventTouchUpInside];
+            button.layer.borderColor = [UIColor redColor].CGColor;
+            button.layer.cornerRadius = 4;
+            button.layer.borderWidth = 1;
+        }
+        [button setFrame:CGRectMake(0, 0, 80, 35)];
+        cell.accessoryView = button;
     }
-    [button setFrame:CGRectMake(0, 0, 100, 35)];
-    cell.accessoryView = button;
     
     return cell;
 }
@@ -171,7 +176,14 @@
 
 -(void)rsvpClicked:(UIButton*)sender {
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:    [self.tableView indexPathForRowAtPoint:buttonPosition]];
+    NSIndexPath* indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    WLProgrammeTableViewCell* cell = (WLProgrammeTableViewCell*) [self.tableView cellForRowAtIndexPath:indexPath];
+    UIActivityIndicatorView* indView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indView.frame = CGRectMake(0, 0, 80, 35);
+    [indView startAnimating];
+    cell.accessoryView = indView;
+    
+    NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], dict[@"id"]] withCompletionBlock:^(bool success, id result) {
         [self refreshTable:self.refreshControl];
     }];
@@ -182,7 +194,6 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     if ([segue.identifier isEqualToString:@"ProgrammeDetailSegue"]) {
         WLProgrammeDetailViewController* progDetail = segue.destinationViewController;
         progDetail.dictionary = [self.indexPathController.dataModel itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
