@@ -20,7 +20,7 @@
 +(void)getAttendeesForProgramme:(NSString*)programmeid completion:(void(^)(bool success, id result))completion;
 
 
-+(void)checkRSVPForProgramme:(NSString*)programmeid completion:(void(^)(bool success, id result))completion;
++(void)checkRSVPForProgramme:(NSString*)programmeid userid:(NSString*)userid completion:(void(^)(bool success, id result))completion;
 +(void)RSVPForUser:(NSString*)username forProgramme:(NSString*)programmeid completion:(void(^)(bool success, id result))completion;
 
 @end

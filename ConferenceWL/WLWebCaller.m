@@ -33,9 +33,9 @@
     [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, userid] withCompletionBlock:completion];
 }
 
-+(void)checkRSVPForProgramme:(NSString *)programmeid completion:(void (^)(bool, id))completion
++(void)checkRSVPForProgramme:(NSString *)programmeid userid:(NSString *)userid completion:(void (^)(bool, id))completion
 {
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLCheckRSVPForProgram, programmeid] withCompletionBlock:completion];
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLCheckRSVPForProgram, programmeid, userid] withCompletionBlock:completion];
 }
 
 +(void)RSVPForUser:(NSString *)username forProgramme:(NSString *)programmeid completion:(void (^)(bool, id))completion

@@ -13,4 +13,6 @@
 
 @property (strong) NSString* userid;
 
+-(void)refreshTable:(UIRefreshControl*)refreshControl;
+
 @end

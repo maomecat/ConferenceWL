@@ -12,10 +12,13 @@
 #import "UIImageView+AFNetworking.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WLAttendeesTableViewCell.h"
+#import "WLProgrammeViewController.h"
 
 @interface WLProgrammeDetailViewController ()
 
 @property (strong) NSMutableArray* attendeesArray;
+
+@property (assign) bool shouldRefreshPreviousView;
 
 @end
 
@@ -31,6 +34,18 @@
     
     [self getAttendees];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (_shouldRefreshPreviousView) {
+        NSInteger numberOfVC = self.navigationController.viewControllers.count;
+        if (numberOfVC > 0) {
+            WLProgrammeViewController* vc = self.navigationController.viewControllers[numberOfVC - 1];
+            [vc refreshTable:vc.refreshControl];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,7 +98,7 @@
     if (section == 0) {
         return 60;
     }
-    return 40;
+    return 50;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -123,7 +138,7 @@
         UIButton* rsvpButton = [UIButton buttonWithType:UIButtonTypeCustom];
         rsvpButton.frame = CGRectMake(0, 0, 220, 40);
         
-        [WLWebCaller checkRSVPForProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
+        [WLWebCaller checkRSVPForProgramme:_dictionary[@"id"] userid:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] completion:^(bool success, id result) {
             NSLog(@"%@", result);
             NSDictionary* dict = result;
             if ([dict[@"success"] boolValue]) {
@@ -222,6 +237,7 @@
     [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] forProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
         NSLog(@"%@", result);
         [self getAttendees];
+        _shouldRefreshPreviousView = true;
     }];
 }
 

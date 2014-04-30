@@ -29,10 +29,6 @@
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
     
-    // Here self.navigationController is an instance of NavigationViewController (which is a root controller for the main window)
-    //
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
-    
     self.title = NSLocalizedString(@"Programmes", nil);
     
     self.refreshControl = [[UIRefreshControl alloc] init];
