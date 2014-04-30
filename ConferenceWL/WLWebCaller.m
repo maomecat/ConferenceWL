@@ -10,6 +10,49 @@
 
 @implementation WLWebCaller
 
++(void)signupWithFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)passwor completion:(void (^)(bool, id))completion
+{
+    NSString* urlString = [NSString stringWithFormat:kURLSignup, firstName, lastName,email, passwor];
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [WLWebCaller getDataFromURL:urlString withCompletionBlock:completion];
+}
+
++(void)loginForUsername:(NSString*)username password:(NSString*)password completion:(void(^)(bool success, id result))completion
+{
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLLogin, username, password] withCompletionBlock:completion];
+}
+
++(void)getAllProgrammesWithCompletion:(void (^)(bool, id))completion
+{
+    [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:completion];
+}
+
++(void)getProgrammesForUser:(NSString *)userid completion:(void (^)(bool, id))completion
+{
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, userid] withCompletionBlock:completion];
+}
+
++(void)checkRSVPForProgramme:(NSString *)programmeid completion:(void (^)(bool, id))completion
+{
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLCheckRSVPForProgram, programmeid] withCompletionBlock:completion];
+}
+
++(void)RSVPForUser:(NSString *)username forProgramme:(NSString *)programmeid completion:(void (^)(bool, id))completion
+{
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, username, programmeid] withCompletionBlock:completion];
+}
+
++(void)getAllAttendeesWithCompletion:(void (^)(bool, id))completion
+{
+    [WLWebCaller getDataFromURL:kURLGetAttendees withCompletionBlock:completion];
+}
+
++(void)getAttendeesForProgramme:(NSString *)programmeid completion:(void (^)(bool, id))completion
+{
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetAttendeesForProgramme, programmeid] withCompletionBlock:completion];
+}
+
 +(void)getDataFromURL:(NSString*)url withCompletionBlock:(void(^)(bool success, id result))completion
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

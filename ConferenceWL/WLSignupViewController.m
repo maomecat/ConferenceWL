@@ -86,11 +86,8 @@
 -(void)signupWithFirstName:(NSString*)firstName lastName:(NSString*)lastName email:(NSString*)email pasword:(NSString*)password
 {
     [WLActivityView showInView:self.view loadingMessage:@"Creating account..."];
-    
-    NSString* urlString = [NSString stringWithFormat:kURLSignup, firstName, lastName,email, password];
-    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    [WLWebCaller getDataFromURL:urlString withCompletionBlock:^(bool success, id result) {
+       
+    [WLWebCaller signupWithFirstName:firstName lastName:lastName email:email password:password completion:^(bool success, id result) {
         [WLActivityView hide];
         if ([result[@"success"] boolValue]) {
             [self dismissViewControllerAnimated:YES completion:^{

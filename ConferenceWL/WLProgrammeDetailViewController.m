@@ -40,7 +40,7 @@
 }
 
 -(void)getAttendees {
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetAttendeesForProgramme, _dictionary[@"id"]] withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller getAttendeesForProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
         _attendeesArray = [[NSMutableArray alloc] initWithArray:result];
         [self.tableView reloadData];
     }];
@@ -123,7 +123,7 @@
         UIButton* rsvpButton = [UIButton buttonWithType:UIButtonTypeCustom];
         rsvpButton.frame = CGRectMake(0, 0, 220, 40);
         
-        [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLCheckRSVPForProgram, _dictionary[@"id"], [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
+        [WLWebCaller checkRSVPForProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
             NSLog(@"%@", result);
             NSDictionary* dict = result;
             if ([dict[@"success"] boolValue]) {
@@ -219,7 +219,7 @@
 
 -(void)rsvpClicked:(id)sender
 {
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], _dictionary[@"id"]] withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] forProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
         NSLog(@"%@", result);
         [self getAttendees];
     }];

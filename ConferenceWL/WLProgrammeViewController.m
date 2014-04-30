@@ -63,7 +63,7 @@
 -(void)refreshTable:(UIRefreshControl*)refreshControl {
     
     if (_userid) {
-        [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, _userid] withCompletionBlock:^(bool success, id result) {
+        [WLWebCaller getProgrammesForUser:_userid completion:^(bool success, id result) {
             if (result != nil) {
                 
                 NSArray* datasource = result;
@@ -79,7 +79,8 @@
             
         }];
     } else {
-        [WLWebCaller getDataFromURL:kURLGetAllProgrammes withCompletionBlock:^(bool success, id result) {
+        
+        [WLWebCaller getAllProgrammesWithCompletion:^(bool success, id result) {
             NSArray* datasource = result;
             NSArray* sortedArray = [self sortedArray:datasource withKey:@"date" key2:@"time"];
             self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithItems:sortedArray sectionNameBlock:^NSString *(id item) {
@@ -95,12 +96,12 @@
             footerLabel.textAlignment = NSTextAlignmentCenter;
             self.tableView.tableFooterView = footerLabel;
             
-//            [self.tableView reloadData];
+            //            [self.tableView reloadData];
             [refreshControl endRefreshing];
         }];
     }
     
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetProgrammesForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller getProgrammesForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] completion:^(bool success, id result) {
         _programesIAmAttending = [[NSMutableArray alloc] initWithArray:result];
         [self.tableView reloadData];
     }];
@@ -199,7 +200,7 @@
     cell.accessoryView = indView;
     
     NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], dict[@"id"]] withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] forProgramme:dict[@"id"] completion:^(bool success, id result) {
         [self refreshTable:self.refreshControl];
     }];
 }

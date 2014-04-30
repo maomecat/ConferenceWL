@@ -78,7 +78,7 @@
     
     [WLActivityView showInView:self.view loadingMessage:@"Logging in..."];
     
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLLogin, email, password] withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller loginForUsername:email password:password completion:^(bool success, id result) {
         [WLActivityView hide];
         if ([result[@"success"] boolValue]) {
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
@@ -93,7 +93,7 @@
             WLProgrammeViewController* programVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
             UINavigationController* navC = [[UINavigationController alloc] initWithRootViewController:programVC];
             MFSideMenuContainerViewController* sideMenu = [MFSideMenuContainerViewController containerWithCenterViewController:navC leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] initWithStyle:UITableViewStyleGrouped]] rightMenuViewController:nil];
-
+            
             [UIView transitionWithView:self.view.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
                 self.view.window.rootViewController = sideMenu;
             } completion:nil];

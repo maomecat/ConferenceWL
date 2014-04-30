@@ -61,7 +61,7 @@
 
 -(void)refreshTable:(UIRefreshControl*)refreshControl
 {
-    [WLWebCaller getDataFromURL:kURLGetAttendees withCompletionBlock:^(bool success, id result) {
+    [WLWebCaller getAllAttendeesWithCompletion:^(bool success, id result) {
         if (result != nil) {
             
             NSArray* datasource = result;
