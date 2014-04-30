@@ -87,6 +87,14 @@
                 NSString* str = [WLFormatter formatDate:[dict objectForKey:@"date"]];
                 return str;
             } identifierBlock:nil];
+            
+            UILabel* footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+            footerLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Programmes", nil), sortedArray.count];
+            footerLabel.textColor = [UIColor lightGrayColor];
+            footerLabel.font = [UIFont systemFontOfSize:24];
+            footerLabel.textAlignment = NSTextAlignmentCenter;
+            self.tableView.tableFooterView = footerLabel;
+            
             [self.tableView reloadData];
             [refreshControl endRefreshing];
         }];
@@ -160,8 +168,13 @@
             button.layer.cornerRadius = 4;
             button.layer.borderWidth = 1;
         }
-        [button setFrame:CGRectMake(0, 0, 80, 35)];
-        cell.accessoryView = button;
+        [button setFrame:CGRectMake(0, 0, 70, 35)];
+        
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 90, 45)];
+        [view addSubview:button];
+        button.center = CGPointMake(button.center.x, view.center.y);
+        
+        cell.accessoryView = view;
     }
     
     return cell;
@@ -173,6 +186,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark -
 
 -(void)rsvpClicked:(UIButton*)sender {
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
@@ -191,13 +206,11 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ProgrammeDetailSegue"]) {
         WLProgrammeDetailViewController* progDetail = segue.destinationViewController;
         progDetail.dictionary = [self.indexPathController.dataModel itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
-        //        progDetail.dictionary = [_datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 
