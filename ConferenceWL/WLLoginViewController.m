@@ -81,12 +81,12 @@
     [WLWebCaller loginForUsername:email password:password completion:^(bool success, id result) {
         [WLActivityView hide];
         if ([result[@"success"] boolValue]) {
-            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loggedIn"];
-            [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"username"];
-            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"id"] forKey:@"userid"];
-            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"firstname"] forKey:@"user_firstname"];
-            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"lastname"] forKey:@"user_lastname"];
-            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"photo"] forKey:@"photoURL"];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:kUserDefaultKeyUserLoggedIn];
+            [[NSUserDefaults standardUserDefaults] setObject:email forKey:kUserDefaultKeyEmail];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"id"] forKey:kUserDefaultKeyUserid];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"firstname"] forKey:kUserDefaultKeyFirstName];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"lastname"] forKey:kUserDefaultKeyLastName];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"user"][@"photo"] forKey:kUserDefaultKeyPhotoURL];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

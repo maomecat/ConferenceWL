@@ -138,7 +138,7 @@
         UIButton* rsvpButton = [UIButton buttonWithType:UIButtonTypeCustom];
         rsvpButton.frame = CGRectMake(0, 0, 220, 40);
         
-        [WLWebCaller checkRSVPForProgramme:_dictionary[@"id"] userid:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] completion:^(bool success, id result) {
+        [WLWebCaller checkRSVPForProgramme:_dictionary[@"id"] userid:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyUserid] completion:^(bool success, id result) {
             NSLog(@"%@", result);
             NSDictionary* dict = result;
             if ([dict[@"success"] boolValue]) {
@@ -186,7 +186,7 @@
     }
     if (indexPath.section == 1) {
         WLAttendeesTableViewCell*  attendeeCell = (WLAttendeesTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"attendeeCell"];
-        if ([_attendeesArray[indexPath.row][@"id"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]]) {
+        if ([_attendeesArray[indexPath.row][@"id"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyUserid]]) {
             attendeeCell.nameLabel.text = NSLocalizedString(@"You", nil);
         } else {
             attendeeCell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",_attendeesArray[indexPath.row][@"firstname"], _attendeesArray[indexPath.row][@"lastname"]];
@@ -238,7 +238,7 @@
 
 -(void)rsvpClicked:(id)sender
 {
-    [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] forProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
+    [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyUserid] forProgramme:_dictionary[@"id"] completion:^(bool success, id result) {
         NSLog(@"%@", result);
         [self getAttendees];
         _shouldRefreshPreviousView = true;

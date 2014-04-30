@@ -28,7 +28,7 @@
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"loggedIn"] boolValue]) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyUserLoggedIn] boolValue]) {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         WLProgrammeViewController* programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
         UINavigationController* navc = [[UINavigationController alloc] initWithRootViewController:programmeVC];

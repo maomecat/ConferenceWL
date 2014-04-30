@@ -33,7 +33,7 @@
     
     self.title = NSLocalizedString(@"Settings", nil);
     
-    _usernameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"user_firstname"], [[NSUserDefaults standardUserDefaults] objectForKey:@"user_lastname"]];
+    _usernameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyFirstName], [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyLastName]];
     
     [self.logoutButton.layer setBorderWidth:1];
     self.logoutButton.layer.borderColor = self.logoutButton.tintColor.CGColor;
@@ -83,7 +83,7 @@
 -(void)logoutComplete:(NSTimer*)logoutTimer
 {
     [WLActivityView hide];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"loggedIn"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultKeyUserLoggedIn];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

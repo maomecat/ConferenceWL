@@ -97,7 +97,7 @@
         }];
     }
     
-    [WLWebCaller getProgrammesForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] completion:^(bool success, id result) {
+    [WLWebCaller getProgrammesForUser:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyUserid] completion:^(bool success, id result) {
         _programesIAmAttending = [[NSMutableArray alloc] initWithArray:result];
         [self.tableView reloadData];
     }];
@@ -196,7 +196,7 @@
     cell.accessoryView = indView;
     
     NSDictionary* dict = [self.indexPathController.dataModel itemAtIndexPath:indexPath];
-    [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] forProgramme:dict[@"id"] completion:^(bool success, id result) {
+    [WLWebCaller RSVPForUser:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyUserid] forProgramme:dict[@"id"] completion:^(bool success, id result) {
         [self refreshTable:self.refreshControl];
     }];
 }

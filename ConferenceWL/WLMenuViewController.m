@@ -129,7 +129,7 @@
     iv.layer.borderColor = [UIColor redColor].CGColor;
     iv.layer.borderWidth = 1;
     
-    [iv setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"photoURL"]] placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"]];
+    [iv setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyPhotoURL]] placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"]];
     
     CGPoint center;
     center.x = view.center.x;
@@ -137,7 +137,7 @@
     iv.center = center;
     
     UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, iv.frame.origin.y + iv.frame.size.height, self.view.frame.size.width, 40)];
-    nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"user_firstname"], [[NSUserDefaults standardUserDefaults] objectForKey:@"user_lastname"]];
+    nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyFirstName], [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyLastName]];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     nameLabel.textColor = [UIColor lightGrayColor];
     
