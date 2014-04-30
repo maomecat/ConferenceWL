@@ -95,7 +95,7 @@
             footerLabel.textAlignment = NSTextAlignmentCenter;
             self.tableView.tableFooterView = footerLabel;
             
-            [self.tableView reloadData];
+//            [self.tableView reloadData];
             [refreshControl endRefreshing];
         }];
     }
