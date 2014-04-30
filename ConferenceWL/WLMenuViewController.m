@@ -137,7 +137,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return 4;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,11 +172,11 @@
         case 2:
             cell.textLabel.text = NSLocalizedString(@"Floor Plan", nil);
             break;
-        case 3:
-        {
-            cell.textLabel.text = NSLocalizedString(@"Calendar", nil);
-        }
-            break;
+//        case 3:
+//        {
+//            cell.textLabel.text = NSLocalizedString(@"Calendar", nil);
+//        }
+//            break;
         default:
             cell.textLabel.text = NSLocalizedString(@"Settings", nil);
             break;
@@ -213,13 +213,13 @@
             array = [[NSMutableArray alloc] initWithObjects:_floor, nil];
         }
             break;
-        case 3:
-        {
-            if (!_cal)
-                _cal = [sb instantiateViewControllerWithIdentifier:@"WLCalendarViewController"];
-            array = [[NSMutableArray alloc] initWithObjects:_cal, nil];
-        }
-            break;
+//        case 3:
+//        {
+//            if (!_cal)
+//                _cal = [sb instantiateViewControllerWithIdentifier:@"WLCalendarViewController"];
+//            array = [[NSMutableArray alloc] initWithObjects:_cal, nil];
+//        }
+//            break;
         default:
         {
             if (!_settings)

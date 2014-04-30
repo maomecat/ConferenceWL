@@ -38,6 +38,7 @@
     
     if (!_userid) {
         [self setupLeftMenuBarButton];
+        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(scrollToToday:)]];
     }
     // Do any additional setup after loading the view.
 }
@@ -49,6 +50,42 @@
     [barButton setFrame:CGRectMake(0, 0, 20, 20)];
     [barButton addTarget:self action:@selector(leftSideMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:barButton]];
+}
+
+-(void)scrollToToday:(id)sender
+{
+    NSDate* todayDate = [NSDate date];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd"];
+    NSString* stringDate = [formatter stringFromDate:todayDate];
+    int section = 0;
+    
+    //Get current date from data soruce
+    if ([self.indexPathController.dataModel.sectionNames containsObject:stringDate] ) {
+        section = [self.indexPathController.dataModel.sectionNames indexOfObject:stringDate];
+    } else {
+        //Get closes date to current date from data source.
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate* firstDate = [formatter dateFromString:self.indexPathController.dataModel.items[0][@"date"]];
+        double min = [todayDate timeIntervalSinceDate:firstDate];
+        
+        for (int i = 1 ; i < [self.indexPathController.dataModel.items count]; ++i) {
+            NSDate* date = [formatter dateFromString:self.indexPathController.dataModel.items[i][@"date"]];
+            double currentMin = abs([todayDate timeIntervalSinceDate:date]);
+            if (currentMin < min) {
+                min = currentMin;
+                section = i;
+            }
+        }
+        
+//        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate* selectedDate = [formatter dateFromString:self.indexPathController.dataModel.items[section][@"date"]];
+        [formatter setDateFormat:@"MMM dd"];
+        NSString* selectedString = [formatter stringFromDate:selectedDate];
+        
+        section = [self.indexPathController.dataModel.sectionNames indexOfObject:selectedString];
+    }
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 -(void)leftSideMenuButtonPressed:(id)sender
