@@ -46,6 +46,7 @@
 		0671D0C918F83B7500D18071 /* WLAttendeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */; };
 		0678698019031EBC00A0C098 /* WLTerms&PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0678697F19031EBC00A0C098 /* WLTerms&PrivacyViewController.m */; };
 		067869821903214400A0C098 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067869811903214400A0C098 /* MessageUI.framework */; };
+		06CF48AF1911A28D008358AE /* UIView+ShadowCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF48AE1911A28D008358AE /* UIView+ShadowCorner.m */; };
 		06FCCEF418FF2F62001FA6B9 /* WLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */; };
 		140BE6339FB04D2183FF3403 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7684584620CD497292099C25 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,8 @@
 		0678697E19031EBC00A0C098 /* WLTerms&PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLTerms&PrivacyViewController.h"; sourceTree = "<group>"; };
 		0678697F19031EBC00A0C098 /* WLTerms&PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WLTerms&PrivacyViewController.m"; sourceTree = "<group>"; };
 		067869811903214400A0C098 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		06CF48AD1911A28D008358AE /* UIView+ShadowCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ShadowCorner.h"; sourceTree = "<group>"; };
+		06CF48AE1911A28D008358AE /* UIView+ShadowCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ShadowCorner.m"; sourceTree = "<group>"; };
 		06FCCEF218FF2F62001FA6B9 /* WLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSettingsViewController.h; sourceTree = "<group>"; };
 		06FCCEF318FF2F62001FA6B9 /* WLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSettingsViewController.m; sourceTree = "<group>"; };
 		0990CDA482DF4712940F6A0C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				0671D0C818F83B7500D18071 /* WLAttendeesViewController.m */,
 				062CA22E1905C90F00C5CE13 /* WLAttendeesTableViewCell.h */,
 				062CA22F1905C90F00C5CE13 /* WLAttendeesTableViewCell.m */,
+				06CF48AD1911A28D008358AE /* UIView+ShadowCorner.h */,
+				06CF48AE1911A28D008358AE /* UIView+ShadowCorner.m */,
 			);
 			name = "Attendees View Controller";
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				0678698019031EBC00A0C098 /* WLTerms&PrivacyViewController.m in Sources */,
 				06FCCEF418FF2F62001FA6B9 /* WLSettingsViewController.m in Sources */,
 				062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */,
+				06CF48AF1911A28D008358AE /* UIView+ShadowCorner.m in Sources */,
 				0601156218F85CDC0017D61D /* WLCalendarViewController.m in Sources */,
 				062CA1FD1905679200C5CE13 /* WLProgrammeTableViewCell.m in Sources */,
 				062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */,

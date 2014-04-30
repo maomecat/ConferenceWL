@@ -14,6 +14,7 @@
 #import "MFSideMenu.h"
 #import "FXBlurView.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIView+ShadowCorner.h"
 
 @interface WLMenuViewController ()
 
@@ -88,29 +89,6 @@
     return image;
 }
 
-//-(BOOL)shouldAutorotate
-//{
-//    if (CURRENTDEVICE == IPHONE)
-//        return NO;
-//    else
-//        return YES;
-//}
-//
-//-(void)dataReloaded:(NSNotification*)notification {
-//    _doc = [notification object];
-//    [self.tableView reloadData];
-//}
-//
-//-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-//{
-//    if (CURRENTDEVICE == IPHONE)
-//        return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
-//    else
-//    {
-//        return YES;
-//    }
-//}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -124,8 +102,9 @@
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
     UIImageView* iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 80, 80)];
     iv.contentMode = UIViewContentModeScaleAspectFill;
-    iv.layer.cornerRadius = iv.frame.size.height/2;
-    iv.layer.masksToBounds = YES;
+    
+    [iv roundCornerWithRadius:iv.frame.size.height/2 shadowColor:[UIColor whiteColor] andShadowOffset:0];
+    
     iv.layer.borderColor = [UIColor redColor].CGColor;
     iv.layer.borderWidth = 1;
     

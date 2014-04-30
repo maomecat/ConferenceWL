@@ -7,6 +7,7 @@
 //
 
 #import "WLAttendeesTableViewCell.h"
+#import "UIView+ShadowCorner.h"
 
 @implementation WLAttendeesTableViewCell
 
@@ -22,12 +23,9 @@
 - (void)awakeFromNib
 {
     // Initialization code
-}
+    [_thumbImageView roundCornerWithRadius:_thumbImageView.frame.size.width/2 shadowColor:[UIColor blackColor] andShadowOffset:0];
 
--(void)layoutSubviews
-{
-    _thumbImageView.layer.cornerRadius = _thumbImageView.frame.size.width/2;
-    _thumbImageView.layer.masksToBounds = YES;
+    //    //Border
     _thumbImageView.layer.borderColor = [UIColor redColor].CGColor;
     _thumbImageView.layer.borderWidth = 1;
 }
