@@ -12,6 +12,7 @@
 #import "WLAttendeesTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
 #import <TLIndexPathTools/TLIndexPathDataModel.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface WLAttendeesViewController ()
 
@@ -126,7 +127,15 @@
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", dict[@"firstname"], dict[@"lastname"]];
     
     if (dict[@"photo"] != NULL) {
-        [cell.thumbImageView setImageWithURL:[NSURL URLWithString:dict[@"photo"]] placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"]];
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:dict[@"photo"]]];
+        __weak typeof(WLAttendeesTableViewCell*)weakCell = cell;
+        [cell.thumbImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"profile-placeholder-75"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:weakCell.thumbImageView duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                weakCell.thumbImageView.image = image;
+            } completion:nil];
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            
+        }];
     }
     
     return cell;
