@@ -29,10 +29,7 @@
     
     self.tableView.tableFooterView = [UIView new];
     
-    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetAttendeesForProgramme, _dictionary[@"id"]] withCompletionBlock:^(bool success, id result) {
-        _attendeesArray = [[NSMutableArray alloc] initWithArray:result];
-        [self.tableView reloadData];
-    }];
+    [self getAttendees];
     // Do any additional setup after loading the view.
 }
 
@@ -40,6 +37,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)getAttendees {
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLGetAttendeesForProgramme, _dictionary[@"id"]] withCompletionBlock:^(bool success, id result) {
+        _attendeesArray = [[NSMutableArray alloc] initWithArray:result];
+        [self.tableView reloadData];
+    }];
 }
 
 -(void)shareProgram
@@ -97,12 +101,51 @@
             NSString* text = _dictionary[@"description"];
             CGSize constraint = CGSizeMake(300, 20000);
             CGRect textSize = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:18], NSFontAttributeName, nil] context:nil];
-//            CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
             return textSize.size.height + 30;
         }
         return tableView.rowHeight;
     }
     return 78;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 80;
+    }
+    return 0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        UIButton* rsvpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        rsvpButton.frame = CGRectMake(0, 0, 220, 40);
+        
+        [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLCheckRSVPForProgram, _dictionary[@"id"], [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]] withCompletionBlock:^(bool success, id result) {
+            NSLog(@"%@", result);
+            NSDictionary* dict = result;
+            if ([dict[@"success"] boolValue]) {
+                [rsvpButton setTitle:@"Attending" forState:UIControlStateNormal];
+                rsvpButton.backgroundColor = [UIColor darkGrayColor];
+            } else {
+                [rsvpButton setTitle:@"RSVP" forState:UIControlStateNormal];
+                rsvpButton.backgroundColor = [UIColor redColor];
+                [rsvpButton addTarget:self action:@selector(rsvpClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }
+        }];
+        
+        rsvpButton.layer.cornerRadius = 4;
+        
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 80)];
+        [view addSubview:rsvpButton];
+        
+        rsvpButton.center = view.center;
+        
+        return view;
+    }
+    return nil;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,6 +215,14 @@
             [store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
         }];
     }
+}
+
+-(void)rsvpClicked:(id)sender
+{
+    [WLWebCaller getDataFromURL:[NSString stringWithFormat:kURLSetRSVPForUser, [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"], _dictionary[@"id"]] withCompletionBlock:^(bool success, id result) {
+        NSLog(@"%@", result);
+        [self getAttendees];
+    }];
 }
 
 #pragma mark - UIActionSheet Delegate
