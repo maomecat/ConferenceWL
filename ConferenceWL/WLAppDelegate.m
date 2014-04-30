@@ -32,7 +32,8 @@
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         WLProgrammeViewController* programmeVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
         UINavigationController* navc = [[UINavigationController alloc] initWithRootViewController:programmeVC];
-        _viewConroller = [MFSideMenuContainerViewController containerWithCenterViewController:navc leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] initWithStyle:UITableViewStyleGrouped]] rightMenuViewController:nil];
+        _viewConroller = (MFSideMenuContainerViewController*) [MFSideMenuContainerViewController containerWithCenterViewController:navc leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] initWithStyle:UITableViewStyleGrouped]] rightMenuViewController:nil];
+        _viewConroller.menuContainerViewController.menuSlideAnimationEnabled = YES;
     } else {
         _viewConroller = [sb instantiateViewControllerWithIdentifier:@"WLLoginViewController"];
     }

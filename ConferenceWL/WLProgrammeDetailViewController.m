@@ -186,7 +186,11 @@
     }
     if (indexPath.section == 1) {
         WLAttendeesTableViewCell*  attendeeCell = (WLAttendeesTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"attendeeCell"];
-        attendeeCell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",_attendeesArray[indexPath.row][@"firstname"], _attendeesArray[indexPath.row][@"lastname"]];
+        if ([_attendeesArray[indexPath.row][@"id"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"]]) {
+            attendeeCell.nameLabel.text = NSLocalizedString(@"You", nil);
+        } else {
+            attendeeCell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",_attendeesArray[indexPath.row][@"firstname"], _attendeesArray[indexPath.row][@"lastname"]];
+        }
         [attendeeCell.thumbImageView setImageWithURL:[NSURL URLWithString:_attendeesArray[indexPath.row][@"photo"]]];
         return attendeeCell;
     }

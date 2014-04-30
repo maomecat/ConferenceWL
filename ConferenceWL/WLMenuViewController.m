@@ -58,6 +58,8 @@
     self.tableView.backgroundColor = [UIColor clearColor];
        
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -93,7 +93,8 @@
             WLProgrammeViewController* programVC = [sb instantiateViewControllerWithIdentifier:@"WLProgrammeViewController"];
             UINavigationController* navC = [[UINavigationController alloc] initWithRootViewController:programVC];
             MFSideMenuContainerViewController* sideMenu = [MFSideMenuContainerViewController containerWithCenterViewController:navC leftMenuViewController:[[UINavigationController alloc] initWithRootViewController:[[WLMenuViewController alloc] initWithStyle:UITableViewStyleGrouped]] rightMenuViewController:nil];
-            
+            sideMenu.menuSlideAnimationEnabled = YES;
+
             [UIView transitionWithView:self.view.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
                 self.view.window.rootViewController = sideMenu;
             } completion:nil];
