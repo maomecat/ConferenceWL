@@ -215,16 +215,8 @@
 			children = (
 				062CA22B1905C7E700C5CE13 /* chicago1.jpg */,
 				062CA2211905B83700C5CE13 /* bodybg.jpg */,
-				062D1A9419017FEA003C3BA4 /* temp */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		062D1A9419017FEA003C3BA4 /* temp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = temp;
 			sourceTree = "<group>";
 		};
 		062D1A9519018E09003C3BA4 /* WLActivityView */ = {
