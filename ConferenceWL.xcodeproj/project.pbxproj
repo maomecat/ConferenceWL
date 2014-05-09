@@ -440,6 +440,9 @@
 				CLASSPREFIX = WL;
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
+					0671D07818F7474A00D18071 = {
+						DevelopmentTeam = DPSPGQZJSK;
+					};
 					0671D09918F7474A00D18071 = {
 						TestTargetID = 0671D07818F7474A00D18071;
 					};
@@ -689,11 +692,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConferenceWL/ConferenceWL-Prefix.pch";
 				INFOPLIST_FILE = "ConferenceWL/ConferenceWL-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -704,10 +710,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALTER MEIER (MANUFACTURING) INC.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WALTER MEIER (MANUFACTURING) INC.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConferenceWL/ConferenceWL-Prefix.pch";
 				INFOPLIST_FILE = "ConferenceWL/ConferenceWL-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "07605FCF-42C3-4E66-82F5-9815EB344876";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

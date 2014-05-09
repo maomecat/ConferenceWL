@@ -14,6 +14,7 @@
 #import "WLAppDelegate.h"
 #import "WLTerms&PrivacyViewController.h"
 #import "MFSideMenu.h"
+#import <UIScrollView+APParallaxHeader.h>
 
 @interface WLSettingsViewController ()
 
@@ -32,7 +33,12 @@
     //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     
     self.title = NSLocalizedString(@"Settings", nil);
-    
+
+    UIImage* img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyPhotoURL]]]];
+    if (img != nil) {
+        [self.tableView addParallaxWithImage:img andHeight:220];
+    }
+
     _usernameLabel.text = [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyFirstName], [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultKeyLastName]];
     
     [self.logoutButton.layer setBorderWidth:1];

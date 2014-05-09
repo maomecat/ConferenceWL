@@ -78,7 +78,6 @@
             }
         }
         
-//        [formatter setDateFormat:@"yyyy-MM-dd"];
         NSDate* selectedDate = [formatter dateFromString:self.indexPathController.dataModel.items[section][@"date"]];
         [formatter setDateFormat:@"MMM dd"];
         NSString* selectedString = [formatter stringFromDate:selectedDate];

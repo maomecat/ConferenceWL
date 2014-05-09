@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 2
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// APParallaxHeader
+#define COCOAPODS_POD_AVAILABLE_APParallaxHeader
+#define COCOAPODS_VERSION_MAJOR_APParallaxHeader 0
+#define COCOAPODS_VERSION_MINOR_APParallaxHeader 1
+#define COCOAPODS_VERSION_PATCH_APParallaxHeader 3
+
 // BlurryModalSegue
 #define COCOAPODS_POD_AVAILABLE_BlurryModalSegue
 #define COCOAPODS_VERSION_MAJOR_BlurryModalSegue 1
@@ -64,7 +70,7 @@
 #define COCOAPODS_POD_AVAILABLE_FXBlurView
 #define COCOAPODS_VERSION_MAJOR_FXBlurView 1
 #define COCOAPODS_VERSION_MINOR_FXBlurView 6
-#define COCOAPODS_VERSION_PATCH_FXBlurView 0
+#define COCOAPODS_VERSION_PATCH_FXBlurView 1
 
 // MFSideMenu
 #define COCOAPODS_POD_AVAILABLE_MFSideMenu
@@ -76,7 +82,7 @@
 #define COCOAPODS_POD_AVAILABLE_MZAppearance
 #define COCOAPODS_VERSION_MAJOR_MZAppearance 1
 #define COCOAPODS_VERSION_MINOR_MZAppearance 1
-#define COCOAPODS_VERSION_PATCH_MZAppearance 2
+#define COCOAPODS_VERSION_PATCH_MZAppearance 3
 
 // MZDayPicker
 #define COCOAPODS_POD_AVAILABLE_MZDayPicker

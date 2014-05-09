@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-APParallaxHeader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BlurryModalSegue.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1EAA50A6A66E4DAE934DA227</key>
+		<key>1AD649E11E7A43F2AC1AE2FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1EE23E49F4924E2483540610</key>
+		<key>545C9FF34ABC4DDB91DCAAFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2ADE8F47F1884CF686244EF6</key>
+		<key>61D30538A0904A469A8D2AEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B7BEEB38150412F879E192E</key>
+		<key>694A9222D0BF4706A9CD70FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51B05DF05F1445A9879C629F</key>
+		<key>735B084BE0E14378ADDA3064</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94D0FA6F2F344D968B2916EA</key>
+		<key>76612C0F9CC848638577717D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B6AC2BB9F2B64B7180AD4214</key>
+		<key>8A94762439104B07ABB85D47</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C0AACB3283684B17B880EE48</key>
+		<key>91E91D59C0A246CBB4D16193</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2D4926C287C44A7AE5EA3E2</key>
+		<key>9568F59D7A8045BA85B9AF70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFC652D5136A46A4A35A1E7D</key>
+		<key>99E1C1B80210402F956A7CC7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED4232BEAE73403EAD02724B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
