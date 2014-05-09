@@ -12,17 +12,12 @@
 		062CA1FD1905679200C5CE13 /* WLProgrammeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CA1FC1905679200C5CE13 /* WLProgrammeTableViewCell.m */; };
 		062CA2001905929400C5CE13 /* WLProgrammeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */; };
 		062CA2221905B83700C5CE13 /* bodybg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2211905B83700C5CE13 /* bodybg.jpg */; };
-		062CA2251905C03900C5CE13 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2231905C03900C5CE13 /* menu-button.png */; };
-		062CA2261905C03900C5CE13 /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2241905C03900C5CE13 /* menu-button@2x.png */; };
-		062CA2291905C4DB00C5CE13 /* profile-placeholder-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */; };
-		062CA22A1905C4DB00C5CE13 /* profile-placeholder-75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */; };
 		062CA22C1905C7E700C5CE13 /* chicago1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 062CA22B1905C7E700C5CE13 /* chicago1.jpg */; };
 		062CA2301905C90F00C5CE13 /* WLAttendeesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CA22F1905C90F00C5CE13 /* WLAttendeesTableViewCell.m */; };
 		062D1A9219017514003C3BA4 /* WLSignupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9119017514003C3BA4 /* WLSignupTableViewCell.m */; };
 		062D1A9819018E26003C3BA4 /* WLActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9719018E26003C3BA4 /* WLActivityView.m */; };
 		062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9919018E5C003C3BA4 /* WLActivityView.xib */; };
 		062D1A9E19019265003C3BA4 /* WLWebCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1A9D19019265003C3BA4 /* WLWebCaller.m */; };
-		062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */ = {isa = PBXBuildFile; fileRef = 062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */; };
 		062D1AA51902F928003C3BA4 /* WLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062D1AA41902F928003C3BA4 /* WLMenuViewController.m */; };
 		065AAFF9190EDDD100EDE25F /* WLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 065AAFF8190EDDD100EDE25F /* WLFormatter.m */; };
 		065AAFFD190F082B00EDE25F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065AAFFC190F082B00EDE25F /* EventKit.framework */; };
@@ -71,10 +66,6 @@
 		062CA1FE1905929400C5CE13 /* WLProgrammeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProgrammeDetailViewController.h; sourceTree = "<group>"; };
 		062CA1FF1905929400C5CE13 /* WLProgrammeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLProgrammeDetailViewController.m; sourceTree = "<group>"; };
 		062CA2211905B83700C5CE13 /* bodybg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bodybg.jpg; sourceTree = "<group>"; };
-		062CA2231905C03900C5CE13 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
-		062CA2241905C03900C5CE13 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
-		062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder-75.png"; sourceTree = "<group>"; };
-		062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder-75@2x.png"; sourceTree = "<group>"; };
 		062CA22B1905C7E700C5CE13 /* chicago1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicago1.jpg; sourceTree = "<group>"; };
 		062CA22E1905C90F00C5CE13 /* WLAttendeesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAttendeesTableViewCell.h; sourceTree = "<group>"; };
 		062CA22F1905C90F00C5CE13 /* WLAttendeesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAttendeesTableViewCell.m; sourceTree = "<group>"; };
@@ -86,7 +77,6 @@
 		062D1A9919018E5C003C3BA4 /* WLActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLActivityView.xib; sourceTree = "<group>"; };
 		062D1A9C19019265003C3BA4 /* WLWebCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebCaller.h; sourceTree = "<group>"; };
 		062D1A9D19019265003C3BA4 /* WLWebCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLWebCaller.m; sourceTree = "<group>"; };
-		062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wwdc14-home-branding.png"; sourceTree = "<group>"; };
 		062D1AA31902F928003C3BA4 /* WLMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMenuViewController.h; sourceTree = "<group>"; };
 		062D1AA41902F928003C3BA4 /* WLMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMenuViewController.m; sourceTree = "<group>"; };
 		065AAFF7190EDDD100EDE25F /* WLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFormatter.h; sourceTree = "<group>"; };
@@ -224,10 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				062CA22B1905C7E700C5CE13 /* chicago1.jpg */,
-				062CA2271905C4DB00C5CE13 /* profile-placeholder-75.png */,
-				062CA2281905C4DB00C5CE13 /* profile-placeholder-75@2x.png */,
-				062CA2231905C03900C5CE13 /* menu-button.png */,
-				062CA2241905C03900C5CE13 /* menu-button@2x.png */,
 				062CA2211905B83700C5CE13 /* bodybg.jpg */,
 				062D1A9419017FEA003C3BA4 /* temp */,
 			);
@@ -237,7 +223,6 @@
 		062D1A9419017FEA003C3BA4 /* temp */ = {
 			isa = PBXGroup;
 			children = (
-				062D1A9F1901A161003C3BA4 /* wwdc14-home-branding.png */,
 			);
 			name = temp;
 			sourceTree = "<group>";
@@ -473,14 +458,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				062CA2261905C03900C5CE13 /* menu-button@2x.png in Resources */,
 				065AB0031910292D00EDE25F /* Localizable.strings in Resources */,
 				062CA22C1905C7E700C5CE13 /* chicago1.jpg in Resources */,
-				062CA2291905C4DB00C5CE13 /* profile-placeholder-75.png in Resources */,
 				062CA2221905B83700C5CE13 /* bodybg.jpg in Resources */,
-				062D1AA01901A161003C3BA4 /* wwdc14-home-branding.png in Resources */,
-				062CA22A1905C4DB00C5CE13 /* profile-placeholder-75@2x.png in Resources */,
-				062CA2251905C03900C5CE13 /* menu-button.png in Resources */,
 				0671D09518F7474A00D18071 /* Images.xcassets in Resources */,
 				0671D08718F7474A00D18071 /* InfoPlist.strings in Resources */,
 				062D1A9A19018E5C003C3BA4 /* WLActivityView.xib in Resources */,

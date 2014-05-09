@@ -55,7 +55,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIView* view = [[[NSBundle mainBundle] loadNibNamed:@"WLActivityView" owner:self options:nil] objectAtIndex:0];
-        view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.6];
+//        view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.6];
         [self addSubview:view];
         // Initialization code
     }
